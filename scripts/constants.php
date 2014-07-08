@@ -1,7 +1,7 @@
 <?php
 //numeric and string constants
 define('ADMIN_ID', 1);
-define('ADMIN_START_PAGE', 'change_data');
+define('ADMIN_START_PAGE', 'we');
 define('GENERAL_DATE_FORMAT', 'Y-m-d H:i:s');
 
 //errors messages

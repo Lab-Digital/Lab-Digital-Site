@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS `lab_present`;
-CREATE DATABASE `lab_present` DEFAULT CHARSET utf8;
+DROP DATABASE IF EXISTS `lab_digital`;
+CREATE DATABASE `lab_digital` DEFAULT CHARSET utf8;
 
-use `lab_present`;
+use `lab_digital`;
 
 GRANT ALL
-ON `lab_present`.*
+ON `lab_digital`.*
 TO `lab_db_user`@localhost IDENTIFIED BY 'lab_db_user_password';
 
 CREATE TABLE IF NOT EXISTS `images` (

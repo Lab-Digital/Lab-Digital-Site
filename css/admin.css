@@ -1,0 +1,52 @@
+header {
+	margin: 20px 0;
+	font-size: 150%;
+}
+
+header ul li {
+	display: inline-block;
+}
+
+header ul li:first-child a {
+	padding-left: 0;
+}
+
+header ul li a {
+	padding: 0 10px;
+}
+
+#wrap > h1 {
+	font-size: 180%;
+	margin: 20px 0;
+}
+
+#wrap h2 {
+	font-size: 150%;
+	margin: 0 0 10px;
+}
+
+aside {
+	display: inline-block;
+	width: 200px;
+	padding-right: 20px;
+	border-right: 1px #aaa solid;
+	margin-right: 20px;
+	vertical-align: top;
+	min-height: 200px;
+}
+
+div.right_block {
+	display: inline-block;
+}
+
+div.edit {
+	margin-bottom: 20px;
+}
+
+#choose {
+	margin-bottom: 10px; и 
+}
+
+.hidden {
+	display: none;
+}

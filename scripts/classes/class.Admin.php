@@ -26,7 +26,7 @@ class Admin extends Entity
             static::PASS_FLD,
             StrType(50),
             true,
-            'информация о преподавателе',
+            'Пароль администратора',
             Array(Validate::IS_NOT_EMPTY)
          )
       );

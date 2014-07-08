@@ -1,39 +1,32 @@
 body {
+  background: white;
   margin: 0 auto;
-  font-family: Calibri, Helvetica, Verdana, Tahoma, sans-serif;
+  /*font-size: 90%;*/
+  font-family: Calibri, Helvetica, Arial, sans-serif;
 }
 
 #wrap {
+  min-height: 880px;
+  width: 1200px;
   height: auto;
   margin: 0 auto;
-  background: #fff;
-  padding: 0 20px 50px;
-}
-
-a {
-  color: #37b0fa;
-  text-decoration: underline;
+  background: white;
+  padding: 0 20px;
 }
 
 button {
-  background: #37b0fa;
-  padding: 10px 15px;
-  font-size: 90%;
+  padding: 7px 10px;
+  display: block;
   cursor: pointer;
+  background: #36a09f;
   color: white;
   border: 0;
 }
 
-.top_h1 {
-  font-size: 170%;
-  text-align: center;
-  margin-bottom: 20px;
+button:hover {
+  background: #36a09f;
 }
 
-#center_block {
-  text-align: center;
-}
-
-.small {
-  font-style: italic;
+a {
+  color: #36a09f;
 }
