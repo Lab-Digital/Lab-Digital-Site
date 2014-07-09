@@ -91,3 +91,7 @@ form div.buttons button {
    display: inline-block;
    margin-right: 10px;
 }
+
+button.red {
+	background: darkred;
+}

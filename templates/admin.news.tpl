@@ -23,7 +23,7 @@
 					<label for="description_0">Описание</label>
 					<textarea id="description_0" name="description_0" cols="90" rows="10"></textarea>
 				</div>
-				<div class="buttons"><button id="save_0">Сохранить</button><button id="delete_0">Удалить</button></div>
+				<div class="buttons"><button id="save_0">Сохранить</button><button id="delete_0" class="red">Удалить</button></div>
 			</form>
 		</div>
 		<div class="add">			

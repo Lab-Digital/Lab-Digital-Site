@@ -22,7 +22,7 @@
       <label for="new_pass">Новый пароль</label>
       <input type="password" name="new_pass" id="new_pass">
     </div>
-    <div class="buttons"><button type="submit" name="mode" value="Update">Изменить</button><button id="cancel" type="button" onClick="javascript:location.assign('/admin')">Отмена</button></div>
+    <div class="buttons"><button type="submit" name="mode" value="Update">Изменить</button><button id="cancel"  class="red" type="button" onClick="javascript:location.assign('/admin')">Отмена</button></div>
   </form>
 </div>
 {/block}
