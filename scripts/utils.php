@@ -16,6 +16,15 @@ function Redirect($url = '/')
    exit;
 }
 
+function SetLastViewedID($name)
+{
+   global $smarty;
+   if (isset($_SESSION[$name])) {
+      $smarty->assign('last_viewed_id', $_SESSION[$name]);
+      unset($_SESSION[$name]);
+   }
+}
+
 function _GeneratePages($amount, $amount_on_page)
 {
    $current_page = GetPage() + 1;

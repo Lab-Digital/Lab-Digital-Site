@@ -141,7 +141,7 @@ class Field
 
             case Validate::IS_NOT_EMPTY_STRING:
                $isException  = $value === '';
-               $exceptionStr = "$alias не может иметь пустое значение!";
+               $exceptionStr = "$alias не может принимать пустое значение!";
                break;
 
             case Validate::IS_BOOL:

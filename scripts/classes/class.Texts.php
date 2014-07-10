@@ -6,6 +6,7 @@ class Texts extends Entity
    const ABOUT_TEXT_ID = 1;
 
    const NAME_FLD = 'name';
+   const HEAD_FLD = 'head';
    const BODY_FLD = 'body';
 
    const TABLE = 'texts';
@@ -21,8 +22,15 @@ class Texts extends Entity
          $this->idField,
          new Field(
             static::NAME_FLD,
-            StrType(150),
+            StrType(100),
             false
+         ),
+         new Field(
+            static::HEAD_FLD,
+            StrType(150),
+            true,
+            'Название проекта',
+            Array(Validate::IS_NOT_EMPTY)
          ),
          new Field(
             static::BODY_FLD,
