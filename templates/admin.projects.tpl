@@ -1,15 +1,15 @@
 {extends file='admin.tpl'}
-{block name='title' append} - Кейсы{/block}
+{block name='title' append} - Проекты{/block}
 {block name='links' append}
 {/block}
 {block name='main'}
-	<h1>Кейсы</h1>
+	<h1>Проекты</h1>
 	<div class="right_block">
-		<label for="choose">Выберите кейс</label>
+		<label for="choose">Выберите проект</label>
 		<select id="choose" id="choose">
-			<option value="0">Кейс 1</option>
+			<option value="0">Проект 1</option>
 		</select>
-		<h2>Редактирование кейса</h2>
+		<h2>Редактирование проекта</h2>
 		<div id="edit_0" class="edit">
 			<form><div class="form_block">
 					<label for="description_0">Описание</label>

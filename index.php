@@ -31,8 +31,8 @@ switch ($request[0]) {
             require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.news.php';
             break;
 
-         case 'cases':
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.cases.php';
+         case 'projects':
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.projects.php';
             break;
 
          case 'services':
