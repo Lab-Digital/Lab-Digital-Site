@@ -35,6 +35,25 @@ CREATE TABLE IF NOT EXISTS `service` (
    PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `news` (
+   `id`               INT          NOT NULL AUTO_INCREMENT,
+   `head`             VARCHAR(150) NOT NULL,
+   `body`             TEXT         NOT NULL,
+   `photo_id`         INT          DEFAULT NULL,
+   `publication_date` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY (`photo_id`) REFERENCES `images` (`id`) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS `news_images` (
+   `id`       INT NOT NULL AUTO_INCREMENT,
+   `news_id`  INT NOT NULL,
+   `photo_id` INT NOT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY (`news_id`)  REFERENCES `news`   (`id`) ON DELETE CASCADE,
+   FOREIGN KEY (`photo_id`) REFERENCES `images` (`id`) ON DELETE CASCADE
+);
+
 DELIMITER //
 
 DROP TRIGGER IF EXISTS `update_admin`//

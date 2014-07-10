@@ -16,6 +16,18 @@ function Redirect($url = '/')
    exit;
 }
 
+function DateToMySqlDate($date_str)
+{
+   $date_var = new DateTime($date_str);
+   return !empty($date_str) ? $date_var->format('Y-m-d H:i:s') : null;
+}
+
+function GetMonthByNumber($m)
+{
+   $months = Array('Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь');
+   return $m <= count($months) ? $months[$m - 1] : '';
+}
+
 function SetLastViewedID($name)
 {
    global $smarty;
