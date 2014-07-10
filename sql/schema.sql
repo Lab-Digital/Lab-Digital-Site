@@ -20,6 +20,13 @@ CREATE TABLE IF NOT EXISTS `admin` (
    PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `texts` (
+   `id`   INT         NOT NULL AUTO_INCREMENT,
+   `name` VARCHAR(50) NOT NULL,
+   `body` TEXT,
+   PRIMARY KEY (`id`)
+);
+
 DELIMITER //
 
 DROP TRIGGER IF EXISTS `update_admin`//
@@ -31,3 +38,8 @@ FOR EACH ROW BEGIN
 END//
 
 INSERT INTO `admin`(`login`, `pass_md5`) VALUES('admin', '21232f297a57a5a743894a0e4a801fc3');
+
+INSERT INTO `texts`(`name`, `body`) VALUES('О нас', 'Текст, который раскрывает суть нашего бытия и роль в этом мире.');
+INSERT INTO `texts`(`name`, `body`) VALUES('Проект 1', 'Самый лучший проект');
+INSERT INTO `texts`(`name`, `body`) VALUES('Проект 2', 'Самый лучший проект');
+INSERT INTO `texts`(`name`, `body`) VALUES('Проект 3', 'Самый лучший проект');

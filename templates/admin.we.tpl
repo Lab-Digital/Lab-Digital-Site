@@ -4,11 +4,11 @@
 {/block}
 {block name='main'}
 	<h1>Наша команда</h1>
-	<form>
+	<form action="/admin/we" method="post">
 		<div class="form_block">
 			<label for="description">Описание</label>
-			<textarea id="description" name="description" cols="90" rows="10">Бла бла бла</textarea>
+			<textarea id="description" name="description" cols="90" rows="10">{$about.texts_body}</textarea>
 		</div>
-		<div class="buttons"><button id="save">Сохранить</button></div>
+		<div class="buttons"><button id="save" name="mode" value="Update">Сохранить</button></div>
 	</form>
 {/block}
