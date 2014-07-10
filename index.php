@@ -32,11 +32,12 @@ switch ($request[0]) {
             break;
 
          case 'projects':
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.projects.php';
-            break;
-
          case 'services':
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.services.php';
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Service.php';
+            $tpl_name = $request[1];
+            $obj = $request[1] == 'projects' ? $_texts->SetSamplingScheme(Texts::PROJECTS_SCHEME) : $_service->AddOrder(Service::HEAD_FLD);
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.texts.php';
             break;
 
          case 'other':
