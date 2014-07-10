@@ -28,6 +28,13 @@ CREATE TABLE IF NOT EXISTS `texts` (
    PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `service` (
+   `id`   INT          NOT NULL AUTO_INCREMENT,
+   `head` VARCHAR(150) NOT NULL,
+   `body` TEXT,
+   PRIMARY KEY (`id`)
+);
+
 DELIMITER //
 
 DROP TRIGGER IF EXISTS `update_admin`//
