@@ -6,17 +6,17 @@ switch ($request[0]) {
       $smarty->display('index.tpl');
       break;
 
-   case 'open_news':
-      $smarty->display('open_news.tpl');
+   case 'news':
+      $smarty->display('news.tpl');
       break;
 
-   case 'open_we':
+   case 'we':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
-      $smarty->assign('about', $_texts->SetSamplingScheme(Texts::ABOUT_SCHEME)->GetById(Texts::ABOUT_TEXT_ID))->display('open_we.tpl');
+      $smarty->assign('about', $_texts->SetSamplingScheme(Texts::ABOUT_SCHEME)->GetById(Texts::ABOUT_TEXT_ID))->display('we.tpl');
       break;
 
-   case 'open_services':
-      $smarty->display('open_services.tpl');
+   case 'services':
+      $smarty->display('services.tpl');
       break;
 
    case 'admin':
