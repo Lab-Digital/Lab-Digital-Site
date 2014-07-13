@@ -13,6 +13,7 @@ class Texts extends Entity
 
    const ABOUT_SCHEME = 2;
    const PROJECTS_SCHEME = 3;
+   const MAIN_PROJECTS_SCHEME = 4;
 
    const LAST_VIEWED_ID = 'last_viewed_projects_id';
 
@@ -44,20 +45,24 @@ class Texts extends Entity
    public function SetSelectValues()
    {
       switch ($this->samplingScheme) {
-         case static::PROJECTS_SCHEME:
-            $this->search->AddClause(
-               CCond(
-                  CF(static::TABLE, $this->GetFieldByName(static::ID_FLD)),
-                  CVP(static::ABOUT_TEXT_ID),
-                  '',
-                  opGT
-               )
-            );
-            break;
-
          case static::ABOUT_SCHEME:
             $this->fields = [$this->GetFieldByName(static::BODY_FLD)];
             break;
+
+         case static::MAIN_PROJECTS_SCHEME:
+            $this->fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
+            break;
+      }
+      if ($this->samplingScheme == static::PROJECTS_SCHEME || $this->samplingScheme == static::MAIN_PROJECTS_SCHEME) {
+         $this->CheckSearch()->AddLimit(3, 0);
+         $this->search->AddClause(
+            CCond(
+               CF(static::TABLE, $this->GetFieldByName(static::ID_FLD)),
+               CVP(static::ABOUT_TEXT_ID),
+               '',
+               opGT
+            )
+         );
       }
       $this->selectFields = SQL::GetListFieldsForSelect(SQL::PrepareFieldsForSelect(static::TABLE, $this->fields));
    }

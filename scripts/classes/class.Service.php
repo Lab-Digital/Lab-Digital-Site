@@ -8,6 +8,8 @@ class Service extends Entity
 
    const TABLE = 'service';
 
+   const MAIN_SCHEME = 2;
+
    const LAST_VIEWED_ID = 'last_viewed_services_id';
 
    public function __construct()
@@ -30,6 +32,18 @@ class Service extends Entity
       );
       $this->orderFields = Array(static::HEAD_FLD => new OrderField(static::TABLE, $this->GetFieldByName(static::HEAD_FLD)));
    }
+
+   public function SetSelectValues()
+   {
+      switch ($this->samplingScheme) {
+         case static::MAIN_SCHEME:
+            $this->fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
+            $this->AddOrder(Service::HEAD_FLD);
+            break;
+      }
+      $this->selectFields = SQL::GetListFieldsForSelect(SQL::PrepareFieldsForSelect(static::TABLE, $this->fields));
+   }
+
 }
 
 $_service = new Service();
