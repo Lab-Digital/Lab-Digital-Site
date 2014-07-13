@@ -15,16 +15,20 @@
       </select>
       <h2>Редактирование проекта</h2>
       {foreach from=$projects item=project name=f}
+      <div class="edit">
          <form action="/admin/projects" method="post" class="item_edit" id="item{$project.texts_id}">
+            <input type="hidden" name="id" value="{$project.texts_id}" />
             <div class="form_block">
-               <input type="hidden" name="id" value="{$project.texts_id}" />
                <label for="head_{$smarty.foreach.f.index}">Заголовок</label>
                <input id="head_{$smarty.foreach.f.index}" name="head" value="{$project.texts_head}" />
+            </div>
+            <div class="form_block">
                <label for="body_{$smarty.foreach.f.index}">Описание</label>
                <textarea id="description_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$project.texts_body}</textarea>
             </div>
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>
+      </div>
       {/foreach}
       {include file='admin.set_select.tpl'}
    </div>

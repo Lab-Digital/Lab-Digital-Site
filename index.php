@@ -6,6 +6,18 @@ switch ($request[0]) {
       $smarty->display('index.tpl');
       break;
 
+   case 'open_news':
+      $smarty->display('open_news.tpl');
+      break;
+
+   case 'open_we':
+      $smarty->display('open_we.tpl');
+      break;
+
+   case 'open_services':
+      $smarty->display('open_services.tpl');
+      break;
+
    case 'admin':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Admin.php';
 

@@ -5,8 +5,8 @@
 {block name='main'}
 	<h1>Остальное</h1>
 	<h2>Мета-данные</h2>
-	<label for="choose">Выберите новость</label>
-	<select id="choose" id="choose">
+	<label for="choose_item">Выберите страницу</label>
+	<select id="choose_item" name="choose_item">
 		<option value="0">Мета 1</option>
 		<option value="1">Мета 2</option>
 		<option value="2">Мета 3</option>
