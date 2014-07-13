@@ -16,7 +16,11 @@ switch ($request[0]) {
       break;
 
    case 'services':
-      $smarty->display('services.tpl');
+      if (empty($request[1])) Redirect('/#services');
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Service.php';
+      $data = $_service->GetById($request[1]);
+      if (empty($data)) Redirect('/#services');
+      $smarty->assign('service', $data)->display('services.tpl');
       break;
 
    case 'admin':
