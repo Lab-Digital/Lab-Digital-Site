@@ -11,7 +11,8 @@ switch ($request[0]) {
       break;
 
    case 'open_we':
-      $smarty->display('open_we.tpl');
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
+      $smarty->assign('about', $_texts->SetSamplingScheme(Texts::ABOUT_SCHEME)->GetById(Texts::ABOUT_TEXT_ID))->display('open_we.tpl');
       break;
 
    case 'open_services':

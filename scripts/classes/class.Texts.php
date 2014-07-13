@@ -11,7 +11,8 @@ class Texts extends Entity
 
    const TABLE = 'texts';
 
-   const PROJECTS_SCHEME = 2;
+   const ABOUT_SCHEME = 2;
+   const PROJECTS_SCHEME = 3;
 
    const LAST_VIEWED_ID = 'last_viewed_projects_id';
 
@@ -53,9 +54,14 @@ class Texts extends Entity
                )
             );
             break;
+
+         case static::ABOUT_SCHEME:
+            $this->fields = [$this->GetFieldByName(static::BODY_FLD)];
+            break;
       }
       $this->selectFields = SQL::GetListFieldsForSelect(SQL::PrepareFieldsForSelect(static::TABLE, $this->fields));
    }
+
 }
 
 $_texts = new Texts();
