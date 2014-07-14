@@ -25,7 +25,6 @@ switch ($request[0]) {
 
    case 'admin':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Admin.php';
-
       $isLoginPage = empty($request[1]) || $request[1] == 'login';
       if ($_admin->IsAdmin()) {
          if ($isLoginPage) {
