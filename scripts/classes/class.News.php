@@ -11,6 +11,7 @@ class News extends Entity
    const PHOTOS_FLD           = 'photos';
    const TEXT_HEAD_FLD        = 'head';
    const TEXT_BODY_FLD        = 'body';
+   const DESCRIPTION_FLD      = 'description';
    const PUBLICATION_DATE_FLD = 'publication_date';
 
    const TABLE = 'news';
@@ -28,21 +29,28 @@ class News extends Entity
             static::TEXT_HEAD_FLD,
             StrType(150),
             true,
-            'заголовок новости',
+            'Заголовок новости',
             Array(Validate::IS_NOT_EMPTY)
          ),
          new Field(
             static::TEXT_BODY_FLD,
             TextType(),
             true,
-            'описание новости',
+            'Текст новости',
+            Array(Validate::IS_NOT_EMPTY)
+         ),
+         new Field(
+            static::DESCRIPTION_FLD,
+            StrType(MAX_ARTICLE_DESC_LEN, 'Описание новости не может превышать ' . MAX_ARTICLE_DESC_LEN . ' символов.'),
+            true,
+            'Описание новости',
             Array(Validate::IS_NOT_EMPTY)
          ),
          new Field(
             static::PUBLICATION_DATE_FLD,
             TimestampType(),
             true,
-            'дата новости',
+            'Дата новости',
             Array(Validate::IS_NOT_EMPTY)
          ),
          new Field(
@@ -108,6 +116,7 @@ class News extends Entity
                   $this->GetFieldByName(static::ID_FLD),
                   $this->GetFieldByName(static::TEXT_HEAD_FLD),
                   $this->GetFieldByName(static::TEXT_BODY_FLD),
+                  $this->GetFieldByName(static::DESCRIPTION_FLD),
                   $this->GetFieldByName(static::PHOTO_FLD),
                   $this->GetFieldByName(static::PUBLICATION_DATE_FLD)
                );

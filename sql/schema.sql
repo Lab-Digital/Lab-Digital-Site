@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `news` (
    `id`               INT          NOT NULL AUTO_INCREMENT,
    `head`             VARCHAR(150) NOT NULL,
    `body`             TEXT         NOT NULL,
+   `description`      TEXT         NOT NULL,
    `photo_id`         INT          DEFAULT NULL,
    `publication_date` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
    PRIMARY KEY (`id`),

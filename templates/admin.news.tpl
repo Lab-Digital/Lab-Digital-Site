@@ -31,6 +31,10 @@
             <input class="article_date date_pick" name="date" id="article_date_{$smarty.foreach.f.index}" value="{$article.news_publication_date}" />
           </div>
           <div class="form_block">
+            <label for="article_description_new">Описание новости</label>
+            <textarea class="article_body" name="desc" id="article_description_new" rows="12" cols="100">{$article.news_description}</textarea>
+          </div>
+          <div class="form_block">
             <label for="article_body_{$smarty.foreach.f.index}">Текст</label>
             <textarea class="article_body" name="body" id="article_body_{$smarty.foreach.f.index}" rows="12" cols="100">{$article.news_body}</textarea>
           </div>
@@ -50,6 +54,10 @@
         <div class="form_block">
           <label for="article_date_new">Дата</label>
           <input class="article_date date_pick" name="date" id="article_date_new" value="{$date}" />
+        </div>
+        <div class="form_block">
+          <label for="article_description_new">Описание новости</label>
+          <textarea class="article_body" name="desc" id="article_description_new" rows="12" cols="100">{$desc}</textarea>
         </div>
         <div class="form_block">
           <label for="article_body_new">Текст</label>
