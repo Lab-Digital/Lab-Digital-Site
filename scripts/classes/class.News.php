@@ -4,8 +4,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.TableImages.php
 
 class News extends Entity
 {
-   const INFO_SCHEME        = 2;
-   const OTHER_SCHEME       = 3;
+   const INFO_SCHEME  = 2;
+   const MAIN_SCHEME  = 3;
+   const OTHER_SCHEME = 4;
 
    const PHOTO_FLD            = 'photo_id';
    const PHOTOS_FLD           = 'photos';
@@ -112,23 +113,32 @@ class News extends Entity
          case static::INFO_SCHEME:
             global $_newsImages;
             $fields =
-               Array(
-                  $this->GetFieldByName(static::ID_FLD),
-                  $this->GetFieldByName(static::TEXT_HEAD_FLD),
-                  $this->GetFieldByName(static::TEXT_BODY_FLD),
-                  $this->GetFieldByName(static::DESCRIPTION_FLD),
-                  $this->GetFieldByName(static::PHOTO_FLD),
-                  $this->GetFieldByName(static::PUBLICATION_DATE_FLD)
-               );
-            if ($this->samplingScheme == static::INFO_SCHEME) {
-               $fields[] = $this->GetFieldByName(static::PUBLICATION_DATE_FLD);
-            }
-            $fields =
                SQL::PrepareFieldsForSelect(
                   static::TABLE,
-                  $fields
+                  Array(
+                     $this->GetFieldByName(static::ID_FLD),
+                     $this->GetFieldByName(static::TEXT_HEAD_FLD),
+                     $this->GetFieldByName(static::TEXT_BODY_FLD),
+                     $this->GetFieldByName(static::DESCRIPTION_FLD),
+                     $this->GetFieldByName(static::PHOTO_FLD),
+                     $this->GetFieldByName(static::PUBLICATION_DATE_FLD)
+                  )
                );
-            $fields[] = ImageSelectSQL($this, $_newsImages, NewsImages::NEWS_FLD);
+            // $fields[] = ImageSelectSQL($this, $_newsImages, NewsImages::NEWS_FLD);
+            break;
+
+         case static::MAIN_SCHEME:
+            $this->AddLimit(6, 0);
+            $fields = SQL::PrepareFieldsForSelect(
+               static::TABLE,
+               [
+                  $this->idField,
+                  $this->GetFieldByName(static::TEXT_HEAD_FLD),
+                  $this->GetFieldByName(static::TEXT_BODY_FLD)
+               ]
+            );
+            $fields = SQL::PrepareFieldsForSelect(static::TABLE, $this->fields);
+            $fields[] = ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD));
             break;
 
          case static::OTHER_SCHEME:

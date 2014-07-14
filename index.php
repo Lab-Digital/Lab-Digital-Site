@@ -7,7 +7,11 @@ switch ($request[0]) {
       break;
 
    case 'news':
-      $smarty->display('news.tpl');
+      if (empty($request[1])) Redirect('/#news');
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.News.php';
+      $data = $_news->SetSamplingScheme(News::INFO_SCHEME)->GetById($request[1]);
+      if (empty($data)) Redirect('/#news');
+      $smarty->assign('article', $data)->display('news.tpl');
       break;
 
    case 'we':

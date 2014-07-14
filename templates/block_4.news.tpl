@@ -1,65 +1,16 @@
 <div id="block_4">
-	<section class="middle">
-		<h1>Новости</h1>
-		<ul class="news">
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3><b>Mauris augue sapien</b> pellentesque at est vitae, euismod egestas diam <b>Mauris augue sapien</b> pellentesque at est vitae</h3>
-				</a>	
-			</li>
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3>Mauris augue sapien <b>pellentesque</b> at est vitae, euismod egestas diam</h3>
-				</a>	
-			</li>
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3><b>Mauris augue sapien</b> pellentesque at est vitae, euismod egestas diam <b>Mauris augue sapien</b> pellentesque at est vitae</h3>
-				</a>
-			</li>
-		</ul>
-		<ul class="news">
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3><b>Mauris augue sapien</b> pellentesque at est vitae, euismod egestas diam <b>Mauris augue sapien</b> pellentesque at est vitae</h3>
-				</a>	
-			</li>
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3>Mauris augue sapien <b>pellentesque</b> at est vitae, euismod egestas diam</h3>
-				</a>	
-			</li>
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3><b>Mauris augue sapien</b> pellentesque at est vitae, euismod egestas diam <b>Mauris augue sapien</b> pellentesque at est vitae</h3>
-				</a>
-			</li>
-		</ul>
-		<ul class="news">
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3><b>Mauris augue sapien</b> pellentesque at est vitae, euismod egestas diam <b>Mauris augue sapien</b> pellentesque at est vitae</h3>
-				</a>	
-			</li>
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3>Mauris augue sapien <b>pellentesque</b> at est vitae, euismod egestas diam</h3>
-				</a>	
-			</li>
-			<li>
-				<a href="/open_news">
-					<div class="img"></div>
-					<h3><b>Mauris augue sapien</b> pellentesque at est vitae, euismod egestas diam <b>Mauris augue sapien</b> pellentesque at est vitae</h3>
-				</a>
-			</li>
-		</ul>
-	</section>
+   <section class="middle">
+      <h1>Новости</h1>
+      <ul class="news">
+         {foreach from=$articles item=article}
+            <li>
+               <a href="/news/{$article.news_id}">
+                  <div class="img"></div>
+                  <h3>{$article.news_head}</h3>
+                  <p>{$article.news_body}</p>
+               </a>
+            </li>
+         {/foreach}
+      </ul>
+   </section>
 </div>
