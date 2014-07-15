@@ -24,6 +24,9 @@
 					<label for="top_form_quest">Задача</label>
 					<textarea name="top_form_quest" id="top_form_quest" cols="20" rows="4"></textarea>
 				</div>
+				<div class="block">
+					<button class="submit" id="submit" type="button" name="submit">Отправить</button>
+				</div>
 			</form>
 		</div>
 	</section>
