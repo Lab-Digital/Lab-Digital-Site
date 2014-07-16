@@ -1,16 +1,8 @@
 <div id="block_4">
    <section class="middle">
       <h1>Новости</h1>
-      <ul class="news">
-         {foreach from=$articles item=article}
-            <li>
-               <a href="/news/{$article.news_id}">
-                  <div class="img"></div>
-                  <h3>{$article.news_head}</h3>
-                  <p>{$article.news_body}</p>
-               </a>
-            </li>
-         {/foreach}
-      </ul>
+      <ul class="news">{include file='block_4.news.li.tpl' articles=$articles.left}</ul>
+      <ul class="news">{include file='block_4.news.li.tpl' articles=$articles.middle}</ul>
+      <ul class="news">{include file='block_4.news.li.tpl' articles=$articles.right}</ul>
    </section>
 </div>

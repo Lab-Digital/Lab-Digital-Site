@@ -149,48 +149,63 @@ class News extends Entity
       $this->selectFields = SQL::GetListFieldsForSelect($fields);
    }
 
-   public function GetNews($page)
+   public function GetNews()
    {
-      global $db;
-      $sample = Array();
-      try {
-         $dateField = $this->ToTblNm(static::PUBLICATION_DATE_FLD);
-         $queryPart =
-            SQL::SimpleQuerySelect(
-               SQL::GetListFieldsForSelect(
-                  SQL::PrepareFieldsForSelect(
-                     static::TABLE,
-                     $this->fields
-                  )
-               ),
-               static::TABLE
-         );
-         $query = '('
-                . $queryPart
-                . " ORDER BY $dateField DESC limit 0, 1) UNION ("
-                . $queryPart
-                . " ORDER BY $dateField DESC limit ?, ?)";
-         $sample = $db->Query($query, Array($page * static::NEWS_ON_PAGE + 1, static::NEWS_ON_PAGE));
-         $textKey = $this->ToPrfxNm(static::TEXT_BODY_FLD);
-         $dateKey = $this->ToPrfxNm(static::PUBLICATION_DATE_FLD);
-         foreach ($sample as $key => &$set) {
-            $date = new DateTime($set[$dateKey]);
-            $set[$dateKey] = $date->format('d-m-Y');
-            $set[$textKey] = $key == 0 ? $this->CutNewsBody($set[$textKey], '.') : $this->CutNewsBody($set[$textKey]);
+      $all_news = $this->SetSamplingScheme(News::MAIN_SCHEME)->GetAll();
+      $a = ['left', 'middle', 'right'];
+      $news['left'] = $news['middle'] = $news['right'] = [];
+      for ($i = 0; $i < 3; $i++) {
+         for ($j = 0; $j < 2; $j++) {
+            $idx = $i + 3 * $j;
+            if ($idx >= count($all_news)) break;
+            $news[$a[$i]][] = $all_news[$idx];
          }
-         $firstNews['top_news'] = array_shift($sample);
-         $tmp = Array();
-         if (count($sample) % 2 != 0) {
-            $tmp[] = array_shift($sample);
-         }
-         $mediana = count($sample) < static::NEWS_ON_PAGE ? count($sample) / 2 : intval(static::NEWS_ON_PAGE / 2);
-         $resArr = $mediana != 0 ? array_chunk($sample, $mediana) : Array($sample, Array());
-         $firstNews['left_news']  = isset($resArr[0]) ? array_merge($tmp, $resArr[0]) : Array();
-         $firstNews['right_news'] = isset($resArr[1]) ? $resArr[1] : Array();
-         $sample = $firstNews;
-      } catch (DBException $e) {}
-      return $sample;
+      }
+      return $news;
    }
+
+   // public function GetNews($page)
+   // {
+   //    global $db;
+   //    $sample = Array();
+   //    try {
+   //       $dateField = $this->ToTblNm(static::PUBLICATION_DATE_FLD);
+   //       $queryPart =
+   //          SQL::SimpleQuerySelect(
+   //             SQL::GetListFieldsForSelect(
+   //                SQL::PrepareFieldsForSelect(
+   //                   static::TABLE,
+   //                   $this->fields
+   //                )
+   //             ),
+   //             static::TABLE
+   //       );
+   //       $query = '('
+   //              . $queryPart
+   //              . " ORDER BY $dateField DESC limit 0, 1) UNION ("
+   //              . $queryPart
+   //              . " ORDER BY $dateField DESC limit ?, ?)";
+   //       $sample = $db->Query($query, Array($page * static::NEWS_ON_PAGE + 1, static::NEWS_ON_PAGE));
+   //       $textKey = $this->ToPrfxNm(static::TEXT_BODY_FLD);
+   //       $dateKey = $this->ToPrfxNm(static::PUBLICATION_DATE_FLD);
+   //       foreach ($sample as $key => &$set) {
+   //          $date = new DateTime($set[$dateKey]);
+   //          $set[$dateKey] = $date->format('d-m-Y');
+   //          $set[$textKey] = $key == 0 ? $this->CutNewsBody($set[$textKey], '.') : $this->CutNewsBody($set[$textKey]);
+   //       }
+   //       $firstNews['top_news'] = array_shift($sample);
+   //       $tmp = Array();
+   //       if (count($sample) % 2 != 0) {
+   //          $tmp[] = array_shift($sample);
+   //       }
+   //       $mediana = count($sample) < static::NEWS_ON_PAGE ? count($sample) / 2 : intval(static::NEWS_ON_PAGE / 2);
+   //       $resArr = $mediana != 0 ? array_chunk($sample, $mediana) : Array($sample, Array());
+   //       $firstNews['left_news']  = isset($resArr[0]) ? array_merge($tmp, $resArr[0]) : Array();
+   //       $firstNews['right_news'] = isset($resArr[1]) ? $resArr[1] : Array();
+   //       $sample = $firstNews;
+   //    } catch (DBException $e) {}
+   //    return $sample;
+   // }
 
    public function GetAdminMenu()
    {
