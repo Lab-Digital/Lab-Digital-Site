@@ -2,6 +2,25 @@
 {block name='title' append} - Новости{/block}
 {block name='links' append}
    <script type="text/javascript" src="/js/select_plugin.js"></script>
+   <script src="/upload_photo/js/plugin.js"></script>
+   <script>
+   {literal}
+   $(function(){
+    $('div.in button.upload').each(function(){
+      $data = $(this).attr('data');
+      $(this).getUpload({
+         'uploadType'  : 'news', 
+         'item_id'     :  $data, 
+         'width'       : '200', 
+         'height'      : '240',
+         'count'       : '1',
+         'sizes'       : 's#200#240'
+      });
+    });
+    
+   });
+   {/literal}
+   </script>
 {/block}
 {block name='main'}
    <h1>Новости</h1>
@@ -40,6 +59,9 @@
           </div>
           <div class="buttons"><button class="save" name="mode" value="Update">Сохранить</button><button class="delete red" name="mode" value="Delete">Удалить</button></div>
         </form>
+        <div class="in">
+          <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
+        </div>
       </div>
       {/foreach}
     {/if}

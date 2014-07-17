@@ -50,3 +50,7 @@ div.edit {
 .hidden {
 	display: none;
 }
+
+div.in {
+	margin-top: 20px;
+}

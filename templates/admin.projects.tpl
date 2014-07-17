@@ -2,6 +2,25 @@
 {block name='title' append} - Проекты{/block}
 {block name='links' append}
    <script type="text/javascript" src="/js/select_plugin.js"></script>
+   <script src="/upload_photo/js/plugin.js"></script>
+   <script>
+   {literal}
+   $(function(){
+   	$('div.in button.upload').each(function(){
+   		$data = $(this).attr('data');
+   		$(this).getUpload({
+         'uploadType'  : 'texts', 
+         'item_id'     :  $data, 
+         'width'       : '200', 
+         'height'      : '240',
+         'count'       : '1',
+         'sizes'       : 's#200#240'
+    	});
+   	});
+    
+   });
+   {/literal}
+   </script>
 {/block}
 {block name='main'}
    <h1>Проекты</h1>
@@ -28,6 +47,9 @@
             </div>
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>
+         <div class="in">
+            <button class="upload" type="submit" data="{$project.texts_id}">Загрузить фото</button>
+         </div>
       </div>
       {/foreach}
       {include file='admin.set_select.tpl'}

@@ -27,6 +27,10 @@ switch ($request[0]) {
       $smarty->assign('service', $data)->display('services.tpl');
       break;
 
+   case 'uploadphoto':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/upload_photo.php';
+      break;
+
    case 'admin':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Admin.php';
       $isLoginPage = empty($request[1]) || $request[1] == 'login';
@@ -50,6 +54,8 @@ switch ($request[0]) {
          case 'news':
             require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.news.php';
             break;
+
+
 
          case 'projects':
          case 'services':
