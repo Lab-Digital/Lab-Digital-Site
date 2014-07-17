@@ -35,8 +35,8 @@
           <option value="{$article.news_id}">{$article.news_head}</option>
         {/foreach}
         </select>
+        <h2>Редактирование новости</h2>
       {/if}
-      <h2>Редактирование новости</h2>
       {foreach from=$articles item=article name=f}
       <div class="edit">
         <form action="/admin/news/{$year}/{$month}" method="post" class="item_edit" id="item{$article.news_id}">
