@@ -1,17 +1,21 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/images/Lato-Regular.ttf')  format('truetype');
+}
+
+
 body {
   background: white;
   margin: 0 auto;
   /*font-size: 90%;*/
-  font-family: Calibri, Helvetica, Arial, sans-serif;
+  font-family: Calibri;
 }
 
 #wrap {
   min-height: 880px;
-  width: 1200px;
   height: auto;
   margin: 0 auto;
   background: white;
-  padding: 0 20px;
 }
 
 button {

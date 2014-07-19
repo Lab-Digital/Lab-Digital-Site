@@ -1,0 +1,28 @@
+#news {
+	height: 100vh;
+}
+
+#news .middle h1 {
+	margin-bottom: 50px;
+}
+
+#news .middle ul.news {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#news .middle ul.news li {
+	background: #ddd;
+	border: 1px black solid;
+	width: 300px;
+	margin: 10px 30px;
+	padding: 10px;
+	text-align: left;
+}
+
+#news .middle ul.news li div.img {
+	width: 300px;
+	height: 100px;
+	border: 1px black solid;
+	margin: 0 auto;
+}

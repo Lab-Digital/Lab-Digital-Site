@@ -1,0 +1,35 @@
+#cases {
+	height: 100vh;
+	background: white;
+}
+
+#cases .middle ul.cases {
+	
+}
+
+#cases > .wrap {
+	margin: 0 auto;
+	width: 70vw;
+	padding-top: 20vh;
+}
+
+#cases .middle ul.cases li {
+	display: inline-block;
+	width: 30%;
+	margin: 0 10px;
+	vertical-align: top;
+	color: #868F90;
+}
+
+#cases .middle ul.cases li img {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	margin: 0 auto 15px;
+}
+
+#cases .middle ul.cases li h3 {
+	font-size: 160%;
+	width: 300px;
+	margin: 0 auto;
+}

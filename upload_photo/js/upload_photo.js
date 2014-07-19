@@ -24,7 +24,6 @@ $(function() {
       }
     },
     onComplete: function(file, response) {
-      alert(response)
       $response = JSON.parse(response);
       $fileTmpName = $response.file_tmp;
       if ($response.result) {
