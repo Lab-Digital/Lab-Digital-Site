@@ -9,15 +9,15 @@
     $('div.in button.upload').each(function(){
       $data = $(this).attr('data');
       $(this).getUpload({
-         'uploadType'  : 'news', 
-         'item_id'     :  $data, 
-         'width'       : '200', 
+         'uploadType'  : 'news',
+         'item_id'     :  $data,
+         'width'       : '200',
          'height'      : '240',
          'count'       : '1',
          'sizes'       : 's#200#240'
       });
     });
-    
+
    });
    {/literal}
    </script>
@@ -34,6 +34,9 @@
         {foreach from=$articles item=article}
           <option value="{$article.news_id}">{$article.news_head}</option>
         {/foreach}
+        <script type="text/javascript">
+         $('#choose_item option[value="{$item_id}"]').attr('selected', 'selected');
+        </script>
         </select>
         <h2>Редактирование новости</h2>
       {/if}

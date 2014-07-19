@@ -1,5 +1,5 @@
 <?php
-if (empty($_SERVER['HTTP_REFERER'])) Redirect('/profile');
+if (empty($_SERVER['HTTP_REFERER'])) Redirect();
 
 $referer = $_SERVER['HTTP_REFERER'];
 

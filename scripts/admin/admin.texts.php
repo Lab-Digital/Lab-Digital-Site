@@ -13,4 +13,7 @@ if (isset($_POST['mode'])) {
    SetLastViewedID($obj::LAST_VIEWED_ID);
 }
 
-$smarty->assign('body', isset($body) ? $body : '')->assign($tpl_name, $obj->GetAll())->display("admin.$tpl_name.tpl");
+$smarty->assign('body', isset($body) ? $body : '')
+       ->assign($tpl_name, $obj->GetAll())
+       ->assign('item_id', !empty($_GET['item_id']) ? $_GET['item_id'] : null)
+       ->display("admin.$tpl_name.tpl");

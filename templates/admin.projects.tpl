@@ -6,18 +6,17 @@
    <script>
    {literal}
    $(function(){
-   	$('div.in button.upload').each(function(){
-   		$data = $(this).attr('data');
-   		$(this).getUpload({
-         'uploadType'  : 'texts', 
-         'item_id'     :  $data, 
-         'width'       : '200', 
-         'height'      : '240',
-         'count'       : '1',
-         'sizes'       : 's#200#240'
-    	});
-   	});
-    
+      $('div.in button.upload').each(function(){
+         var $id = $(this).attr('data-id');
+         $(this).getUpload({
+            'uploadType'  : 'projects',
+            'item_id'     :  $id,
+            'width'       : '200',
+            'height'      : '240',
+            'count'       : '1',
+            'sizes'       : 's#200#240'
+         });
+      });
    });
    {/literal}
    </script>
@@ -31,6 +30,9 @@
       {foreach from=$projects item=project name=f}
          <option value="{$project.texts_id}">Проект {$smarty.foreach.f.index}</option>
       {/foreach}
+      <script type="text/javascript">
+         $('#choose_item option[value="{$item_id}"]').attr('selected', 'selected');
+      </script>
       </select>
       <h2>Редактирование проекта</h2>
       {foreach from=$projects item=project name=f}
@@ -48,7 +50,7 @@
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>
          <div class="in">
-            <button class="upload" type="submit" data="{$project.texts_id}">Загрузить фото</button>
+            <button class="upload" type="submit" data-id="{$project.texts_id}">Загрузить фото</button>
          </div>
       </div>
       {/foreach}

@@ -1,13 +1,15 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Entity.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Image.php';
 
 class Texts extends Entity
 {
    const ABOUT_TEXT_ID = 1;
 
-   const NAME_FLD = 'name';
-   const HEAD_FLD = 'head';
-   const BODY_FLD = 'body';
+   const NAME_FLD  = 'name';
+   const HEAD_FLD  = 'head';
+   const BODY_FLD  = 'body';
+   const PHOTO_FLD = 'photo_id';
 
    const TABLE = 'texts';
 
@@ -38,19 +40,25 @@ class Texts extends Entity
             static::BODY_FLD,
             TextType(),
             true
+         ),
+         new Field(
+            static::PHOTO_FLD,
+            IntType(),
+            true
          )
       );
    }
 
    public function SetSelectValues()
    {
+      $fields = $this->fields;
       switch ($this->samplingScheme) {
          case static::ABOUT_SCHEME:
-            $this->fields = [$this->GetFieldByName(static::BODY_FLD)];
+            $fields = [$this->GetFieldByName(static::BODY_FLD)];
             break;
 
          case static::MAIN_PROJECTS_SCHEME:
-            $this->fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
+            $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
             break;
       }
       if ($this->samplingScheme == static::PROJECTS_SCHEME || $this->samplingScheme == static::MAIN_PROJECTS_SCHEME) {
@@ -64,7 +72,12 @@ class Texts extends Entity
             )
          );
       }
-      $this->selectFields = SQL::GetListFieldsForSelect(SQL::PrepareFieldsForSelect(static::TABLE, $this->fields));
+      $this->selectFields = SQL::GetListFieldsForSelect(
+         array_merge(
+            SQL::PrepareFieldsForSelect(static::TABLE, $fields),
+            [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD))]
+         )
+      );
    }
 
 }
