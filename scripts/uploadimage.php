@@ -31,12 +31,14 @@ try {
     throw new Exception('Размер изображения превышает максимальный!');
   }
 
-  //require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/php_for_upload.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/php_for_upload.php';
 
-  //if (!$ajaxOtherResult['result']) {
-  //  throw new Exception($ajaxOtherResult['message']);
-  //}
-
+  if (!$ajaxOtherResult['result']) {
+      throw new Exception($ajaxOtherResult['message']);
+  }
+  if (!file_exists($uploaddir)) {
+    mkdir($uploaddir);
+  }
   $path = $uploaddir . $_POST['__file'] . '.jpg';
   if (move_uploaded_file($_FILES['uploadimage']['tmp_name'], $path)) {
     $ajaxResult['file'] = $_POST['__file'];

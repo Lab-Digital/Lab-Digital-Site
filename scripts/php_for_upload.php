@@ -7,29 +7,37 @@ try {
   $post = GetPOST();
   $item_id = $post['item_id'];
   switch ($post['uploadType']) {
-    case 'ps':
-      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.MediaSessions.php';
-      if (empty($post['isAvatar']) || !$post['isAvatar']) {
-         $_POST['__file'] = $_psImages->SetFieldByName(PSImages::SESSION_FLD, $item_id)->Insert(true);
-      }
-      break;
-
-   case 'vs_av':
-   case 'user_av':
-      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.MediaSessions.php';
-      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.User.php';
-      $obj = $post['uploadType'] == 'vs_av' ? $_vs : $_user;
+    case 'we':
+    case 'projects':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
       if (!empty($post['image_id'])) {
          $_image->Delete($post['image_id']);
       }
       try {
          $db->link->beginTransaction();
          $_POST['__file'] = $_image->Insert(true);
-         $obj->SetFieldByName($obj::PHOTO_FLD, $_POST['__file'])->SetFieldByName($obj::ID_FLD, $item_id)->Update();
+         $_texts->SetFieldByName(Texts::ID_FLD, $item_id)->SetFieldByName(Texts::PHOTO_FLD, $_POST['__file'])->Update();
          $db->link->commit();
       } catch (DBException $e) {
          $db->link->rollback();
          throw new Exception($e->getMessage());
+      }
+      break;
+
+    case 'news':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.News.php';
+      if (empty($post['isAvatar']) || !$post['isAvatar']) {
+         $_POST['__file'] = $_newsImages->SetFieldByName(NewsImages::NEWS_FLD, $item_id)->Insert(true);
+      } else {
+         try {
+            $db->link->beginTransaction();
+            $_POST['__file'] = $_image->Insert(true);
+            $_news->SetFieldByName(News::ID_FLD, $item_id)->SetFieldByName(News::PHOTO_FLD, $_POST['__file'])->Update();
+            $db->link->commit();
+         } catch (DBException $e) {
+            $db->link->rollback();
+            throw new Exception($e->getMessage());
+         }
       }
       break;
 

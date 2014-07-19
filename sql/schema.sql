@@ -21,11 +21,13 @@ CREATE TABLE IF NOT EXISTS `admin` (
 );
 
 CREATE TABLE IF NOT EXISTS `texts` (
-   `id`   INT          NOT NULL AUTO_INCREMENT,
-   `name` VARCHAR(100) NOT NULL,
-   `head` VARCHAR(150) NOT NULL,
-   `body` TEXT,
-   PRIMARY KEY (`id`)
+   `id`       INT          NOT NULL AUTO_INCREMENT,
+   `name`     VARCHAR(100) NOT NULL,
+   `head`     VARCHAR(150) NOT NULL,
+   `body`     TEXT,
+   `photo_id` INT          DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY (`photo_id`) REFERENCES `images` (`id`) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS `service` (

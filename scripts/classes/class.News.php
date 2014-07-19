@@ -134,7 +134,7 @@ class News extends Entity
                [
                   $this->idField,
                   $this->GetFieldByName(static::TEXT_HEAD_FLD),
-                  $this->GetFieldByName(static::TEXT_BODY_FLD)
+                  $this->GetFieldByName(static::DESCRIPTION_FLD)
                ]
             );
             $fields = SQL::PrepareFieldsForSelect(static::TABLE, $this->fields);

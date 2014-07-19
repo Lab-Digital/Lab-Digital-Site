@@ -102,7 +102,7 @@ $(function() {
       "/scripts/resize.php",
       $resize,
       function(data) {
-        document.location.replace(window.referer);
+        document.location.replace(window.referer + '/?item_id=' + $data.item_id);
         /*if (data.result) {
           alert('ok');
         } else {
