@@ -13,7 +13,7 @@
          'item_id'     :  $data,
          'width'       : '200',
          'height'      : '240',
-         'count'       : '1',
+         'count'       : '5',
          'sizes'       : 's#200#240'
       });
     });
@@ -21,6 +21,7 @@
    });
    {/literal}
    </script>
+   <script src="/js/images.js"></script>
 {/block}
 {block name='main'}
    <h1>Новости</h1>
@@ -64,6 +65,13 @@
         </form>
         <div class="in">
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
+          <ul>
+            {foreach from=$news.news_photos item=photo}
+              {if $news.news_photo_id != $photo}
+                <li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button></li>
+              {/if}
+            {/foreach}
+          </ul>
         </div>
       </div>
       {/foreach}

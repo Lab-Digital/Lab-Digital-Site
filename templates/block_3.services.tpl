@@ -7,8 +7,9 @@
             {foreach from=$services item=service}
                <li>
                   <a href="/services/{$service.service_id}">
-                     <img src="/images/services.jpg" />
+                     <img src="/images/service{$service.service_id}.png" />
                      <h3>{$service.service_head}</h3>
+                     <p class="text">Our notebooks come in three paper types to fit every need – plain, ruled, and dot-grid</p>
                   </a>
                </li>
             {/foreach}

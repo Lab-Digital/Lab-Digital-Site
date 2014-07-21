@@ -20,6 +20,7 @@
    });
    {/literal}
    </script>
+   <script src="/js/images.js"></script>
 {/block}
 {block name='main'}
    <h1>Проекты</h1>
@@ -51,6 +52,11 @@
          </form>
          <div class="in">
             <button class="upload" type="submit" data-id="{$project.texts_id}">Загрузить фото</button>
+            <ul>
+               {if isset($project.texts_photo_id)}
+                  <li><a href="/scripts/uploads/{$project.texts_photo_id}_b.jpg" class="gallery"><img src="/scripts/uploads/{$project.texts_photo_id}_s.jpg" /></a><button class="x" data="{$project.texts_photo_id}">x</button></li>
+               {/if}
+            </ul>
          </div>
       </div>
       {/foreach}

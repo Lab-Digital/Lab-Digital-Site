@@ -6,12 +6,12 @@
    {literal}
    $(function(){
     $('div.in button.upload').getUpload({
-         'uploadType'  : 'texts', 
+         'uploadType'  : 'we', 
          'item_id'     : '1', 
-         'width'       : '100', 
-         'height'      : '100',
+         'width'       : '300', 
+         'height'      : '200',
          'count'       : '1',
-         'sizes'       : 's#200#200'
+         'sizes'       : 's#300#200'
     });
    });
    {/literal}

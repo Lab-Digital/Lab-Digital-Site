@@ -7,8 +7,22 @@
   <link href="/css/block_2.cases.css" rel="stylesheet" />
   <link href="/css/block_3.services.css" rel="stylesheet" />
   <link href="/css/block_4.news.css" rel="stylesheet" />
+  <link href="/css/jquery.bxslider.css" rel="stylesheet" />
   <script src="/js/js_scroll.js"></script>
   <script src="/js/sticky_header.js"></script>
+  <script src="/js/jquery.bxslider.js"></script>
+  <script>
+  $(function(){
+      $('.bxslider').bxSlider({
+        'controls': false,
+        'pagerCustom': '#topSliderCtrl',
+        'speed': 1000,
+        'easing': 'ease-in-out',
+        'adaptiveHeight': false,
+        'infiniteLoop': false
+      });
+    });
+  </script>
 {/block}
 {block name='div.main'}
   {include file="block_1.tpl"}

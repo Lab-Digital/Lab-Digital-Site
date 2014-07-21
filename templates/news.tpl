@@ -4,11 +4,9 @@
   <link href="/css/open.css" rel="stylesheet" />
   <link href="/css/footer.css" rel="stylesheet" />
 {/block}
-{block name='pre_wrap'}
-	{include file="header.tpl"}
-{/block}
 {block name='div.main'}
-  <div class="open">
+    {include file="header.tpl"}
+    <div class="open">
   	<img src="/images/img.jpg" alt="#" class="open_image" />
   	<h1>{$article.news_head}</h1>
     Дата новости {$article.news_publication_date}

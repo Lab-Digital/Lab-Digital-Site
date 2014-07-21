@@ -2,7 +2,7 @@ $(function(){
    $('a[href*=#]').bind("click", function(e){
       var anchor = $(this);
       $('html, body').stop().animate({
-         scrollTop: $(anchor.attr('href')).offset().top
+         scrollTop: $('#' + anchor.attr('href').split('#')[1]).offset().top
       }, 1000);
       e.preventDefault();
    });

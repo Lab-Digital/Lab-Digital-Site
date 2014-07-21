@@ -1,5 +1,5 @@
 div.open {
-	margin: 0 auto;
+	margin: 50px auto 0;
 	width: 1024px;
 }
 
@@ -8,11 +8,22 @@ div.open h1 {
 	position: relative;
 	top: -40px;
 	display: inline-block;
+	padding: 10px;
+	border-radius: 6px;
 	background: white;
+	font-weight: bold;
+}
+
+div.open > img {
+	border-radius: 6px;
 }
 
 div.open div.text {
-
+	font-size: 120%;
+	color: #677373;
+	margin-left: 10px;
+	margin-bottom: 100px;
+	margin-top: -20px;
 }
 
 div.open div.text p {
