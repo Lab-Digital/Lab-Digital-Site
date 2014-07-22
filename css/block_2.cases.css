@@ -1,5 +1,5 @@
 #cases {
-	height: 100vh;
+	height: 80vh;
 	background: white;
 }
 
@@ -10,7 +10,7 @@
 #cases > .wrap {
 	margin: 0 auto;
 	width: 70vw;
-	padding-top: 20vh;
+	padding-top: 10vh;
 }
 
 #cases .middle ul.cases li {

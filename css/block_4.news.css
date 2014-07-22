@@ -1,8 +1,9 @@
 #news {
 	min-height: 100vh;
+	margin-bottom: 10vh;
 }
 
-#news .middle h1 {
+#news .middle > h1 {
 	margin-bottom: 70px;
 }
 
@@ -21,7 +22,6 @@
 	background: #EEEFEF;
 	width: 300px;
 	margin: 10px 5px;
-	border-radius: 6px;
 	text-align: left;
 	-webkit-transition-property : scale;
     -webkit-transition-duration : 0.2s;
@@ -39,10 +39,9 @@
 
 #news .middle ul.news li img {
 	margin: 0 auto;
-	border-radius: 6px 6px 0px 0px;
 }
 
-#news .middle ul.news li h3 {
+#news .middle ul.news li h1 {
 	font-size: 150%;
 	padding: 15px 20px;
 	background: #bdc3c7;

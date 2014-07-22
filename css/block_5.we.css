@@ -1,0 +1,67 @@
+#we {
+	height: 70vh;
+}
+
+#we div.wrap {
+	height: 100%;
+	background-image: url("/images/we.png");
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	background-position: center center; 
+}
+
+#we div.layout {
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+#we div.overlay {
+	width: 70vw;
+	padding-top: 15vh;
+	margin: 0 auto;
+}
+
+#we h1 {
+	font-size: 400%;
+	font-weight: bold;
+	color: white;
+	margin-bottom: 50px;
+}
+
+#we p.text {
+	color: white;
+	font-size: 150%;
+	line-height: 1.5;
+	text-align: justify;
+}
+
+#we div.right {
+	margin-top: 30px;
+	float: right;
+	color: rgba(255, 255, 255, 0.4);
+	text-align: right;
+	font-size: 150%;
+	font-style: italic;
+	width: 350px;
+}
+
+#we div.right span {
+	display: block;
+}
+
+#we div.right span.top {
+	margin-top: 10px;
+}
+
+#we div.right span.bot {
+	font-size: 80%;
+	margin-top: 8px;
+}
+
+#we div.right img.author {
+	float: right;
+	margin-left: 20px;
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+}

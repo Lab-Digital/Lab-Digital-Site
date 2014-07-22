@@ -1,0 +1,65 @@
+#contacts {
+	height: 90vh;
+	background: #1B1F23;
+}
+
+#contacts div.wrap {
+	width: 50vw;
+	margin: 0 auto 80px;
+	text-align: center;
+}
+
+#contacts div.map {
+	height: 40vh;
+	background-image: url("/images/map.jpg");
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	background-position: center center; 
+  	border-top: 20px #1B1F23 solid;
+}
+
+#contacts div.wrap .contacts {
+	display: inline-block;
+	margin: 80px 30px 0;
+	width: 250px;
+}
+
+#contacts div.wrap .contacts h1 {
+	font-size: 170%;
+	color: #868F90;
+	margin-bottom: 7px;
+}
+
+#contacts div.wrap .contacts h2 {
+	font-size: 120%;
+	color: white;
+	font-style: italic;
+}
+
+#contacts div.wrap .contacts img {
+	width: 150px;
+	height: 150px;
+	display: block;
+	margin: 0 auto 25px;
+	border-radius: 150px;
+    -moz-transition : all 0.3s ease-in-out;
+}
+
+#contacts div.wrap .call:hover img {
+	background: #e67e22;	
+}
+
+#contacts div.wrap .mail:hover img {
+	background: #3498db;	
+}
+
+#contacts footer {
+	text-align: center;
+	color: #868F90;
+	font-size: 120%;
+}
+
+#contacts footer span {
+	display: block;
+	margin-bottom: 5px;
+}
