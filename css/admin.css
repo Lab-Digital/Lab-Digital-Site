@@ -59,3 +59,9 @@ div.edit {
 div.in {
 	margin-top: 20px;
 }
+
+p.db_error {
+	margin: 20px 0;
+	color: red;
+	font-weight: bold;
+}

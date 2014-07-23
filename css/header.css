@@ -3,6 +3,7 @@ header {
 	border-bottom: 1px #BBBFBF solid;
 	height: 76px;
 	width: 100%;
+	z-index: 10;
 }
 
 header img.header_logo {

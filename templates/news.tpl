@@ -8,16 +8,9 @@
 {block name='div.main'}
     {include file="header.tpl"}
     <div class="open">
-  	<img src="/images/img.jpg" alt="#" class="open_image" />
+  	<img src="/scripts/uploads/{$article.news_photos[0]}.jpg" alt="#" class="open_image" />
   	<h1>{$article.news_head}</h1>
-    Дата новости {$article.news_publication_date}
+    <time>{$article.news_publication_date}</time>
   	<div class="text">{$article.news_body}</div>
-  <ul>
-    {foreach from=$article.news_photos item=photo}
-    {if $article.news_photo_id != $photo}
-      <li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery"><img src="/scripts/uploads/{$photo}_s.jpg" /></a></li>
-    {/if}
-    {/foreach}
-  </ul>
   </div>
 {/block}

@@ -53,13 +53,13 @@
 	background: #3498db;	
 }
 
-#contacts footer {
+#contacts div.bot {
 	text-align: center;
 	color: #868F90;
 	font-size: 120%;
 }
 
-#contacts footer span {
+#contacts div.bot span {
 	display: block;
 	margin-bottom: 5px;
 }

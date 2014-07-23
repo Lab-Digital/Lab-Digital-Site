@@ -9,15 +9,15 @@
    <form method="post" action="/admin/other">
       <div class="form_block">
          <label for="title">Meta title</label>
-         <input id="title" name="title" value="{$meta.index_meta_title|default:''}" />
+         <input name="title" id="title" value="{$meta.index_meta_title|default:''}" />
       </div>
       <div class="form_block">
          <label for="description">Meta description</label>
-         <textarea id="description" name="description" cols="90" rows="10">{$meta.index_meta_description|default:''}</textarea>
+         <textarea name="description" id="description" cols="90" rows="10">{$meta.index_meta_description|default:''}</textarea>
       </div>
       <div class="form_block">
          <label for="keywords">Meta keywords</label>
-         <textarea id="keywords" name="keywords" cols="90" rows="10">{$meta.index_meta_keywords|default:''}</textarea>
+         <textarea name="keywords" id="keywords" cols="90" rows="10">{$meta.index_meta_keywords|default:''}</textarea>
       </div>
       <div class="buttons"><button id="save" name="mode" value="Update">Сохранить</button></div>
    </form>

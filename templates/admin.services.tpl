@@ -11,10 +11,11 @@
          $(this).getUpload({
             'uploadType'  : 'services',
             'item_id'     :  $data,
-            'width'       : '200',
-            'height'      : '240',
+            'width'       : '100',
+            'height'      : '100',
             'count'       : '1',
-            'sizes'       : 's#200#240'
+            'afterResize' : '1024',
+            'sizes'       : 's#100#100'
          });
       });
    });
@@ -43,23 +44,23 @@
                <input type="hidden" name="id" value="{$service.service_id}" />
                <div class="form_block">
                   <label for="head_{$smarty.foreach.f.index}">Заголовок</label>
-                  <input id="head_{$smarty.foreach.f.index}" name="head" value="{$service.service_head}" />
+                  <input name="head" id="head_{$smarty.foreach.f.index}" value="{$service.service_head}" />
                </div>
                <div class="form_block">
-                  <label for="title">Meta title</label>
-                  <input id="title" name="title" value="{$service.service_meta_title}" />
+                  <label for="title_{$smarty.foreach.f.index}">Meta title</label>
+                  <input name="title" id="title_{$smarty.foreach.f.index}" value="{$service.service_meta_title}" />
                </div>
-               <div>
+               <div class="form_block">
                   <label for="body_{$smarty.foreach.f.index}">Описание</label>
-                  <textarea id="description_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$service.service_body}</textarea>
+                  <textarea id="body_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$service.service_body}</textarea>
                </div>
                <div class="form_block">
-                  <label for="description">Meta description</label>
-                  <textarea id="description" name="description" cols="90" rows="10">{$service.service_meta_description}</textarea>
+                  <label for="description_{$smarty.foreach.f.index}">Meta description</label>
+                  <textarea name="description" id="description_{$smarty.foreach.f.index}" cols="90" rows="10">{$service.service_meta_description}</textarea>
                </div>
                <div class="form_block">
-                  <label for="keywords">Meta keywords</label>
-                  <textarea id="keywords" name="keywords" cols="90" rows="10">{$service.service_meta_keywords}</textarea>
+                  <label for="keywords_{$smarty.foreach.f.index}">Meta keywords</label>
+                  <textarea name="keywords" id="keywords_{$smarty.foreach.f.index}" cols="90" rows="10">{$service.service_meta_keywords}</textarea>
                </div>
                <div class="buttons"><button name="mode" value="Update">Сохранить</button><button class="red" name="mode" value="Delete">Удалить</button></div>
             </form>

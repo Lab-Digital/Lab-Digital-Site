@@ -11,10 +11,11 @@
       $(this).getUpload({
          'uploadType'  : 'news',
          'item_id'     :  $data,
-         'width'       : '200',
-         'height'      : '240',
+         'width'       : '300',
+         'height'      : '200',
          'count'       : '5',
-         'sizes'       : 's#200#240'
+         'afterResize' : '1024',
+         'sizes'       : 's#300#200'
       });
     });
 
@@ -47,27 +48,27 @@
           <input type="hidden" class="article_id" name="id" value="{$article.news_id}" />
           <div class="form_block">
             <label for="article_head_{$smarty.foreach.f.index}">Заголовок</label>
-            <input class="article_head" name="head" id="article_head_{$smarty.foreach.f.index}" value="{$article.news_head}" />
+            <input name="head" id="article_head_{$smarty.foreach.f.index}" value="{$article.news_head}" />
           </div>
           <div class="form_block">
-            <label for="title">Meta title</label>
-            <input id="title" name="title" value="{$article.news_meta_title}" />
+            <label for="title_{$smarty.foreach.f.index}">Meta title</label>
+            <input name="title" id="title_{$smarty.foreach.f.index}" value="{$article.news_meta_title}" />
           </div>
           <div class="form_block">
-            <label for="article_description_new">Описание новости</label>
-            <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$article.news_description}</textarea>
+            <label for="article_description_{$smarty.foreach.f.index}">Описание новости</label>
+            <textarea name="desc" id="article_description_{$smarty.foreach.f.index}" rows="2" cols="100">{$article.news_description}</textarea>
           </div>
           <div class="form_block">
             <label for="article_body_{$smarty.foreach.f.index}">Текст</label>
-            <textarea class="article_body" name="body" id="article_body_{$smarty.foreach.f.index}" rows="12" cols="100">{$article.news_body}</textarea>
+            <textarea name="body" id="article_body_{$smarty.foreach.f.index}" rows="12" cols="100">{$article.news_body}</textarea>
           </div>
           <div class="form_block">
-             <label for="description">Meta description</label>
-             <textarea id="description" name="description" cols="90" rows="10">{$article.news_meta_description}</textarea>
+             <label for="description_{$smarty.foreach.f.index}">Meta description</label>
+             <textarea name="description" id="description_{$smarty.foreach.f.index}" cols="90" rows="10">{$article.news_meta_description}</textarea>
           </div>
           <div class="form_block">
-             <label for="keywords">Meta keywords</label>
-             <textarea id="keywords" name="keywords" cols="90" rows="10">{$article.news_meta_keywords}</textarea>
+             <label for="keywords_{$smarty.foreach.f.index}">Meta keywords</label>
+             <textarea name="keywords" id="keywords_{$smarty.foreach.f.index}" cols="90" rows="10">{$article.news_meta_keywords}</textarea>
           </div>
           <div class="buttons"><button class="save" name="mode" value="Update">Сохранить</button><button class="delete red" name="mode" value="Delete">Удалить</button></div>
         </form>
@@ -90,27 +91,27 @@
       <form action="/admin/news{if isset($year)}/{$year}/{$month}{/if}" method="post" id="add_article">
         <div class="form_block">
           <label for="article_head_new">Заголовок</label>
-          <input class="article_head" name="head" id="article_head_new" value="{$head}" />
+          <input name="head" id="article_head_new" value="{$head}" />
         </div>
         <div class="form_block">
-           <label for="title">Meta title</label>
-           <input id="title" name="title" value="{$meta_title}" />
+           <label for="title_new">Meta title</label>
+           <input name="title" id="title_new" value="{$meta_title}" />
         </div>
         <div class="form_block">
           <label for="article_description_new">Описание новости</label>
-          <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$desc}</textarea>
+          <textarea name="desc" id="article_description_new" rows="2" cols="100">{$desc}</textarea>
         </div>
         <div class="form_block">
           <label for="article_body_new">Текст</label>
-          <textarea class="article_body" name="body" id="article_body_new" rows="12" cols="100">{$body}</textarea>
+          <textarea name="body" id="article_body_new" rows="12" cols="100">{$body}</textarea>
         </div>
         <div class="form_block">
-           <label for="description">Meta description</label>
-           <textarea id="description" name="description" cols="90" rows="10">{$meta_description}</textarea>
+           <label for="description_new">Meta description</label>
+           <textarea name="description" id="description_new" cols="90" rows="10">{$meta_description}</textarea>
         </div>
         <div class="form_block">
-           <label for="keywords">Meta keywords</label>
-           <textarea id="keywords" name="keywords" cols="90" rows="10">{$meta_keywords}</textarea>
+           <label for="keywords_new">Meta keywords</label>
+           <textarea name="keywords" id="keywords_new" cols="90" rows="10">{$meta_keywords}</textarea>
         </div>
         <div class="buttons"><button class="save" name="mode" value="Insert">Добавить</button></div>
       </form>

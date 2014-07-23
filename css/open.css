@@ -8,8 +8,7 @@ div.open h1 {
 	position: relative;
 	top: -40px;
 	display: inline-block;
-	padding: 10px;
-	border-radius: 6px;
+	padding: 10px 20px 10px 10px;
 	background: white;
 	font-weight: bold;
 }
@@ -21,11 +20,17 @@ div.open > img {
 div.open div.text {
 	font-size: 120%;
 	color: #677373;
-	margin-left: 10px;
-	margin-bottom: 100px;
-	margin-top: -20px;
+	margin: 0 0 100px 10px;
+	line-height: 1.5;
+	text-align: justify;
 }
 
 div.open div.text p {
 	margin-bottom: 10px;
+}
+
+div.open time {
+	margin: -20px 0 30px 10px;
+	display: block;
+	color: #868F90;
 }

@@ -49,6 +49,12 @@
 	font-weight: bold;
 }
 
+#news .middle ul.news li time {
+	color: #e67e22;
+	display: block;
+	padding: 10px 20px 0;
+}
+
 #news .middle ul.news li p {
 	padding: 10px 20px 20px;
 }

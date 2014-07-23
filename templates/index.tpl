@@ -9,7 +9,7 @@
   <link href="/css/block_3.services.css" rel="stylesheet" />
   <link href="/css/block_4.news.css" rel="stylesheet" />
   <link href="/css/block_5.we.css" rel="stylesheet" />
-  <link href="/css/block_6.contacts.css" rel="stylesheet" />
+  <link href="/css/footer.css" rel="stylesheet" />
   <link href="/css/jquery.bxslider.css" rel="stylesheet" />
   <script src="/js/js_scroll.js"></script>
   <script src="/js/sticky_header.js"></script>
@@ -33,5 +33,4 @@
   {include file="block_3.services.tpl"}
   {include file="block_5.we.tpl"}
   {include file="block_4.news.tpl"}
-  {include file="block_6.contacts.tpl"}
 {/block}
