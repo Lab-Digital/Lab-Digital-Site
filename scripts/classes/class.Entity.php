@@ -57,7 +57,7 @@ class Entity
 
    public function SetSamplingScheme($newScheme)
    {
-      $this->CheckSearch();
+      $this->CreateSearch();
       $this->samplingScheme = $newScheme;
       return $this;
    }

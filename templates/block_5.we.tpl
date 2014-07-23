@@ -1,11 +1,11 @@
 <div id="we">
-	<div class="wrap">
-	    <div class="layout">
-	    	<div class="overlay">
-		    	<h1>Наша команда</h1>
-		    	<p class="text">LAB-Digital предлагает весь спектр услуг, связанных с рекламой в Интернет. Мы - единственное агентство на Дальнем Востоке России, которое обеспечивает комплексное продвижение компаний, товаров и услуг в интернете: продвижение в поисковых системах и социальных сетях, ведение медийной и контекстной рекламы, создание и поддержка интернет-проектов любого уровня сложности. В нашей команде работают специалисты не только из Владивостока и Приморского края, но других регионов России и мира.</p>
-		    	<div class="right"><img src="/images/plato.png" class="author"><span class="top">Виталий Платонов</span><span class="bot">Основатель Lab Digital</span></div>
-		    </div>
-	    </div>
-	</div>
+  <div class="wrap">
+    <div class="layout">
+      <div class="overlay">
+        <h1>{$about.texts_head}</h1>
+        <p class="text">{$about.texts_body}</p>
+        <div class="right"><img src="/images/plato.png" class="author"><span class="top">Виталий Платонов</span><span class="bot">Основатель Lab Digital</span></div>
+      </div>
+    </div>
+  </div>
 </div>

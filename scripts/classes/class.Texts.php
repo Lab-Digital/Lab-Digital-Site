@@ -54,7 +54,7 @@ class Texts extends Entity
       $fields = $this->fields;
       switch ($this->samplingScheme) {
          case static::ABOUT_SCHEME:
-            $fields = [$this->GetFieldByName(static::BODY_FLD)];
+            $fields = [$this->GetFieldByName(static::HEAD_FLD), $this->GetFieldByName(static::BODY_FLD)];
             break;
 
          case static::MAIN_PROJECTS_SCHEME:

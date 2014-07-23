@@ -14,11 +14,6 @@ switch ($request[0]) {
       $smarty->assign('article', $data)->display('news.tpl');
       break;
 
-   case 'we':
-      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
-      $smarty->assign('about', $_texts->SetSamplingScheme(Texts::ABOUT_SCHEME)->GetById(Texts::ABOUT_TEXT_ID))->display('we.tpl');
-      break;
-
    case 'services':
       if (empty($request[1])) Redirect('/#services');
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Service.php';
@@ -63,7 +58,6 @@ switch ($request[0]) {
          case 'news':
             require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.news.php';
             break;
-
 
 
          case 'projects':
