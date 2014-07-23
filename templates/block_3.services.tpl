@@ -10,7 +10,7 @@
                      <a href="/services/{$service.service_id}">
                         <img src="/scripts/uploads/{$service.service_photo_id}_s.jpg" />
                         <h3>{$service.service_head}</h3>
-                        <p class="text">Our notebooks come in three paper types to fit every need – plain, ruled, and dot-grid</p>
+                        <p class="text">{$service.service_description}</p>
                      </a>
                   {/if}
                </li>
