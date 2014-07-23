@@ -4,12 +4,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Image.php';
 
 class Service extends Entity
 {
-   const HEAD_FLD        = 'head';
-   const BODY_FLD        = 'body';
-   const PHOTO_FLD       = 'photo_id';
-   const TITLE_FLD       = 'meta_title';
-   const KEYWORDS_FLD    = 'meta_keywords';
-   const DESCRIPTION_FLD = 'meta_description';
+   const HEAD_FLD             = 'head';
+   const BODY_FLD             = 'body';
+   const PHOTO_FLD            = 'photo_id';
+   const TITLE_FLD            = 'meta_title';
+   const KEYWORDS_FLD         = 'meta_keywords';
+   const DESCRIPTION_FLD      = 'description';
+   const META_DESCRIPTION_FLD = 'meta_description';
 
    const TABLE = 'service';
 
@@ -45,7 +46,7 @@ class Service extends Entity
             true
          ),
          new Field(
-            static::DESCRIPTION_FLD,
+            static::META_DESCRIPTION_FLD,
             TextType(),
             true
          ),
@@ -55,7 +56,14 @@ class Service extends Entity
             true,
             'Title страницы',
             Array(Validate::IS_NOT_EMPTY)
-         )
+         ),
+         new Field(
+            static::DESCRIPTION_FLD,
+            StrType(MAX_SHORT_DESC_LEN, 'Описание услуги не может превышать ' . MAX_SHORT_DESC_LEN . ' символов.'),
+            true,
+            'Описание новости',
+            Array(Validate::IS_NOT_EMPTY)
+         ),
       );
       $this->orderFields = Array(static::HEAD_FLD => new OrderField(static::TABLE, $this->GetFieldByName(static::HEAD_FLD)));
    }
@@ -65,7 +73,7 @@ class Service extends Entity
       $fields = $this->fields;
       switch ($this->samplingScheme) {
          case static::MAIN_SCHEME:
-            $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
+            $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD), $this->GetFieldByName(static::DESCRIPTION_FLD)];
             $this->AddOrder(Service::HEAD_FLD);
             break;
       }

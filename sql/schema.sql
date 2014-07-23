@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `service` (
    `head`             VARCHAR(150) NOT NULL,
    `body`             TEXT,
    `photo_id`         INT          DEFAULT NULL,
+   `description`      TEXT         NOT NULL,
    `meta_title`       VARCHAR(80)  NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,

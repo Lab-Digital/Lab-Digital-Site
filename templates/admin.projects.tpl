@@ -43,23 +43,23 @@
             <input type="hidden" name="id" value="{$project.texts_id}" />
             <div class="form_block">
                <label for="head_{$smarty.foreach.f.index}">Заголовок</label>
-               <input name="head" id="head_{$smarty.foreach.f.index}" value="{$project.texts_head}" />
+               <input id="head_{$smarty.foreach.f.index}" name="head" value="{$head|default:$project.texts_head}" />
             </div>
             <div class="form_block">
                <label for="title_{$smarty.foreach.f.index}">Meta title</label>
-               <input name="title" id="title_{$smarty.foreach.f.index}" value="{$project.texts_meta_title}" />
+               <input id="title_{$smarty.foreach.f.index}" name="title" value="{$meta_title|default:$project.texts_meta_title}" />
             </div>
             <div class="form_block">
                <label for="body_{$smarty.foreach.f.index}">Описание</label>
-               <textarea name="body" id="body_{$smarty.foreach.f.index}" cols="130" rows="15">{$project.texts_body}</textarea>
+               <textarea id="body_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$body|default:$project.texts_body}</textarea>
             </div>
             <div class="form_block">
                <label for="description_{$smarty.foreach.f.index}">Meta description</label>
-               <textarea name="description" id="description_{$smarty.foreach.f.index}" cols="90" rows="10">{$project.texts_meta_description}</textarea>
+               <textarea id="description_{$smarty.foreach.f.index}" name="description" cols="90" rows="10">{$meta_description|default:$project.texts_meta_description}</textarea>
             </div>
             <div class="form_block">
                <label for="keywords_{$smarty.foreach.f.index}">Meta keywords</label>
-               <textarea name="keywords" id="keywords_{$smarty.foreach.f.index}" cols="90" rows="10">{$project.texts_meta_keywords}</textarea>
+               <textarea id="keywords_{$smarty.foreach.f.index}" name="keywords" cols="90" rows="10">{$meta_keywords|default:$project.texts_meta_keywords}</textarea>
             </div>
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>

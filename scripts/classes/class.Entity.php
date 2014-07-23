@@ -111,7 +111,9 @@ class Entity
    public function SetFieldByName($name, $value)
    {
       $field = $this->GetFieldByName($name);
-      $field->SetValue($value);
+      if (!empty($field)) {
+         $field->SetValue($value);
+      }
       return $this;
    }
 

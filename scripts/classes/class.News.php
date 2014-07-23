@@ -45,7 +45,7 @@ class News extends Entity
          ),
          new Field(
             static::DESCRIPTION_FLD,
-            StrType(MAX_ARTICLE_DESC_LEN, 'Описание новости не может превышать ' . MAX_ARTICLE_DESC_LEN . ' символов.'),
+            StrType(MAX_SHORT_DESC_LEN, 'Описание новости не может превышать ' . MAX_SHORT_DESC_LEN . ' символов.'),
             true,
             'Описание новости',
             Array(Validate::IS_NOT_EMPTY)

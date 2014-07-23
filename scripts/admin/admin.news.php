@@ -22,15 +22,16 @@ if (!empty($year)) {
 
 SetLastViewedID(News::LAST_VIEWED_ID);
 
+$head = $body = $desc = $title = $keywords = $description = null;
+
 if (isset($_POST['mode'])) {
    $post = GetPOST();
-   $id   = isset($_POST['id']) ? $_POST['id'] : null;
-
-   $head        = isset($post['head'])        ? $post['head'] : null;
-   $body        = isset($post['body'])        ? $post['body'] : null;
-   $desc        = isset($post['desc'])        ? $post['desc'] : null;
-   $title       = isset($post['title'])       ? $post['title'] : null;
-   $keywords    = isset($post['keywords'])    ? $post['keywords'] : null;
+   $id          = isset($post['id'])          ? $post['id']          : null;
+   $head        = isset($post['head'])        ? $post['head']        : null;
+   $body        = isset($post['body'])        ? $post['body']        : null;
+   $desc        = isset($post['desc'])        ? $post['desc']        : null;
+   $title       = isset($post['title'])       ? $post['title']       : null;
+   $keywords    = isset($post['keywords'])    ? $post['keywords']    : null;
    $description = isset($post['description']) ? $post['description'] : null;
    $post['params'] = Array(
          News::ID_FLD               => $id,
@@ -51,12 +52,13 @@ if (isset($_POST['mode'])) {
    SetLastViewedID(News::LAST_VIEWED_ID);
 }
 
-$smarty->assign('body', !empty($body) ? $body : '')
-       ->assign('head', !empty($head) ? $head : '')
-       ->assign('desc', !empty($desc) ? $desc : '')
-       ->assign('meta_title', !empty($title) ? $title : '')
-       ->assign('meta_keywords', !empty($keywords) ? $keywords : '')
-       ->assign('meta_description', !empty($description) ? $description : '')
+$smarty->assign('isInsert', isset($_POST['mode']) && $_POST['mode'] == 'Insert')
+       ->assign('head', $head)
+       ->assign('body', $body)
+       ->assign('desc', $desc)
+       ->assign('meta_title', $title)
+       ->assign('meta_keywords', $keywords)
+       ->assign('meta_description', $description)
        ->assign('item_id', !empty($_GET['item_id']) ? $_GET['item_id'] : null)
        ->assign('article_level', $level)
        ->assign('article_menu', $_news->GetAdminMenu())

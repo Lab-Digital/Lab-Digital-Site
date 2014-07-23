@@ -1,7 +1,7 @@
 <?php
 //numeric and string constants
 define('ADMIN_ID', 1);
-define('MAX_ARTICLE_DESC_LEN', 180);
+define('MAX_SHORT_DESC_LEN', 180);
 define('ADMIN_START_PAGE', 'we');
 define('GENERAL_DATE_FORMAT', 'Y-m-d H:i:s');
 

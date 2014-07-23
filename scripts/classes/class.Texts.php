@@ -6,13 +6,14 @@ class Texts extends Entity
 {
    const ABOUT_TEXT_ID = 1;
 
-   const NAME_FLD        = 'name';
-   const HEAD_FLD        = 'head';
-   const BODY_FLD        = 'body';
-   const PHOTO_FLD       = 'photo_id';
-   const TITLE_FLD       = 'meta_title';
-   const KEYWORDS_FLD    = 'meta_keywords';
-   const DESCRIPTION_FLD = 'meta_description';
+   const NAME_FLD             = 'name';
+   const HEAD_FLD             = 'head';
+   const BODY_FLD             = 'body';
+   const PHOTO_FLD            = 'photo_id';
+   const TITLE_FLD            = 'meta_title';
+   const KEYWORDS_FLD         = 'meta_keywords';
+   const DESCRIPTION_FLD      = 'description';
+   const META_DESCRIPTION_FLD = 'meta_description';
 
    const TABLE = 'texts';
 
@@ -55,7 +56,7 @@ class Texts extends Entity
             true
          ),
          new Field(
-            static::DESCRIPTION_FLD,
+            static::META_DESCRIPTION_FLD,
             TextType(),
             true
          ),
@@ -97,7 +98,7 @@ class Texts extends Entity
       $fields = array_merge($fields, [
          $this->GetFieldByName(static::TITLE_FLD),
          $this->GetFieldByName(static::KEYWORDS_FLD),
-         $this->GetFieldByName(static::DESCRIPTION_FLD)
+         $this->GetFieldByName(static::META_DESCRIPTION_FLD)
       ]);
       if ($this->samplingScheme == static::PROJECTS_SCHEME || $this->samplingScheme == static::MAIN_PROJECTS_SCHEME) {
          $this->CheckSearch()->AddLimit(3, 0)->_SetProjectSearch();
