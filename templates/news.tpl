@@ -12,5 +12,10 @@
   	<h1>{$article.news_head}</h1>
     <time>{$article.news_publication_date}</time>
   	<div class="text">{$article.news_body}</div>
+    {foreach from=$article.news_photos item=photo}
+    {if $article.news_photo_id != $photo}
+      <li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery"><img src="/scripts/uploads/{$photo}_s.jpg" /></a></li>
+    {/if}
+    {/foreach}
   </div>
 {/block}
