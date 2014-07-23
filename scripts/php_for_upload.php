@@ -9,14 +9,17 @@ try {
   switch ($post['uploadType']) {
     case 'we':
     case 'projects':
+    case 'services':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Service.php';
+      $obj = $post['uploadType'] == 'services' ? $_service : $_texts;
       if (!empty($post['image_id'])) {
          $_image->Delete($post['image_id']);
       }
       try {
          $db->link->beginTransaction();
          $_POST['__file'] = $_image->Insert(true);
-         $_texts->SetFieldByName(Texts::ID_FLD, $item_id)->SetFieldByName(Texts::PHOTO_FLD, $_POST['__file'])->Update();
+         $obj->SetFieldByName($obj::ID_FLD, $item_id)->SetFieldByName($obj::PHOTO_FLD, $_POST['__file'])->Update();
          $db->link->commit();
       } catch (DBException $e) {
          $db->link->rollback();

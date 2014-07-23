@@ -50,12 +50,8 @@
             <input class="article_head" name="head" id="article_head_{$smarty.foreach.f.index}" value="{$article.news_head}" />
           </div>
           <div class="form_block">
-            <label for="article_date_{$smarty.foreach.f.index}">Дата</label>
-            <input class="article_date date_pick" name="date" id="article_date_{$smarty.foreach.f.index}" value="{$article.news_publication_date}" />
-          </div>
-          <div class="form_block">
             <label for="article_description_new">Описание новости</label>
-            <textarea class="article_body" name="desc" id="article_description_new" rows="12" cols="100">{$article.news_description}</textarea>
+            <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$article.news_description}</textarea>
           </div>
           <div class="form_block">
             <label for="article_body_{$smarty.foreach.f.index}">Текст</label>
@@ -66,8 +62,8 @@
         <div class="in">
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
           <ul>
-            {foreach from=$news.news_photos item=photo}
-              {if $news.news_photo_id != $photo}
+            {foreach from=$article.news_photos item=photo}
+              {if $article.news_photo_id != $photo}
                 <li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button></li>
               {/if}
             {/foreach}
@@ -85,12 +81,8 @@
           <input class="article_head" name="head" id="article_head_new" value="{$head}" />
         </div>
         <div class="form_block">
-          <label for="article_date_new">Дата</label>
-          <input class="article_date date_pick" name="date" id="article_date_new" value="{$date}" />
-        </div>
-        <div class="form_block">
           <label for="article_description_new">Описание новости</label>
-          <textarea class="article_body" name="desc" id="article_description_new" rows="12" cols="100">{$desc}</textarea>
+          <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$desc}</textarea>
         </div>
         <div class="form_block">
           <label for="article_body_new">Текст</label>

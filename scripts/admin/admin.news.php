@@ -10,7 +10,10 @@ if (!empty($year)) {
    if (!empty($month)) {
       $smarty->assign('year', $year)
              ->assign('month', $month)
-             ->assign('articles', $_news->CreateSearchYM($year, $month)->SetSamplingScheme(News::INFO_SCHEME)->AddOrder(News::PUBLICATION_DATE_FLD, OT_ASC)->GetAll());
+             ->assign('articles', $_news->CreateSearchYM($year, $month)
+                                        ->SetSamplingScheme(News::INFO_SCHEME)
+                                        ->AddOrder(News::PUBLICATION_DATE_FLD, OT_ASC)
+                                        ->GetAll());
    } elseif (empty($_POST['mode']) || $_POST['mode'] != 'Insert') {
       header("Location: /admin/news/$year/1");
       exit;
@@ -26,15 +29,11 @@ if (isset($_POST['mode'])) {
    $head = isset($post['head']) ? $post['head'] : null;
    $body = isset($post['body']) ? $post['body'] : null;
    $desc = isset($post['desc']) ? $post['desc'] : null;
-   $date = $post['date'];
-   $d = new DateTime();
-   $date = $d->format('d-m-Y');
    $post['params'] = Array(
          News::ID_FLD               => $id,
          News::TEXT_HEAD_FLD        => $head,
          News::TEXT_BODY_FLD        => $body,
-         News::DESCRIPTION_FLD      => $desc,
-         News::PUBLICATION_DATE_FLD => !empty($date) ? DateToMySqlDate($date) : null
+         News::DESCRIPTION_FLD      => $desc
    );
    if ($post['mode'] != 'Insert') {
       $_news->SetLastViewedID($id);
@@ -47,7 +46,6 @@ if (isset($_POST['mode'])) {
 }
 
 $smarty->assign('body', !empty($body) ? $body : '')
-       ->assign('date', !empty($date) ? $date : '')
        ->assign('head', !empty($head) ? $head : '')
        ->assign('desc', !empty($desc) ? $desc : '')
        ->assign('item_id', !empty($_GET['item_id']) ? $_GET['item_id'] : null)

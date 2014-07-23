@@ -34,7 +34,9 @@ CREATE TABLE IF NOT EXISTS `service` (
    `id`   INT          NOT NULL AUTO_INCREMENT,
    `head` VARCHAR(150) NOT NULL,
    `body` TEXT,
-   PRIMARY KEY (`id`)
+   `photo_id` INT      DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY (`photo_id`) REFERENCES `images` (`id`) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS `news` (

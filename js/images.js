@@ -4,7 +4,7 @@ $(function(){
     $('button.upload').each(function() {
       $btnUpload = $(this);
       $data = JSON.parse($btnUpload.siblings('input').val());
-      
+
       if ($btnUpload.parent('form').siblings('ul').children('li').length >= $data.count) {
         $btnUpload.hide();
       } else {
@@ -12,7 +12,7 @@ $(function(){
       }
     });
   }
-  
+
   checkDisable();
 
   $('div.in ul li button').click(function() {

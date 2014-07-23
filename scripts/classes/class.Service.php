@@ -1,10 +1,12 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Entity.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Image.php';
 
 class Service extends Entity
 {
-   const HEAD_FLD = 'head';
-   const BODY_FLD = 'body';
+   const HEAD_FLD  = 'head';
+   const BODY_FLD  = 'body';
+   const PHOTO_FLD = 'photo_id';
 
    const TABLE = 'service';
 
@@ -28,6 +30,11 @@ class Service extends Entity
             static::BODY_FLD,
             TextType(),
             true
+         ),
+         new Field(
+            static::PHOTO_FLD,
+            IntType(),
+            true
          )
       );
       $this->orderFields = Array(static::HEAD_FLD => new OrderField(static::TABLE, $this->GetFieldByName(static::HEAD_FLD)));
@@ -35,13 +42,19 @@ class Service extends Entity
 
    public function SetSelectValues()
    {
+      $fields = $this->fields;
       switch ($this->samplingScheme) {
          case static::MAIN_SCHEME:
-            $this->fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
+            $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
             $this->AddOrder(Service::HEAD_FLD);
             break;
       }
-      $this->selectFields = SQL::GetListFieldsForSelect(SQL::PrepareFieldsForSelect(static::TABLE, $this->fields));
+      $this->selectFields = SQL::GetListFieldsForSelect(
+         array_merge(
+            SQL::PrepareFieldsForSelect(static::TABLE, $fields),
+            [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD))]
+         )
+      );
    }
 
 }

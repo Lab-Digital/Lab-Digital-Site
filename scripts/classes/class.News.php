@@ -50,9 +50,7 @@ class News extends Entity
          new Field(
             static::PUBLICATION_DATE_FLD,
             TimestampType(),
-            true,
-            'Дата новости',
-            Array(Validate::IS_NOT_EMPTY)
+            false
          ),
          new Field(
             static::PHOTO_FLD,
@@ -124,7 +122,7 @@ class News extends Entity
                      $this->GetFieldByName(static::PUBLICATION_DATE_FLD)
                   )
                );
-            // $fields[] = ImageSelectSQL($this, $_newsImages, NewsImages::NEWS_FLD);
+            $fields[] = ImageSelectSQL($this, $_newsImages, NewsImages::NEWS_FLD);
             break;
 
          case static::MAIN_SCHEME:
@@ -138,14 +136,10 @@ class News extends Entity
                ]
             );
             $fields = SQL::PrepareFieldsForSelect(static::TABLE, $this->fields);
-            $fields[] = ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD));
             break;
 
-         case static::OTHER_SCHEME:
-            $this->AddLimit(6, 0);
-            $fields = SQL::PrepareFieldsForSelect(static::TABLE, $this->fields);
-            break;
       }
+      $fields[] = ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD));
       $this->selectFields = SQL::GetListFieldsForSelect($fields);
    }
 

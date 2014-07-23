@@ -9,9 +9,9 @@
       $('div.in button.upload').each(function(){
          $data = $(this).attr('data');
          $(this).getUpload({
-            'uploadType'  : 'service', 
-            'item_id'     :  $data, 
-            'width'       : '200', 
+            'uploadType'  : 'services',
+            'item_id'     :  $data,
+            'width'       : '200',
             'height'      : '240',
             'count'       : '1',
             'sizes'       : 's#200#240'
@@ -54,7 +54,7 @@
             <div class="in">
                <button class="upload" type="submit" data="{$service.service_id}">Загрузить фото</button>
                <ul>
-                  {if isset($service.service_photo_id)}
+                  {if !empty($service.service_photo_id)}
                      <li><a href="/scripts/uploads/{$service.service_photo_id}_b.jpg" class="gallery"><img src="/scripts/uploads/{$service.service_photo_id}_s.jpg" /></a><button class="x" data="{$service.service_photo_id}">x</button></li>
                   {/if}
                </ul>

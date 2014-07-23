@@ -8,7 +8,7 @@
             {foreach from=$projects item=project}
                <li>
                   <a href="/projects">
-                     <img src="/images/projects{$project.texts_id}.jpg" />
+                     {if !empty($project.texts_photo_id)}<img src="/scripts/uploads/{$project.texts_photo_id}.jpg" />
                      <h3>{$project.texts_head}</h3> {*{$project.texts_id}*}
                   </a>
                </li>

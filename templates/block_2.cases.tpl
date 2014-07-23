@@ -7,12 +7,11 @@
          <ul class="projects">
             {foreach from=$projects item=project}
                <li>
-                  <img src="/images/projects{$project.texts_id}.jpg" />
+                  {if !empty($project.texts_photo_id)}<img src="/scripts/uploads/{$project.texts_photo_id}.jpg" />{/if}
                   <h3>{$project.texts_head}</h3> {*{$project.texts_id}*}
                </li>
             {/foreach}
          </ul>
       </section>
-
    </div>
 </div>
