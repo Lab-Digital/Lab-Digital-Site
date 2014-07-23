@@ -1,19 +1,19 @@
-#cases {
+#projects {
 	height: 80vh;
 	background: white;
 }
 
-#cases .middle ul.cases {
+#projects .middle ul.projects {
 	
 }
 
-#cases > .wrap {
+#projects > .wrap {
 	margin: 0 auto;
 	width: 70vw;
 	padding-top: 10vh;
 }
 
-#cases .middle ul.cases li {
+#projects .middle ul.projects li {
 	display: inline-block;
 	width: 30%;
 	margin: 0 10px;
@@ -21,15 +21,21 @@
 	color: #868F90;
 }
 
-#cases .middle ul.cases li img {
+#projects .middle ul.projects li img {
 	width: 200px;
 	height: 200px;
 	border-radius: 200px;
 	margin: 0 auto 15px;
+	border: 4px #868F90 solid;
 }
 
-#cases .middle ul.cases li h3 {
+#projects .middle ul.projects li h3 {
 	font-size: 160%;
 	width: 300px;
 	margin: 0 auto;
+}
+
+#projects .middle ul.projects a {
+	color: #868F90;
+	text-decoration: none;
 }

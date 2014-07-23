@@ -7,8 +7,10 @@
          <ul class="projects">
             {foreach from=$projects item=project}
                <li>
-                  <img src="/images/projects{$project.texts_id}.jpg" />
-                  <h3>{$project.texts_head}</h3> {*{$project.texts_id}*}
+                  <a href="/projects">
+                     <img src="/images/projects{$project.texts_id}.jpg" />
+                     <h3>{$project.texts_head}</h3> {*{$project.texts_id}*}
+                  </a>
                </li>
             {/foreach}
          </ul>

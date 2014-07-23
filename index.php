@@ -27,6 +27,11 @@ switch ($request[0]) {
       $smarty->assign('service', $data)->display('services.tpl');
       break;
 
+
+   case 'projects':
+      $smarty->display('projects.tpl');
+      break;
+
    case 'uploadphoto':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/upload_photo.php';
       break;

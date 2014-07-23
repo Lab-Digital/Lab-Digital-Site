@@ -4,7 +4,7 @@
   <link href="/css/footer.css" rel="stylesheet" />
   <link href="/css/index.css" rel="stylesheet" />
   <link href="/css/block_1.css" rel="stylesheet" />
-  <link href="/css/block_2.cases.css" rel="stylesheet" />
+  <link href="/css/block_2.projects.css" rel="stylesheet" />
   <link href="/css/block_3.services.css" rel="stylesheet" />
   <link href="/css/block_4.news.css" rel="stylesheet" />
   <link href="/css/block_5.we.css" rel="stylesheet" />
@@ -28,7 +28,7 @@
 {/block}
 {block name='div.main'}
   {include file="block_1.tpl"}
-  {include file="block_2.cases.tpl"}
+  {include file="block_2.projects.tpl"}
   {include file="block_3.services.tpl"}
   {include file="block_5.we.tpl"}
   {include file="block_4.news.tpl"}
