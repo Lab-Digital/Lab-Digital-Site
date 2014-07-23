@@ -22,9 +22,12 @@ switch ($request[0]) {
       $smarty->assign('service', $data)->display('services.tpl');
       break;
 
-
    case 'projects':
-      $smarty->display('projects.tpl');
+      if (empty($request[1])) Redirect('/#projects');
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
+      $data = $_texts->GetProjectById($request[1]);
+      if (empty($data)) Redirect('/#projects');
+      $smarty->assign('project', $data)->display('projects.tpl');
       break;
 
    case 'uploadphoto':

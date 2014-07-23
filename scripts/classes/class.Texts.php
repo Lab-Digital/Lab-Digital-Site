@@ -69,6 +69,19 @@ class Texts extends Entity
       );
    }
 
+   private function _SetProjectSearch()
+   {
+      $this->CheckSearch()->search->AddClause(
+         CCond(
+            CF(static::TABLE, $this->GetFieldByName(static::ID_FLD)),
+            CVP(static::ABOUT_TEXT_ID),
+            '',
+            opGT
+         )
+      );
+      return $this;
+   }
+
    public function SetSelectValues()
    {
       $fields = $this->fields;
@@ -87,15 +100,8 @@ class Texts extends Entity
          $this->GetFieldByName(static::DESCRIPTION_FLD)
       ]);
       if ($this->samplingScheme == static::PROJECTS_SCHEME || $this->samplingScheme == static::MAIN_PROJECTS_SCHEME) {
-         $this->CheckSearch()->AddLimit(3, 0);
-         $this->search->AddClause(
-            CCond(
-               CF(static::TABLE, $this->GetFieldByName(static::ID_FLD)),
-               CVP(static::ABOUT_TEXT_ID),
-               '',
-               opGT
-            )
-         );
+         $this->CheckSearch()->AddLimit(3, 0)->_SetProjectSearch();
+
       }
       $this->selectFields = SQL::GetListFieldsForSelect(
          array_merge(
@@ -103,6 +109,11 @@ class Texts extends Entity
             [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD))]
          )
       );
+   }
+
+   public function GetProjectById($id)
+   {
+      return $this->_SetProjectSearch()->GetById($id);
    }
 
 }
