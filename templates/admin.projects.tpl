@@ -31,10 +31,10 @@
       {foreach from=$projects item=project name=f}
          <option value="{$project.texts_id}">Проект {$smarty.foreach.f.index}</option>
       {/foreach}
+      </select>
       <script type="text/javascript">
          $('#choose_item option[value="{$item_id}"]').attr('selected', 'selected');
       </script>
-      </select>
       <h2>Редактирование проекта</h2>
       {foreach from=$projects item=project name=f}
       <div class="edit">

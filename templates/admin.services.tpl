@@ -29,10 +29,13 @@
       {if $services|@count}
          <label for="choose">Выберите услугу</label>
          <select id="choose_item">
-         {foreach from=$services item=service}
-            <option value="{$service.service_id}">{$service.service_head}</option>
-         {/foreach}
+            {foreach from=$services item=service}
+               <option value="{$service.service_id}">{$service.service_head}</option>
+            {/foreach}
          </select>
+         <script type="text/javascript">
+            $('#choose_item option[value="{$item_id}"]').attr('selected', 'selected');
+         </script>
          <h2>Редактирование услуги</h2>
          {foreach from=$services item=service name=f}
          <div class="edit">

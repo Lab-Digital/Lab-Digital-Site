@@ -47,6 +47,10 @@ switch ($request[0]) {
             require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.login.php';
             break;
 
+         case 'slider':
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.slider.php';
+            break;
+
          case 'we':
             require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.we.php';
             break;

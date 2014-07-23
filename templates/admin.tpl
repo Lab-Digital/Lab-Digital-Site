@@ -11,7 +11,7 @@
   <header>
     <nav>
       <ul>
-        <li><a href="/admin/news">Новости</a></li><li><a href="/admin/we">Наша команда</a></li><li><a href="/admin/projects">Проекты</a></li><li><a href="/admin/services">Услуги</a></li><li><a href="/admin/other">Остальное</a></li>
+        <li><a href="/admin/slider">Слайдер</a></li><li><a href="/admin/news">Новости</a></li><li><a href="/admin/we">Наша команда</a></li><li><a href="/admin/projects">Проекты</a></li><li><a href="/admin/services">Услуги</a></li><li><a href="/admin/other">Остальное</a></li>
       </ul>
     </nav>
   </header>

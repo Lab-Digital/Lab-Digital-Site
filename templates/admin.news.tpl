@@ -35,10 +35,10 @@
         {foreach from=$articles item=article}
           <option value="{$article.news_id}">{$article.news_head}</option>
         {/foreach}
-        <script type="text/javascript">
-         $('#choose_item option[value="{$item_id}"]').attr('selected', 'selected');
-        </script>
         </select>
+        <script type="text/javascript">
+          $('#choose_item option[value="{$item_id}"]').attr('selected', 'selected');
+        </script>
         <h2>Редактирование новости</h2>
       {/if}
       {foreach from=$articles item=article name=f}
