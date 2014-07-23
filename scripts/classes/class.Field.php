@@ -38,7 +38,7 @@ class StrFieldType extends FieldType
    public function Validate($value, $alias)
    {
       if (strlen($value) > $this->length) {
-         throw new ValidateException(!empty($this->message) ? $this->message : "$alias слишком длинное!");
+         throw new ValidateException(!empty($this->message) ? $this->message : "$alias слишком длинный!");
       }
    }
 }
@@ -159,7 +159,7 @@ class Field
 
             case Validate::IS_NOT_EMPTY:
                $isException  = empty($value);
-               $exceptionStr = "$alias не может иметь пустое значение!";
+               $exceptionStr = "$alias не может принимать пустое значение!";
                break;
 
             case Validate::IS_PHONE:

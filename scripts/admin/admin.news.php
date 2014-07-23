@@ -26,14 +26,20 @@ if (isset($_POST['mode'])) {
    $post = GetPOST();
    $id   = isset($_POST['id']) ? $_POST['id'] : null;
 
-   $head = isset($post['head']) ? $post['head'] : null;
-   $body = isset($post['body']) ? $post['body'] : null;
-   $desc = isset($post['desc']) ? $post['desc'] : null;
+   $head        = isset($post['head'])        ? $post['head'] : null;
+   $body        = isset($post['body'])        ? $post['body'] : null;
+   $desc        = isset($post['desc'])        ? $post['desc'] : null;
+   $title       = isset($post['title'])       ? $post['title'] : null;
+   $keywords    = isset($post['keywords'])    ? $post['keywords'] : null;
+   $description = isset($post['description']) ? $post['description'] : null;
    $post['params'] = Array(
          News::ID_FLD               => $id,
          News::TEXT_HEAD_FLD        => $head,
          News::TEXT_BODY_FLD        => $body,
-         News::DESCRIPTION_FLD      => $desc
+         News::DESCRIPTION_FLD      => $desc,
+         News::TITLE_FLD            => $title,
+         News::KEYWORDS_FLD         => $keywords,
+         News::META_DESCRIPTION_FLD => $description
    );
    if ($post['mode'] != 'Insert') {
       $_news->SetLastViewedID($id);
@@ -48,6 +54,9 @@ if (isset($_POST['mode'])) {
 $smarty->assign('body', !empty($body) ? $body : '')
        ->assign('head', !empty($head) ? $head : '')
        ->assign('desc', !empty($desc) ? $desc : '')
+       ->assign('meta_title', !empty($title) ? $title : '')
+       ->assign('meta_keywords', !empty($keywords) ? $keywords : '')
+       ->assign('meta_description', !empty($description) ? $description : '')
        ->assign('item_id', !empty($_GET['item_id']) ? $_GET['item_id'] : null)
        ->assign('article_level', $level)
        ->assign('article_menu', $_news->GetAdminMenu())

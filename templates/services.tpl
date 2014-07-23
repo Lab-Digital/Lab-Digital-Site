@@ -1,4 +1,5 @@
 {extends file='page.tpl'}
+{block name='title' append} - Услуги - {$service.service_head}{/block}
 {block name='links' append}
   <link href="/css/header.css" rel="stylesheet" />
   <link href="/css/open.css" rel="stylesheet" />

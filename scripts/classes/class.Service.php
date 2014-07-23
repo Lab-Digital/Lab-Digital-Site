@@ -4,9 +4,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Image.php';
 
 class Service extends Entity
 {
-   const HEAD_FLD  = 'head';
-   const BODY_FLD  = 'body';
-   const PHOTO_FLD = 'photo_id';
+   const HEAD_FLD        = 'head';
+   const BODY_FLD        = 'body';
+   const PHOTO_FLD       = 'photo_id';
+   const TITLE_FLD       = 'meta_title';
+   const KEYWORDS_FLD    = 'meta_keywords';
+   const DESCRIPTION_FLD = 'meta_description';
 
    const TABLE = 'service';
 
@@ -35,6 +38,23 @@ class Service extends Entity
             static::PHOTO_FLD,
             IntType(),
             true
+         ),
+         new Field(
+            static::KEYWORDS_FLD,
+            TextType(),
+            true
+         ),
+         new Field(
+            static::DESCRIPTION_FLD,
+            TextType(),
+            true
+         ),
+         new Field(
+            static::TITLE_FLD,
+            StrType(70),
+            true,
+            'Title страницы',
+            Array(Validate::IS_NOT_EMPTY)
          )
       );
       $this->orderFields = Array(static::HEAD_FLD => new OrderField(static::TABLE, $this->GetFieldByName(static::HEAD_FLD)));

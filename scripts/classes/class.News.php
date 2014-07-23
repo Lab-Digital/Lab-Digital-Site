@@ -9,11 +9,14 @@ class News extends Entity
    const OTHER_SCHEME = 4;
 
    const PHOTO_FLD            = 'photo_id';
+   const TITLE_FLD            = 'meta_title';
    const PHOTOS_FLD           = 'photos';
+   const KEYWORDS_FLD         = 'meta_keywords';
    const TEXT_HEAD_FLD        = 'head';
    const TEXT_BODY_FLD        = 'body';
    const DESCRIPTION_FLD      = 'description';
    const PUBLICATION_DATE_FLD = 'publication_date';
+   const META_DESCRIPTION_FLD = 'meta_description';
 
    const TABLE = 'news';
 
@@ -56,6 +59,23 @@ class News extends Entity
             static::PHOTO_FLD,
             IntType(),
             true
+         ),
+         new Field(
+            static::KEYWORDS_FLD,
+            TextType(),
+            true
+         ),
+         new Field(
+            static::META_DESCRIPTION_FLD,
+            TextType(),
+            true
+         ),
+         new Field(
+            static::TITLE_FLD,
+            StrType(70),
+            true,
+            'Title страницы',
+            Array(Validate::IS_NOT_EMPTY)
          )
       );
       $this->orderFields =
@@ -119,7 +139,10 @@ class News extends Entity
                      $this->GetFieldByName(static::TEXT_BODY_FLD),
                      $this->GetFieldByName(static::DESCRIPTION_FLD),
                      $this->GetFieldByName(static::PHOTO_FLD),
-                     $this->GetFieldByName(static::PUBLICATION_DATE_FLD)
+                     $this->GetFieldByName(static::PUBLICATION_DATE_FLD),
+                     $this->GetFieldByName(static::TITLE_FLD),
+                     $this->GetFieldByName(static::KEYWORDS_FLD),
+                     $this->GetFieldByName(static::META_DESCRIPTION_FLD),
                   )
                );
             $fields[] = ImageSelectSQL($this, $_newsImages, NewsImages::NEWS_FLD);

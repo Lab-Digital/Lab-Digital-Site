@@ -50,12 +50,24 @@
             <input class="article_head" name="head" id="article_head_{$smarty.foreach.f.index}" value="{$article.news_head}" />
           </div>
           <div class="form_block">
+            <label for="title">Meta title</label>
+            <input id="title" name="title" value="{$article.news_meta_title}" />
+          </div>
+          <div class="form_block">
             <label for="article_description_new">Описание новости</label>
             <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$article.news_description}</textarea>
           </div>
           <div class="form_block">
             <label for="article_body_{$smarty.foreach.f.index}">Текст</label>
             <textarea class="article_body" name="body" id="article_body_{$smarty.foreach.f.index}" rows="12" cols="100">{$article.news_body}</textarea>
+          </div>
+          <div class="form_block">
+             <label for="description">Meta description</label>
+             <textarea id="description" name="description" cols="90" rows="10">{$article.news_meta_description}</textarea>
+          </div>
+          <div class="form_block">
+             <label for="keywords">Meta keywords</label>
+             <textarea id="keywords" name="keywords" cols="90" rows="10">{$article.news_meta_keywords}</textarea>
           </div>
           <div class="buttons"><button class="save" name="mode" value="Update">Сохранить</button><button class="delete red" name="mode" value="Delete">Удалить</button></div>
         </form>
@@ -81,12 +93,24 @@
           <input class="article_head" name="head" id="article_head_new" value="{$head}" />
         </div>
         <div class="form_block">
+           <label for="title">Meta title</label>
+           <input id="title" name="title" value="{$meta_title}" />
+        </div>
+        <div class="form_block">
           <label for="article_description_new">Описание новости</label>
           <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$desc}</textarea>
         </div>
         <div class="form_block">
           <label for="article_body_new">Текст</label>
           <textarea class="article_body" name="body" id="article_body_new" rows="12" cols="100">{$body}</textarea>
+        </div>
+        <div class="form_block">
+           <label for="description">Meta description</label>
+           <textarea id="description" name="description" cols="90" rows="10">{$meta_description}</textarea>
+        </div>
+        <div class="form_block">
+           <label for="keywords">Meta keywords</label>
+           <textarea id="keywords" name="keywords" cols="90" rows="10">{$meta_keywords}</textarea>
         </div>
         <div class="buttons"><button class="save" name="mode" value="Insert">Добавить</button></div>
       </form>

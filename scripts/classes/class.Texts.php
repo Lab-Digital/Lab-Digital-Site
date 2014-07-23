@@ -6,10 +6,13 @@ class Texts extends Entity
 {
    const ABOUT_TEXT_ID = 1;
 
-   const NAME_FLD  = 'name';
-   const HEAD_FLD  = 'head';
-   const BODY_FLD  = 'body';
-   const PHOTO_FLD = 'photo_id';
+   const NAME_FLD        = 'name';
+   const HEAD_FLD        = 'head';
+   const BODY_FLD        = 'body';
+   const PHOTO_FLD       = 'photo_id';
+   const TITLE_FLD       = 'meta_title';
+   const KEYWORDS_FLD    = 'meta_keywords';
+   const DESCRIPTION_FLD = 'meta_description';
 
    const TABLE = 'texts';
 
@@ -45,6 +48,23 @@ class Texts extends Entity
             static::PHOTO_FLD,
             IntType(),
             true
+         ),
+         new Field(
+            static::KEYWORDS_FLD,
+            TextType(),
+            true
+         ),
+         new Field(
+            static::DESCRIPTION_FLD,
+            TextType(),
+            true
+         ),
+         new Field(
+            static::TITLE_FLD,
+            StrType(70),
+            true,
+            'Title страницы',
+            Array(Validate::IS_NOT_EMPTY)
          )
       );
    }
@@ -61,6 +81,11 @@ class Texts extends Entity
             $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
             break;
       }
+      $fields = array_merge($fields, [
+         $this->GetFieldByName(static::TITLE_FLD),
+         $this->GetFieldByName(static::KEYWORDS_FLD),
+         $this->GetFieldByName(static::DESCRIPTION_FLD)
+      ]);
       if ($this->samplingScheme == static::PROJECTS_SCHEME || $this->samplingScheme == static::MAIN_PROJECTS_SCHEME) {
          $this->CheckSearch()->AddLimit(3, 0);
          $this->search->AddClause(

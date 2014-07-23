@@ -45,8 +45,20 @@
                <input id="head_{$smarty.foreach.f.index}" name="head" value="{$project.texts_head}" />
             </div>
             <div class="form_block">
+               <label for="title">Meta title</label>
+               <input id="title" name="title" value="{$project.texts_meta_title}" />
+            </div>
+            <div class="form_block">
                <label for="body_{$smarty.foreach.f.index}">Описание</label>
                <textarea id="description_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$project.texts_body}</textarea>
+            </div>
+            <div class="form_block">
+               <label for="description">Meta description</label>
+               <textarea id="description" name="description" cols="90" rows="10">{$project.texts_meta_description}</textarea>
+            </div>
+            <div class="form_block">
+               <label for="keywords">Meta keywords</label>
+               <textarea id="keywords" name="keywords" cols="90" rows="10">{$project.texts_meta_keywords}</textarea>
             </div>
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>
