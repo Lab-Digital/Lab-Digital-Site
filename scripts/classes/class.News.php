@@ -86,13 +86,16 @@ class News extends Entity
    {
       if (empty($sample)) return $sample;
       switch ($this->samplingScheme) {
+         case static::MAIN_SCHEME:
          case static::INFO_SCHEME:
             $key = $this->ToPrfxNm(static::PHOTOS_FLD);
             $dateKey = $this->ToPrfxNm(static::PUBLICATION_DATE_FLD);
             foreach ($sample as &$set) {
                $date_var = new DateTime($set[$dateKey]);
                $set[$dateKey] = $date_var->format('d-m-Y');
-               $set[$key] = !empty($set[$key]) ? explode(',', $set[$key]) : Array();
+               if ($this->samplingScheme == static::INFO_SCHEME) {
+                  $set[$key] = !empty($set[$key]) ? explode(',', $set[$key]) : Array();
+               }
             }
             break;
 
