@@ -79,6 +79,10 @@ switch ($request[0]) {
             require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.other.php';
             break;
 
+         case 'change_data':
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.change_data.php';
+            break;
+
          case 'logout':
             unset($_SESSION['admin_login']);
             unset($_SESSION['admin_pass']);

@@ -9,5 +9,4 @@ if (isset($_POST['mode'])) {
       isset($post['new_pass'])  ? $post['new_pass']  : ''
    );
 }
-$smarty->assign('admin', $_admin->GetById(ADMIN_ID))
-       ->display('admin.change_data.tpl');
+$smarty->assign('admin', $_admin->GetById(ADMIN_ID))->display('admin.change_data.tpl');
