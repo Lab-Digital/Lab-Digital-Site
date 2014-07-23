@@ -91,7 +91,7 @@ class News extends Entity
             $dateKey = $this->ToPrfxNm(static::PUBLICATION_DATE_FLD);
             foreach ($sample as &$set) {
                $date_var = new DateTime($set[$dateKey]);
-               $set[$dateKey] = $date_var->format('d-m-Y H:i');
+               $set[$dateKey] = $date_var->format('d-m-Y');
                $set[$key] = !empty($set[$key]) ? explode(',', $set[$key]) : Array();
             }
             break;
