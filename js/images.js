@@ -18,14 +18,13 @@ $(function(){
   $('div.in ul li button').click(function() {
     $button = $(this);
     $.post(
-      "/scripts/handlers/handler.Image.php",
+      "/handler/image",
       {
         type: 'Image',
         mode: 'Delete',
-        params:
-          {
-            id: $button.attr('data')
-          }
+        params: {
+          id: $button.attr('data')
+        }
       },
       function(data) {
         if (data.result) {
@@ -35,7 +34,7 @@ $(function(){
           alert(data.message);
         }
       },
-       "json"
+      "json"
     );
     return false;
   });
