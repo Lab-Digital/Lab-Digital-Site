@@ -77,6 +77,13 @@ CREATE TABLE IF NOT EXISTS `index_meta` (
    PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `slider` (
+   `id`   INT          NOT NULL AUTO_INCREMENT,
+   `head` VARCHAR(123) NOT NULL,
+   `body` VARCHAR(120) NOT NULL,
+   PRIMARY KEY (`id`)
+);
+
 DELIMITER //
 
 DROP TRIGGER IF EXISTS `update_admin`//
@@ -117,3 +124,8 @@ INSERT INTO `texts`(`meta_title`, `name`, `head` , `body`) VALUES('Lab Digital -
 В оперативные сроки нам удалось решить все необходимые вопросы, обеспечив проведение всех мероприятий на олимпийской высоте! "');
 
 INSERT INTO `index_meta`(`title`, `keywords`, `description`) VALUES('Lab Digital - Главная', '', '');
+
+INSERT INTO `slider`(`head`, `body`) VALUES
+   ('Контексная реклама', 'Поможет покупателям прийти именно к вам'),
+   ('Посадочная страница', 'Расскажет о продукте и убедит стать вашим покупателем'),
+   ('Поисковая оптимизация', 'Поднимет вас над конкурентами и сделает заметным');

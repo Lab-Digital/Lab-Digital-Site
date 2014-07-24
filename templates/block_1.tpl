@@ -25,14 +25,16 @@
         <li><a class="active" data-slide-index="0">First</a></li><li><a data-slide-index="1">Second</a></li><li><a data-slide-index="2">Third</a></li>
     </ul>
 	<ul class="bxslider">
+		{foreach from=$sliders item=slider name=f}
     	<li>
     		<div class="wrap">
 				<img src="/images/top_logo.png" class="logo" alt="#" />
-				<h1>Контексная реклама</h1>
-				<h2>Поможет покупателям прийти именно к вам</h2>
+				<h1>{$slider.slider_head}</h1>
+				<h2>{$slider.slider_body}</h2>
 			</div>
     	</li>
-    	<li>
+    	{/foreach}
+<!--     	<li>
 			<div class="wrap">
 				<img src="/images/top_logo.png" class="logo" alt="#" />
 				<h1>Посадочная страница</h1>
@@ -45,10 +47,10 @@
 				<h1>Поисковая оптимизация</h1>
 				<h2>Поднимет вас над конкурентами и сделает заметным</h2>
 			</div>
-    	</li>
+    	</li> -->
     </ul>
 
-    	
+
 		<!--<section class="right">
 			<div class="wrap">
 				<h1>Оставь заявку</h1>
