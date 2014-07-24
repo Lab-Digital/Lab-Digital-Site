@@ -3,8 +3,8 @@
 <head>
 	<title>{block name='title'}Lab Digital{/block}</title>
 	<meta charset="utf-8" />
-   <meta name="description" content="{$meta_description|default:''}" />
-   <meta name="keywords" content="{$meta_keywords|default:''}" />
+   <meta name="description" content="{block name='meta_description'}{/block}" />
+   <meta name="keywords" content="{block name='meta_keywords'}{/block}" />
 	{include file='head.tpl'}
 	{block name='links'}{/block}
 </head>

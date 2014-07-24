@@ -10,7 +10,6 @@ RewriteCond %{REQUEST_URI} !^/upload_photo/*
 RewriteCond %{REQUEST_URI} !^/scripts/uploads/*
 RewriteCond %{REQUEST_URI} !^/scripts/uploadimage.php
 RewriteCond %{REQUEST_URI} !^/scripts/resize.php
-RewriteCond %{REQUEST_URI} !^/scripts/handlers/handler.Image.php
 
 RewriteRule (.*) index.php [L]
 

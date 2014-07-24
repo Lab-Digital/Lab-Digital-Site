@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `texts` (
    `head`             VARCHAR(150) NOT NULL,
    `body`             TEXT,
    `photo_id`         INT          DEFAULT NULL,
-   `meta_title`       VARCHAR(80)  NOT NULL,
+   `meta_title`       VARCHAR(130)  NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    PRIMARY KEY (`id`),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `service` (
    `body`             TEXT,
    `photo_id`         INT          DEFAULT NULL,
    `description`      TEXT         NOT NULL,
-   `meta_title`       VARCHAR(80)  NOT NULL,
+   `meta_title`       VARCHAR(130)  NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    PRIMARY KEY (`id`),
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `news` (
    `body`             TEXT         NOT NULL,
    `description`      TEXT         NOT NULL,
    `photo_id`         INT          DEFAULT NULL,
-   `meta_title`       VARCHAR(80)  NOT NULL,
+   `meta_title`       VARCHAR(130) NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    `publication_date` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -71,9 +71,25 @@ CREATE TABLE IF NOT EXISTS `news_images` (
 
 CREATE TABLE IF NOT EXISTS `index_meta` (
    `id`           INT         NOT NULL AUTO_INCREMENT,
-   `title`        VARCHAR(80) NOT NULL,
+   `title`        VARCHAR(130) NOT NULL,
    `keywords`     TEXT,
    `description`  TEXT,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `slider` (
+   `id`   INT          NOT NULL AUTO_INCREMENT,
+   `head` VARCHAR(123) NOT NULL,
+   `body` VARCHAR(120) NOT NULL,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `proposal` (
+   `id`    INT          NOT NULL AUTO_INCREMENT,
+   `name`  VARCHAR(180) NOT NULL,
+   `email` VARCHAR(180) NOT NULL,
+   `phone` VARCHAR(32)  NOT NULL,
+   `task`  TEXT         NOT NULL,
    PRIMARY KEY (`id`)
 );
 
@@ -117,3 +133,8 @@ INSERT INTO `texts`(`meta_title`, `name`, `head` , `body`) VALUES('Lab Digital -
 В оперативные сроки нам удалось решить все необходимые вопросы, обеспечив проведение всех мероприятий на олимпийской высоте! "');
 
 INSERT INTO `index_meta`(`title`, `keywords`, `description`) VALUES('Lab Digital - Главная', '', '');
+
+INSERT INTO `slider`(`head`, `body`) VALUES
+   ('Контексная реклама', 'Поможет покупателям прийти именно к вам'),
+   ('Посадочная страница', 'Расскажет о продукте и убедит стать вашим покупателем'),
+   ('Поисковая оптимизация', 'Поднимет вас над конкурентами и сделает заметным');

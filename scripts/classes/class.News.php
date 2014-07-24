@@ -72,7 +72,7 @@ class News extends Entity
          ),
          new Field(
             static::TITLE_FLD,
-            StrType(70),
+            StrType(125),
             true,
             'Title страницы',
             Array(Validate::IS_NOT_EMPTY)
@@ -82,27 +82,20 @@ class News extends Entity
          Array(static::PUBLICATION_DATE_FLD => new OrderField(static::TABLE, $this->GetFieldByName(static::PUBLICATION_DATE_FLD)));
    }
 
-   public function CutNewsBody($news, $delimiter = ' ')
-   {
-      $amount = 14;
-      $amount = $delimiter == ' ' ? $amount : 1;
-      $arr = explode($delimiter, $news);
-      $result = implode($delimiter, array_slice($arr, 0, $amount));
-      $result .= $delimiter == ' ' && count($arr) >= $amount ? '...' : '';
-      return $result;
-   }
-
    public function ModifySample(&$sample)
    {
       if (empty($sample)) return $sample;
       switch ($this->samplingScheme) {
+         case static::MAIN_SCHEME:
          case static::INFO_SCHEME:
             $key = $this->ToPrfxNm(static::PHOTOS_FLD);
             $dateKey = $this->ToPrfxNm(static::PUBLICATION_DATE_FLD);
             foreach ($sample as &$set) {
                $date_var = new DateTime($set[$dateKey]);
-               $set[$dateKey] = $date_var->format('d-m-Y H:i');
-               $set[$key] = !empty($set[$key]) ? explode(',', $set[$key]) : Array();
+               $set[$dateKey] = $date_var->format('d-m-Y');
+               if ($this->samplingScheme == static::INFO_SCHEME) {
+                  $set[$key] = !empty($set[$key]) ? explode(',', $set[$key]) : Array();
+               }
             }
             break;
 
@@ -180,49 +173,6 @@ class News extends Entity
       }
       return $news;
    }
-
-   // public function GetNews($page)
-   // {
-   //    global $db;
-   //    $sample = Array();
-   //    try {
-   //       $dateField = $this->ToTblNm(static::PUBLICATION_DATE_FLD);
-   //       $queryPart =
-   //          SQL::SimpleQuerySelect(
-   //             SQL::GetListFieldsForSelect(
-   //                SQL::PrepareFieldsForSelect(
-   //                   static::TABLE,
-   //                   $this->fields
-   //                )
-   //             ),
-   //             static::TABLE
-   //       );
-   //       $query = '('
-   //              . $queryPart
-   //              . " ORDER BY $dateField DESC limit 0, 1) UNION ("
-   //              . $queryPart
-   //              . " ORDER BY $dateField DESC limit ?, ?)";
-   //       $sample = $db->Query($query, Array($page * static::NEWS_ON_PAGE + 1, static::NEWS_ON_PAGE));
-   //       $textKey = $this->ToPrfxNm(static::TEXT_BODY_FLD);
-   //       $dateKey = $this->ToPrfxNm(static::PUBLICATION_DATE_FLD);
-   //       foreach ($sample as $key => &$set) {
-   //          $date = new DateTime($set[$dateKey]);
-   //          $set[$dateKey] = $date->format('d-m-Y');
-   //          $set[$textKey] = $key == 0 ? $this->CutNewsBody($set[$textKey], '.') : $this->CutNewsBody($set[$textKey]);
-   //       }
-   //       $firstNews['top_news'] = array_shift($sample);
-   //       $tmp = Array();
-   //       if (count($sample) % 2 != 0) {
-   //          $tmp[] = array_shift($sample);
-   //       }
-   //       $mediana = count($sample) < static::NEWS_ON_PAGE ? count($sample) / 2 : intval(static::NEWS_ON_PAGE / 2);
-   //       $resArr = $mediana != 0 ? array_chunk($sample, $mediana) : Array($sample, Array());
-   //       $firstNews['left_news']  = isset($resArr[0]) ? array_merge($tmp, $resArr[0]) : Array();
-   //       $firstNews['right_news'] = isset($resArr[1]) ? $resArr[1] : Array();
-   //       $sample = $firstNews;
-   //    } catch (DBException $e) {}
-   //    return $sample;
-   // }
 
    public function GetAdminMenu()
    {

@@ -6,9 +6,11 @@ define('ADMIN_START_PAGE', 'we');
 define('GENERAL_DATE_FORMAT', 'Y-m-d H:i:s');
 
 //errors messages
+define('ERROR_PASS', 'Неверный пароль.');
 define('ERROR_QUERY', 'В данный момент невозможно подключение к базе данных.');
 define('ERROR_LOGIN', 'Неверное имя пользователя или пароль.');
-define('ERROR_PASS', 'Неверный пароль.');
+define('ERROR_CONTACT_PHONE', 'Введен неверный номер телефона.');
+define('INCORRECT_MAIL', 'Введен неверный e-mail.');
 
 //database consts
 define('opEQ', '=');
