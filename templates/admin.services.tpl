@@ -44,27 +44,27 @@
                <input type="hidden" name="id" value="{$service.service_id}" />
                <div class="form_block">
                   <label for="head_{$smarty.foreach.f.index}">Заголовок</label>
-                  <input id="head_{$smarty.foreach.f.index}" name="head" value="{$head|default:$service.service_head}" />
+                  <input name="head" id="head_{$smarty.foreach.f.index}" value="{$head|default:$service.service_head}" />
                </div>
                <div class="form_block">
                   <label for="title_{$smarty.foreach.f.index}">Meta title</label>
-                  <input id="title_{$smarty.foreach.f.index}" name="title" value="{$meta_title|default:$service.service_meta_title}" />
+                  <input name="title" id="title_{$smarty.foreach.f.index}" value="{$meta_title|default:$service.service_meta_title}" />
                </div>
                 <div class="form_block">
                   <label for="description_{$smarty.foreach.f.index}">Описание</label>
-                  <textarea class="article_body" name="desc" id="description_{$smarty.foreach.f.index}" rows="2" cols="100">{$desc|default:$service.service_description}</textarea>
+                  <textarea name="desc" id="description_{$smarty.foreach.f.index}" rows="2" cols="100">{$desc|default:$service.service_description}</textarea>
                 </div>
                <div>
                   <label for="body_{$smarty.foreach.f.index}">Текст</label>
-                  <textarea id="body_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$body|default:$service.service_body}</textarea>
+                  <textarea name="body" id="body_{$smarty.foreach.f.index}" cols="130" rows="15">{$body|default:$service.service_body}</textarea>
                </div>
                <div class="form_block">
                   <label for="meta_description_{$smarty.foreach.f.index}">Meta description</label>
-                  <textarea id="meta_description_{$smarty.foreach.f.index}" name="description" cols="90" rows="10">{$meta_description|default:$service.service_meta_description}</textarea>
+                  <textarea name="description" id="meta_description_{$smarty.foreach.f.index}" cols="90" rows="10">{$meta_description|default:$service.service_meta_description}</textarea>
                </div>
                <div class="form_block">
                   <label for="keywords_{$smarty.foreach.f.index}">Meta keywords</label>
-                  <textarea id="keywords_{$smarty.foreach.f.index}" name="keywords" cols="90" rows="10">{$meta_keywords|default:$service.service_meta_keywords}</textarea>
+                  <textarea name="keywords" id="keywords_{$smarty.foreach.f.index}" cols="90" rows="10">{$meta_keywords|default:$service.service_meta_keywords}</textarea>
                </div>
                <div class="buttons"><button name="mode" value="Update">Сохранить</button><button class="red" name="mode" value="Delete">Удалить</button></div>
             </form>
@@ -92,28 +92,28 @@
       <div class="add">
          <form action="/admin/services" method="post">
             <div class="form_block">
-               <label for="new_title">Заголовок</label>
-               <input id="new_title" name="head" value="{$head}" />
+               <label for="head_new">Заголовок</label>
+               <input name="head" id="head_new" value="{$head}" />
             </div>
             <div class="form_block">
-               <label for="title">Meta title</label>
-               <input id="title" name="title" value="{$meta_title}" />
+               <label for="title_new">Meta title</label>
+               <input id="title_new" name="title" value="{$meta_title}" />
             </div>
             <div class="form_block">
                <label for="article_description_new">Описание</label>
-               <textarea class="article_body" name="desc" id="article_description_new" rows="2" cols="100">{$desc}</textarea>
+               <textarea name="desc" id="article_description_new" rows="2" cols="100">{$desc}</textarea>
              </div>
             <div class="form_block">
-               <label for="new_body">Текст</label>
-               <textarea id="new_body" name="body" cols="130" rows="15">{$body}</textarea>
+               <label for="body_new">Текст</label>
+               <textarea name="body" id="body_new" cols="130" rows="15">{$body}</textarea>
             </div>
             <div class="form_block">
-               <label for="description">Meta description</label>
-               <textarea id="description" name="description" cols="90" rows="10">{$meta_description}</textarea>
+               <label for="description_new">Meta description</label>
+               <textarea name="description" id="description_new" cols="90" rows="10">{$meta_description}</textarea>
             </div>
             <div class="form_block">
-               <label for="keywords">Meta keywords</label>
-               <textarea id="keywords" name="keywords" cols="90" rows="10">{$meta_keywords}</textarea>
+               <label for="keywords_new">Meta keywords</label>
+               <textarea name="keywords" id="keywords_new" cols="90" rows="10">{$meta_keywords}</textarea>
             </div>
             <div class="buttons"><button id="add" name="mode" value="Insert">Добавить</button></div>
          </form>

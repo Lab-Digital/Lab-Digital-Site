@@ -8,7 +8,7 @@
 {block name='div.main'}
   {include file="header.tpl"}
   <div class="open">
-    <img src="/scripts/uploads/{$service.service_photo_id}_b.jpg" alt="#" />
+    <img src="/scripts/uploads/{$service.service_photo_id}_b.jpg" alt="{$service.service_head}" class="open_image" />
     <h1>{$service.service_head}</h1>
     <div class="text">
       {$service.service_body}

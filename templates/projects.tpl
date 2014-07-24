@@ -7,7 +7,7 @@
 {block name='div.main'}
   {include file="header.tpl"}
   <div class="open">
-    <img src="/images/img.jpg" alt="#" class="open_image" />
+    <img src="/scripts/uploads/{$project.texts_photo_id}_b.jpg" alt="{$project.texts_head}" class="open_image" />
     <h1>{$project.texts_head}</h1>
     <div class="text">{$project.texts_body}</div>
   </div>
