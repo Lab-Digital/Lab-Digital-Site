@@ -1,5 +1,7 @@
 {extends file='page.tpl'}
-{block name='title' append} - Новости - {$article.news_head}{/block}
+{block name='title'}{$article.news_meta_title}{/block}
+{block name='meta_description'}{$article.news_meta_description}{/block}
+{block name='meta_keywords'}{$article.news_meta_keywords}{/block}
 {block name='links' append}
   <link href="/css/header.css" rel="stylesheet" />
   <link href="/css/open.css" rel="stylesheet" />

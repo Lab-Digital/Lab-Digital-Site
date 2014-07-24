@@ -72,7 +72,7 @@ class News extends Entity
          ),
          new Field(
             static::TITLE_FLD,
-            StrType(70),
+            StrType(125),
             true,
             'Title страницы',
             Array(Validate::IS_NOT_EMPTY)

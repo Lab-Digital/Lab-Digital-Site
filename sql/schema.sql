@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `texts` (
    `head`             VARCHAR(150) NOT NULL,
    `body`             TEXT,
    `photo_id`         INT          DEFAULT NULL,
-   `meta_title`       VARCHAR(80)  NOT NULL,
+   `meta_title`       VARCHAR(130)  NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    PRIMARY KEY (`id`),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `service` (
    `body`             TEXT,
    `photo_id`         INT          DEFAULT NULL,
    `description`      TEXT         NOT NULL,
-   `meta_title`       VARCHAR(80)  NOT NULL,
+   `meta_title`       VARCHAR(130)  NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    PRIMARY KEY (`id`),
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `news` (
    `body`             TEXT         NOT NULL,
    `description`      TEXT         NOT NULL,
    `photo_id`         INT          DEFAULT NULL,
-   `meta_title`       VARCHAR(80)  NOT NULL,
+   `meta_title`       VARCHAR(130) NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    `publication_date` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `news_images` (
 
 CREATE TABLE IF NOT EXISTS `index_meta` (
    `id`           INT         NOT NULL AUTO_INCREMENT,
-   `title`        VARCHAR(80) NOT NULL,
+   `title`        VARCHAR(130) NOT NULL,
    `keywords`     TEXT,
    `description`  TEXT,
    PRIMARY KEY (`id`)
