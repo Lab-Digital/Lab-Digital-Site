@@ -84,6 +84,15 @@ CREATE TABLE IF NOT EXISTS `slider` (
    PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `proposal` (
+   `id`    INT          NOT NULL AUTO_INCREMENT,
+   `name`  VARCHAR(180) NOT NULL,
+   `email` VARCHAR(180) NOT NULL,
+   `phone` VARCHAR(32)  NOT NULL,
+   `task`  TEXT         NOT NULL,
+   PRIMARY KEY (`id`)
+);
+
 DELIMITER //
 
 DROP TRIGGER IF EXISTS `update_admin`//

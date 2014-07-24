@@ -34,6 +34,20 @@ switch ($request[0]) {
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/upload_photo.php';
       break;
 
+   case 'handler':
+      $possible_handlers = [
+         'image'    => $_SERVER['DOCUMENT_ROOT'] . '/scripts/handlers/handler.Image.php',
+         'proposal' => $_SERVER['DOCUMENT_ROOT'] . '/scripts/handlers/handler.Proposal.php'
+      ];
+      if (empty($request[1]) || empty($possible_handlers[$request[1]])) Redirect('/404');
+      require_once $possible_handlers[$request[1]];
+      break;
+
+   case '404':
+      header('HTTP/1.0 404 Not Found');
+      echo "FAIL ERROR";
+      break;
+
    case 'admin':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Admin.php';
       $isLoginPage = empty($request[1]) || $request[1] == 'login';
@@ -93,6 +107,7 @@ switch ($request[0]) {
       break;
 
    default:
+      header('HTTP/1.0 404 Not Found');
       echo "FAIL ERROR";
       #error page
 }
