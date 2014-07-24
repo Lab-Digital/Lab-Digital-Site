@@ -1,7 +1,8 @@
 {extends file='admin.tpl'}
 {block name='title' append} - Новости{/block}
 {block name='links' append}
-   <script type="text/javascript" src="/js/select_plugin.js"></script>
+   <script src="/js/select_plugin.js"></script>
+   <script src="/js/select_avatar.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
    <script>
    {literal}
@@ -75,11 +76,7 @@
         <div class="in">
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
           <ul>
-            {foreach from=$article.news_photos item=photo}
-              {if $article.news_photo_id != $photo}
-                <li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button></li>
-              {/if}
-            {/foreach}
+            {foreach from=$article.news_photos item=photo}<li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button><input type="radio" id="i{$photo}" data="{$article.news_id}_{$photo}" {if $article.news_photo_id == $photo}checked="checked"{/if} name="avatar{$article.news_id}" /></li>{/foreach}
           </ul>
         </div>
       </div>

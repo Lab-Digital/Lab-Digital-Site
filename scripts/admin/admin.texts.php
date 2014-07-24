@@ -14,7 +14,7 @@ if (isset($_POST['mode'])) {
    $title       = isset($post['title'])       ? $post['title']       : null;
    $keywords    = isset($post['keywords'])    ? $post['keywords']    : null;
    $description = isset($post['description']) ? $post['description'] : null;
-   echo $title;
+
    $post['params'] = Array(
       $obj::ID_FLD               => $id,
       $obj::HEAD_FLD             => $head,

@@ -60,6 +60,10 @@ div.in {
 	margin-top: 20px;
 }
 
+div.in img {
+	width: 100px;
+}
+
 p.db_error {
 	margin: 20px 0;
 	color: red;
