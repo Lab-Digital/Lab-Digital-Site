@@ -10,6 +10,7 @@
          $data = $(this).attr('data');
          $(this).getUpload({
             'uploadType'  : 'services',
+            'isAvatar'    : 'true',
             'item_id'     :  $data,
             'width'       : '100',
             'height'      : '100',
@@ -21,7 +22,6 @@
          $data = $(this).attr('data');
          $(this).getUpload({
             'uploadType'  : 'services',
-            'isAvatar'    : 'true',
             'item_id'     :  $data,
             'width'       : '300',
             'height'      : '200',
