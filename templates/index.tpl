@@ -14,8 +14,12 @@
   <link href="/css/footer.css" rel="stylesheet" />
   <link href="/css/jquery.bxslider.css" rel="stylesheet" />
   <script src="/js/js_scroll.js"></script>
+  <script src="/js/news.js"></script>
   <script src="/js/sticky_header.js"></script>
   <script src="/js/jquery.bxslider.js"></script>
+  <link href="/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" media="screen" />
+  <script src="/fancybox/jquery.fancybox-1.3.4.js"></script>
+  <script src="/js/send_to_mail.js"></script>
   <script>
   $(function(){
       $('.bxslider').bxSlider({

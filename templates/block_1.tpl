@@ -21,35 +21,6 @@
          </form>
       </div>
    </div>
-<script type="text/javascript">
-   $('#proposal #submit').click(function() {
-      var $form = $('#proposal');
-      $.post(
-         "/handler/proposal",
-         {
-            mode: 'Insert',
-            params: {
-                  name: $form.find('#top_form_name').val(),
-                  email: $form.find('#top_form_mail').val(),
-                  phone: $form.find('#top_form_phone').val(),
-                  task: $form.find('#top_form_quest').val()
-            }
-         },
-         function(data) {
-            if (data.result) {
-               $form.find('.form-control').each(function() {
-                  $(this).val('');
-               });
-               alert('успех')
-            } else {
-              alert(data.message);
-            }
-         },
-         "json"
-      );
-      return false;
-   });
-</script>
    <ul id="topSliderCtrl">
         <li><a class="active" data-slide-index="0">First</a></li><li><a data-slide-index="1">Second</a></li><li><a data-slide-index="2">Third</a></li>
     </ul>

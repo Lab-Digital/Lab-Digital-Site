@@ -1,6 +1,7 @@
 #news {
 	min-height: 100vh;
 	margin-bottom: 10vh;
+	vertical-align: top;
 }
 
 #news .middle > h1 {
@@ -62,4 +63,15 @@
 #news .middle ul.news li a {
 	text-decoration: none;
 	color: black;
+}
+
+#news .button_left {
+	float: left;
+	margin-top: 20vh;
+}
+
+
+#news .button_right {
+	float: right;
+	margin-top: 20vh;
 }

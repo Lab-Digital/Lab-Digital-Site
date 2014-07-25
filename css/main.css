@@ -22,15 +22,15 @@ button {
   padding: 7px 10px;
   display: block;
   cursor: pointer;
-  background: #36a09f;
+  background: #e67e22;
   color: white;
   border: 0;
 }
 
 button:hover {
-  background: #36a09f;
+  background: #e67e22;
 }
 
 a {
-  color: #36a09f;
+  color: #e67e22;
 }

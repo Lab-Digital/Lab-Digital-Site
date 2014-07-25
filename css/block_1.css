@@ -217,6 +217,11 @@ button {
   -webkit-transition: background-color 0.5s 0.1s ease;
 }
 
+button.disabled, button[disabled], button.disabled:hover, button[disabled]:hover {
+  background: #BDC3C7;
+  border-color: #BDC3C7;
+}
+
 button:hover {
 	color: #FFF;
 	background-color: #e67e22;
