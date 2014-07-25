@@ -19,6 +19,7 @@
 	margin: 0 10px;
 	vertical-align: top;
 	color: #868F90;
+	line-height: 1.1;
 }
 
 #projects .middle ul.projects li img {
@@ -30,7 +31,7 @@
 }
 
 #projects .middle ul.projects li h3 {
-	font-size: 160%;
+	font-size: 140%;
 	width: 300px;
 	margin: 0 auto;
 }

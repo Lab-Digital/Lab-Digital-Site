@@ -107,7 +107,8 @@
 
 #slider_top ul.bxslider li h2 {
 	font-size: 200%;
-  	max-width: 450px;
+  	max-width: 480px;
+  	font-weight: 300;
 }
 
 #slider_top .right h1 {

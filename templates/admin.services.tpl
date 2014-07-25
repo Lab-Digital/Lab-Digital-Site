@@ -66,7 +66,7 @@
                   <label for="description_{$smarty.foreach.f.index}">Описание</label>
                   <textarea name="desc" id="description_{$smarty.foreach.f.index}" rows="2" cols="100">{$desc|default:$service.service_description}</textarea>
                 </div>
-               <div>
+               <div class="form_block">
                   <label for="body_{$smarty.foreach.f.index}">Текст</label>
                   <textarea name="body" id="body_{$smarty.foreach.f.index}" cols="130" rows="15">{$body|default:$service.service_body}</textarea>
                </div>

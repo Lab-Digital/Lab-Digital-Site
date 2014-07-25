@@ -3,7 +3,6 @@
 {block name='meta_description'}{$meta.index_meta_description}{/block}
 {block name='meta_keywords'}{$meta.index_meta_keywords}{/block}
 {block name='links' append}
-  <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href="/css/header.css" rel="stylesheet" />
   <link href="/css/footer.css" rel="stylesheet" />
   <link href="/css/index.css" rel="stylesheet" />

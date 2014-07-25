@@ -39,9 +39,10 @@
 }
 
 #services .middle ul.services li p {
-	font-size: 110%;
+	font-size: 100%;
 	color: #677373;
 	margin-left: 120px;
+	line-height: 1.3;
 }
 
 #services .middle {
