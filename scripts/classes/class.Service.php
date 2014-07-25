@@ -8,6 +8,7 @@ class Service extends Entity
    const BODY_FLD             = 'body';
    const PHOTO_FLD            = 'photo_id';
    const TITLE_FLD            = 'meta_title';
+   const AVATAR_FLD           = 'avatar_id';
    const KEYWORDS_FLD         = 'meta_keywords';
    const DESCRIPTION_FLD      = 'description';
    const META_DESCRIPTION_FLD = 'meta_description';
@@ -37,6 +38,11 @@ class Service extends Entity
          ),
          new Field(
             static::PHOTO_FLD,
+            IntType(),
+            true
+         ),
+         new Field(
+            static::AVATAR_FLD,
             IntType(),
             true
          ),
@@ -80,7 +86,8 @@ class Service extends Entity
       $this->selectFields = SQL::GetListFieldsForSelect(
          array_merge(
             SQL::PrepareFieldsForSelect(static::TABLE, $fields),
-            [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD))]
+            [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::AVATAR_FLD))],
+            $this->samplingScheme != static::MAIN_SCHEME ? [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD))] : []
          )
       );
    }

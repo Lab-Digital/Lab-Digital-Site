@@ -37,13 +37,15 @@ CREATE TABLE IF NOT EXISTS `service` (
    `id`               INT          NOT NULL AUTO_INCREMENT,
    `head`             VARCHAR(150) NOT NULL,
    `body`             TEXT,
+   `avatar_id`        INT          DEFAULT NULL,
    `photo_id`         INT          DEFAULT NULL,
    `description`      TEXT         NOT NULL,
-   `meta_title`       VARCHAR(130)  NOT NULL,
+   `meta_title`       VARCHAR(130) NOT NULL,
    `meta_keywords`    TEXT,
    `meta_description` TEXT,
    PRIMARY KEY (`id`),
-   FOREIGN KEY (`photo_id`) REFERENCES `images` (`id`) ON DELETE SET NULL
+   FOREIGN KEY (`photo_id`)  REFERENCES `images` (`id`) ON DELETE SET NULL,
+   FOREIGN KEY (`avatar_id`) REFERENCES `images` (`id`) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS `news` (

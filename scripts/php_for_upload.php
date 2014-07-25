@@ -19,7 +19,9 @@ try {
       try {
          $db->link->beginTransaction();
          $_POST['__file'] = $_image->Insert(true);
-         $obj->SetFieldByName($obj::ID_FLD, $item_id)->SetFieldByName($obj::PHOTO_FLD, $_POST['__file'])->Update();
+         $obj->SetFieldByName($obj::ID_FLD, $item_id)
+             ->SetFieldByName(!empty($post['isAvatar']) && $post['isAvatar'] ? $obj::AVATAR_FLD : $obj::PHOTO_FLD, $_POST['__file'])
+             ->Update();
          $db->link->commit();
       } catch (DBException $e) {
          $db->link->rollback();

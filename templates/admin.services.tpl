@@ -6,7 +6,7 @@
    <script>
    {literal}
    $(function(){
-      $('div.photos_in button.upload').each(function(){
+      $('div.avatar_in button.upload').each(function(){
          $data = $(this).attr('data');
          $(this).getUpload({
             'uploadType'  : 'services',
@@ -17,7 +17,7 @@
             'sizes'       : 's#100#100'
          });
       });
-      $('div.avatar_in button.upload').each(function(){
+      $('div.photos_in button.upload').each(function(){
          $data = $(this).attr('data');
          $(this).getUpload({
             'uploadType'  : 'services',
