@@ -25,7 +25,7 @@
       $data = $(this).attr('data');
       $(this).getUpload({
          'uploadType'  : 'news',
-         'isAvatar'    :  true,
+         'isAvatar'    : 'true',
          'item_id'     :  $data,
          'width'       : '300',
          'height'      : '200',
