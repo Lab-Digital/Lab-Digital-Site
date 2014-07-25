@@ -1,14 +1,8 @@
-@font-face {
-  font-family: 'Lato';
-  src: url('/images/Lato-Regular.ttf')  format('truetype');
-}
-
-
 body {
   background: white;
   margin: 0 auto;
   /*font-size: 90%;*/
-  font-family: Calibri;
+  font-family: Roboto;
 }
 
 #wrap {

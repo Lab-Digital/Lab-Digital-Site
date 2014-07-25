@@ -3,6 +3,7 @@
 {block name='meta_description'}{$meta.index_meta_description}{/block}
 {block name='meta_keywords'}{$meta.index_meta_keywords}{/block}
 {block name='links' append}
+  <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href="/css/header.css" rel="stylesheet" />
   <link href="/css/footer.css" rel="stylesheet" />
   <link href="/css/index.css" rel="stylesheet" />
@@ -15,7 +16,6 @@
   <link href="/css/jquery.bxslider.css" rel="stylesheet" />
   <script src="/js/js_scroll.js"></script>
   <script src="/js/news.js"></script>
-  <script src="/js/sticky_header.js"></script>
   <script src="/js/jquery.bxslider.js"></script>
   <link href="/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" media="screen" />
   <script src="/fancybox/jquery.fancybox-1.3.4.js"></script>
@@ -32,6 +32,7 @@
       });
     });
   </script>
+  <script src="/js/sticky_header.js"></script>
 {/block}
 {block name='div.main'}
   {include file="block_1.tpl"}

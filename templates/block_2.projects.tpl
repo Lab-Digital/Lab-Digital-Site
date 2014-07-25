@@ -17,6 +17,5 @@
             {/foreach}
          </ul>
       </section>
-
    </div>
 </div>
