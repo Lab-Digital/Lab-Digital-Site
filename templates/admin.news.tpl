@@ -4,13 +4,12 @@
    <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
    <script src="/js/select_plugin.js"></script>
-   <script src="/js/select_avatar.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
    <script src="/js/dropdown_blocks.js"></script>
    <script>
    {literal}
    $(function(){
-    $('div.in button.upload').each(function(){
+    $('div.photos_in button.upload').each(function(){
       $data = $(this).attr('data');
       $(this).getUpload({
          'uploadType'  : 'news',
@@ -22,7 +21,21 @@
          'sizes'       : 's#300#200'
       });
     });
+    $('div.avatar_in button.upload').each(function(){
+      $data = $(this).attr('data');
+      $(this).getUpload({
+         'uploadType'  : 'news',
+         'isAvatar'    :  true,
+         'item_id'     :  $data,
+         'width'       : '300',
+         'height'      : '200',
+         'count'       : '1',
+         'afterResize' : '1024',
+         'sizes'       : 's#300#200'
+      });
+    });
     $('a[rel^="gallery"]').fancybox();
+    $('div.avatar_in a').fancybox();
     $('aside a.dropdown_head').append('<div class="arrow"></div>');
    });
    {/literal}
@@ -77,10 +90,16 @@
           </div>
           <div class="buttons"><button class="save" name="mode" value="Update">Сохранить</button><button class="delete red" name="mode" value="Delete">Удалить</button></div>
         </form>
-        <div class="in">
+        <div class="in photos_in">
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
           <ul>
-            {foreach from=$article.news_photos item=photo}<li><a href="/scripts/uploads/{$photo}_b.jpg" class="gallery" rel="gallery_{$article.news_id}"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button><input type="radio" id="i{$photo}" data="{$article.news_id}_{$photo}" {if $article.news_photo_id == $photo}checked="checked"{/if} name="avatar{$article.news_id}" /></li>{/foreach}
+            {foreach from=$article.news_photos item=photo}{if $photo != $article.news_photo_id}<li><a href="/scripts/uploads/{$photo}_b.jpg" rel="gallery_{$article.news_id}"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button></li>{/if}{/foreach}
+          </ul>
+        </div>
+        <div class="in avatar_in">
+          <button class="upload" type="submit" data="{$article.news_id}">Загрузить главное фото</button>
+          <ul>
+            {if !empty($article.news_photo_id)}<li><a href="/scripts/uploads/{$article.news_photo_id}_b.jpg"><img src="/scripts/uploads/{$article.news_photo_id}_s.jpg" /></a><button class="x" data="{$article.news_photo_id}">x</button></li>{/if}
           </ul>
         </div>
       </div>

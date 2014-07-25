@@ -30,7 +30,7 @@
       <button class="upload" type="submit" data="1">Загрузить фото</button>
       {if !empty($about.texts_photo_id)}
         <ul>
-          <li><a href="/scripts/uploads/{$about.texts_photo_id}_b.jpg" class="gallery"><img src="/scripts/uploads/{$about.texts_photo_id}_s.jpg" /></a><button class="x" data="{$about.texts_photo_id}">x</button></li>
+          <li><a href="/scripts/uploads/{$about.texts_photo_id}_b.jpg"><img src="/scripts/uploads/{$about.texts_photo_id}_s.jpg" /></a><button class="x" data="{$about.texts_photo_id}">x</button></li>
         </ul>
       {/if}
     </div>

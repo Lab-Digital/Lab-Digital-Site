@@ -6,7 +6,7 @@
    <script>
    {literal}
    $(function(){
-      $('div.in button.upload').each(function(){
+      $('div.photos_in button.upload').each(function(){
          $data = $(this).attr('data');
          $(this).getUpload({
             'uploadType'  : 'services',
@@ -14,8 +14,20 @@
             'width'       : '100',
             'height'      : '100',
             'count'       : '1',
-            'afterResize' : '1024',
             'sizes'       : 's#100#100'
+         });
+      });
+      $('div.avatar_in button.upload').each(function(){
+         $data = $(this).attr('data');
+         $(this).getUpload({
+            'uploadType'  : 'services',
+            'isAvatar'    : true,
+            'item_id'     :  $data,
+            'width'       : '300',
+            'height'      : '200',
+            'count'       : '1',
+            'afterResize' : '1024',
+            'sizes'       : 's#300#200'
          });
       });
    });
@@ -68,11 +80,19 @@
                </div>
                <div class="buttons"><button name="mode" value="Update">Сохранить</button><button class="red" name="mode" value="Delete">Удалить</button></div>
             </form>
-            <div class="in">
+            <div class="in photos_in">
                <button class="upload" type="submit" data="{$service.service_id}">Загрузить фото</button>
                <ul>
                   {if !empty($service.service_photo_id)}
-                     <li><a href="/scripts/uploads/{$service.service_photo_id}_b.jpg" class="gallery"><img src="/scripts/uploads/{$service.service_photo_id}_s.jpg" /></a><button class="x" data="{$service.service_photo_id}">x</button></li>
+                     <li><a href="/scripts/uploads/{$service.service_photo_id}_b.jpg"><img src="/scripts/uploads/{$service.service_photo_id}_s.jpg" /></a><button class="x" data="{$service.service_photo_id}">x</button></li>
+                  {/if}
+               </ul>
+            </div>
+            <div class="in avatar_in">
+               <button class="upload" type="submit" data="{$service.service_id}">Загрузить главное фото</button>
+               <ul>
+                  {if !empty($service.service_avatar_id)}
+                     <li><a href="/scripts/uploads/{$service.service_avatar_id}_b.jpg"><img src="/scripts/uploads/{$service.service_avatar_id}_s.jpg" /></a><button class="x" data="{$service.service_avatar_id}">x</button></li>
                   {/if}
                </ul>
             </div>

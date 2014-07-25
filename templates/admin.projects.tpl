@@ -67,7 +67,7 @@
             <button class="upload" type="submit" data-id="{$project.texts_id}">Загрузить фото</button>
             <ul>
             {if !empty($project.texts_photo_id)}
-               <li><a href="/scripts/uploads/{$project.texts_photo_id}_b.jpg" class="gallery"><img src="/scripts/uploads/{$project.texts_photo_id}_s.jpg" /></a><button class="x" data="{$project.texts_photo_id}">x</button></li>
+               <li><a href="/scripts/uploads/{$project.texts_photo_id}_b.jpg"><img src="/scripts/uploads/{$project.texts_photo_id}_s.jpg" /></a><button class="x" data="{$project.texts_photo_id}">x</button></li>
             {/if}
             </ul>
          </div>
