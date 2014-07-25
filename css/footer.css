@@ -1,5 +1,4 @@
 #contacts {
-	height: 90vh;
 	background: #1B1F23;
 }
 
@@ -57,6 +56,7 @@
 	text-align: center;
 	color: #868F90;
 	font-size: 120%;
+	padding-bottom: 35px;
 }
 
 #contacts div.bot span {

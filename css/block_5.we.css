@@ -1,5 +1,5 @@
 #we {
-	height: 70vh;
+	
 }
 
 #we div.wrap {
@@ -7,7 +7,7 @@
 	background-image: url("/images/we.png");
   	background-repeat: no-repeat;
   	background-size: cover;
-  	background-position: center center; 
+  	background-position: center center;
 }
 
 #we div.layout {
@@ -19,6 +19,7 @@
 	width: 70vw;
 	padding-top: 15vh;
 	margin: 0 auto;
+	padding-bottom: 180px;
 }
 
 #we h1 {
