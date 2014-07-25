@@ -10,7 +10,7 @@
 
 #news > .wrap {
 	margin: 0 auto;
-	width: 70vw;
+	width: 100vw;
 	padding-top: 13vh;
 }
 
@@ -68,10 +68,13 @@
 #news .button_left {
 	float: left;
 	margin-top: 250px;
+	margin-left: 5vw;
+
 }
 
 
 #news .button_right {
 	float: right;
 	margin-top: 250px;
+	margin-right: 5vw;
 }
