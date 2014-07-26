@@ -16,7 +16,8 @@
 #projects .middle ul.projects li {
 	display: inline-block;
 	width: 30%;
-	margin: 0 10px;
+	min-width: 300px;
+	margin: 0 10px 20px;
 	vertical-align: top;
 	color: #868F90;
 	line-height: 1.3;
