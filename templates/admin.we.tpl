@@ -27,6 +27,7 @@
     </div>
     <div class="buttons"><button id="save" name="mode" value="Update">Сохранить</button></div>
     <div class="in">
+      <h1 class="head_upload">Фото</h1>
       <button class="upload" type="submit" data="1">Загрузить фото</button>
       {if !empty($about.texts_photo_id)}
         <ul>

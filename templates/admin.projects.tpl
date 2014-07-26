@@ -64,6 +64,7 @@
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>
          <div class="in">
+            <h1 class="head_upload">Фото</h1>
             <button class="upload" type="submit" data-id="{$project.texts_id}">Загрузить фото</button>
             <ul>
             {if !empty($project.texts_photo_id)}

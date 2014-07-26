@@ -3,12 +3,15 @@ $(function(){
   function checkDisable() {
     $('button.upload').each(function() {
       $btnUpload = $(this);
+      $h1 = $(this).parent().siblings('h1.head_upload');
       $data = JSON.parse($btnUpload.siblings('input').val());
 
       if ($btnUpload.parent('form').siblings('ul').children('li').length >= $data.count) {
         $btnUpload.hide();
+        $h1.show();
       } else {
         $btnUpload.show();
+        $h1.hide();
       }
     });
   }

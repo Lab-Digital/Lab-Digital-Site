@@ -91,12 +91,14 @@
           <div class="buttons"><button class="save" name="mode" value="Update">Сохранить</button><button class="delete red" name="mode" value="Delete">Удалить</button></div>
         </form>
         <div class="in photos_in">
+          <h1 class="head_upload">Фото</h1>
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
           <ul>
             {foreach from=$article.news_photos item=photo}{if $photo != $article.news_photo_id}<li><a href="/scripts/uploads/{$photo}_b.jpg" rel="gallery_{$article.news_id}"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button></li>{/if}{/foreach}
           </ul>
         </div>
         <div class="in avatar_in">
+          <h1 class="head_upload">Главное фото</h1>
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить главное фото</button>
           <ul>
             {if !empty($article.news_photo_id)}<li><a href="/scripts/uploads/{$article.news_photo_id}_b.jpg"><img src="/scripts/uploads/{$article.news_photo_id}_s.jpg" /></a><button class="x" data="{$article.news_photo_id}">x</button></li>{/if}

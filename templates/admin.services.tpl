@@ -81,6 +81,7 @@
                <div class="buttons"><button name="mode" value="Update">Сохранить</button><button class="red" name="mode" value="Delete">Удалить</button></div>
             </form>
             <div class="in photos_in">
+               <h1 class="head_upload">Фото</h1>
                <button class="upload" type="submit" data="{$service.service_id}">Загрузить фото</button>
                <ul>
                   {if !empty($service.service_photo_id)}
@@ -89,6 +90,7 @@
                </ul>
             </div>
             <div class="in avatar_in">
+               <h1 class="head_upload">Главное фото</h1>
                <button class="upload" type="submit" data="{$service.service_id}">Загрузить главное фото</button>
                <ul>
                   {if !empty($service.service_avatar_id)}

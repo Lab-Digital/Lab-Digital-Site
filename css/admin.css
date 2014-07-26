@@ -97,3 +97,7 @@ aside.menu div.arrow {
 aside.menu li a.open div.arrow {
     background: url("/images/menu_sprite.png") no-repeat scroll 0 -5px transparent;
 }
+
+div.in h1.head_upload {
+	font-weight: bold;
+}

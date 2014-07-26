@@ -18,6 +18,7 @@
 	width: 30%;
 	text-align: left;
 	margin: 30px 10px;
+	vertical-align: top;
 }
 
 #services .middle ul.services li a {

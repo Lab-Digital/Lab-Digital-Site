@@ -8,12 +8,7 @@
 	text-align: center;
 }
 
-#contacts div.map {
-	height: 40vh;
-	background-image: url("/images/map.jpg");
-  	background-repeat: no-repeat;
-  	background-size: cover;
-  	background-position: center center; 
+#contacts iframe {
   	border-top: 20px #1B1F23 solid;
 }
 
