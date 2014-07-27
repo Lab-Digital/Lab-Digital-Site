@@ -36,6 +36,7 @@ switch ($request[0]) {
 
    case 'handler':
       $possible_handlers = [
+         'news'     => $_SERVER['DOCUMENT_ROOT'] . '/scripts/handlers/handler.News.php',
          'image'    => $_SERVER['DOCUMENT_ROOT'] . '/scripts/handlers/handler.Image.php',
          'proposal' => $_SERVER['DOCUMENT_ROOT'] . '/scripts/handlers/handler.Proposal.php'
       ];

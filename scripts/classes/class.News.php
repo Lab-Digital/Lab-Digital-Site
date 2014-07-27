@@ -22,7 +22,7 @@ class News extends Entity
 
    const LAST_VIEWED_ID = 'last_viewed_news_id';
 
-   const NEWS_ON_PAGE = 10;
+   const NEWS_ON_PAGE = 6;
 
    public function __construct()
    {
@@ -142,7 +142,6 @@ class News extends Entity
             break;
 
          case static::MAIN_SCHEME:
-            $this->AddLimit(6, 0);
             $fields = SQL::PrepareFieldsForSelect(
                static::TABLE,
                [
@@ -159,9 +158,9 @@ class News extends Entity
       $this->selectFields = SQL::GetListFieldsForSelect($fields);
    }
 
-   public function GetNews()
+   public function GetNews($page)
    {
-      $all_news = $this->SetSamplingScheme(News::MAIN_SCHEME)->GetAll();
+      $all_news = $this->SetSamplingScheme(News::MAIN_SCHEME)->AddLimit(static::NEWS_ON_PAGE, $page * static::NEWS_ON_PAGE)->GetAll();
       $a = ['left', 'middle', 'right'];
       $news['left'] = $news['middle'] = $news['right'] = [];
       for ($i = 0; $i < 3; $i++) {
