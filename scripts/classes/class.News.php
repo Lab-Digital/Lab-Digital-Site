@@ -198,7 +198,7 @@ class News extends Entity
          while ($date1 <= $date2) {
             $y = $date2->format('Y');
             $m = $date2->format('n');
-            $resMenu .= "<ul><li><a href='javascript:void(0)' class='dropdown_head'>$y</a><ul class='dropdown_block'>";
+            $resMenu .= "<ul><li><a href='javascript:void(0)' class='dropdown_head' id='year_$y'>$y</a><ul class='dropdown_block'>";
             do {
                $resMenu .= $printMoth($y, $date2->format('n'));
                $date2->sub(new DateInterval('P1M'));

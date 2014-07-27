@@ -46,6 +46,11 @@
    <h1>Новости</h1>
    {if isset($error_txt)}<p class="db_error">{$error_txt}</p>{/if}
    <aside class="menu">{$article_menu}</aside>
+   {if !empty($year)}
+   <script type="text/javascript">
+       $('#year_{$year}').addClass('open').siblings('ul.dropdown_block').show();
+   </script>
+   {/if}
    <div class="right_block">
     {if $article_level==2}
       {if $articles|@count!=0}
