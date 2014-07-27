@@ -3,6 +3,14 @@
 {block name='links' append}
    <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
+   <script src="/js/nicEdit.js"></script>
+   <script> 
+	   	$(function(){
+	   		$('textarea[name="body"]').each(function() {
+	   			new nicEditor().panelInstance($(this).attr('id'));
+	   		});
+	   	}); 
+   </script>
    <script src="/js/select_plugin.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
    <script src="/js/dropdown_blocks.js"></script>
@@ -71,7 +79,7 @@
           <input type="hidden" class="article_id" name="id" value="{$article.news_id}" />
           <div class="form_block">
             <label for="article_head_{$smarty.foreach.f.index}">Заголовок</label>
-            <input class="article_head" name="head" id="article_head_{$smarty.foreach.f.index}" value="{$head|default:$article.news_head}" />
+            <input name="head" id="article_head_{$smarty.foreach.f.index}" value="{$head|default:$article.news_head}" />
           </div>
           <div class="form_block">
             <label for="title_{$smarty.foreach.f.index}">Meta title</label>
@@ -79,19 +87,19 @@
           </div>
           <div class="form_block">
             <label for="description_{$smarty.foreach.f.index}">Описание новости</label>
-            <textarea class="article_body" name="desc" id="description_{$smarty.foreach.f.index}" rows="2" cols="100">{$desc|default:$article.news_description}</textarea>
+            <textarea name="desc" id="description_{$smarty.foreach.f.index}" rows="2" cols="100">{$desc|default:$article.news_description}</textarea>
           </div>
           <div class="form_block">
             <label for="body_{$smarty.foreach.f.index}">Текст</label>
-            <textarea class="article_body" name="body" id="body_{$smarty.foreach.f.index}" rows="12" cols="100">{$body|default:$article.news_body}</textarea>
+            <textarea name="body" id="body_{$smarty.foreach.f.index}" rows="12" cols="100">{$body|default:$article.news_body}</textarea>
           </div>
           <div class="form_block">
              <label for="meta_description_{$smarty.foreach.f.index}">Meta description</label>
-             <textarea id="meta_description_{$smarty.foreach.f.index}" name="description" cols="90" rows="10">{$meta_description|default:$article.news_meta_description}</textarea>
+             <textarea name="description" id="meta_description_{$smarty.foreach.f.index}" cols="90" rows="10">{$meta_description|default:$article.news_meta_description}</textarea>
           </div>
           <div class="form_block">
              <label for="keywords_{$smarty.foreach.f.index}">Meta keywords</label>
-             <textarea id="keywords_{$smarty.foreach.f.index}" name="keywords" cols="90" rows="10">{$meta_keywords|default:$article.news_meta_keywords}</textarea>
+             <textarea name="keywords" id="keywords_{$smarty.foreach.f.index}" cols="90" rows="10">{$meta_keywords|default:$article.news_meta_keywords}</textarea>
           </div>
           <div class="buttons"><button class="save" name="mode" value="Update">Сохранить</button><button class="delete red" name="mode" value="Delete">Удалить</button></div>
         </form>

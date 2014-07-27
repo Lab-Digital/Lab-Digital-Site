@@ -1,6 +1,16 @@
 {extends file='admin.tpl'}
 {block name='title' append} - Услуги{/block}
 {block name='links' append}
+   <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+   <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
+   <script src="/js/nicEdit.js"></script>
+   <script> 
+         $(function(){
+            $('textarea[name="body"]').each(function() {
+               new nicEditor().panelInstance($(this).attr('id'));
+            });
+         }); 
+   </script>
    <script type="text/javascript" src="/js/select_plugin.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
    <script>
@@ -30,6 +40,8 @@
             'sizes'       : 's#300#200'
          });
       });
+      $('a[rel^="gallery"]').fancybox();
+      $('div.avatar_in a').fancybox();
    });
    {/literal}
    </script>
@@ -85,7 +97,7 @@
                <button class="upload" type="submit" data="{$service.service_id}">Загрузить фото</button>
                <ul>
                   {if !empty($service.service_photo_id)}
-                     <li><a href="/scripts/uploads/{$service.service_photo_id}_b.jpg"><img src="/scripts/uploads/{$service.service_photo_id}_s.jpg" /></a><button class="x" data="{$service.service_photo_id}">x</button></li>
+                     <li><a href="/scripts/uploads/{$service.service_photo_id}_b.jpg" rel="gallery_{$service.service_id}"><img src="/scripts/uploads/{$service.service_photo_id}_s.jpg" /></a><button class="x" data="{$service.service_photo_id}">x</button></li>
                   {/if}
                </ul>
             </div>
@@ -94,7 +106,7 @@
                <button class="upload" type="submit" data="{$service.service_id}">Загрузить главное фото</button>
                <ul>
                   {if !empty($service.service_avatar_id)}
-                     <li><a href="/scripts/uploads/{$service.service_avatar_id}_b.jpg"><img src="/scripts/uploads/{$service.service_avatar_id}_s.jpg" /></a><button class="x" data="{$service.service_avatar_id}">x</button></li>
+                     <li><a href="/scripts/uploads/{$service.service_avatar_id}_s.jpg"><img src="/scripts/uploads/{$service.service_avatar_id}_s.jpg" /></a><button class="x" data="{$service.service_avatar_id}">x</button></li>
                   {/if}
                </ul>
             </div>
