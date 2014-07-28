@@ -22,12 +22,13 @@
   <script>
   $(function(){
       $('.bxslider').bxSlider({
-        'controls': false,
-        'pagerCustom': '#topSliderCtrl',
-        'speed': 1000,
-        'easing': 'ease-in-out',
+        'auto'          : true,
+        'controls'      : false,
+        'pagerCustom'   : '#topSliderCtrl',
+        'speed'         : 1000,
+        'easing'        : 'ease-in-out',
         'adaptiveHeight': false,
-        'infiniteLoop': false
+        'infiniteLoop'  : false
       });
     });
   </script>

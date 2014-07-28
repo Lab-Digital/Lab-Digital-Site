@@ -21,12 +21,4 @@ $(function(){
             $('#sticky_header').css({height: '0px'});
         }
     });
-
-    $('header div.small_screen img.open_menu').click(function() {
-        $('header div.small_screen nav').slideToggle();
-    });
-
-    $('header div.small_screen nav li a').click(function() {
-        $('header div.small_screen nav').slideUp();
-    });
 });

@@ -6,11 +6,13 @@
    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
    <script src="/js/nicEdit.js"></script>
    <script> 
+         {literal}
          $(function(){
             $('textarea[name="body"]').each(function() {
                new nicEditor({buttonList : ['bold','italic','underline','subscript','superscript','left','center','justify','ul','link','unlink','removeformat','image']}).panelInstance($(this).attr('id'));
             });
          }); 
+         {/literal}
    </script>
    <script type="text/javascript" src="/js/select_plugin.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
