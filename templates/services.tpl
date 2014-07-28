@@ -6,6 +6,7 @@
   <link href="/css/header.css" rel="stylesheet" />
   <link href="/css/open.css" rel="stylesheet" />
   <link href="/css/footer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles_for_text.css" />
 {/block}
 {block name='div.main'}
   {include file="header.tpl"}

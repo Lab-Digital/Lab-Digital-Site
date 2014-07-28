@@ -1,0 +1,8 @@
+.nicEdit-main ul, div.text ul {
+	list-style: disc;
+	margin: 10px 0 10px 25px;
+}
+
+.nicEdit-main img, div.text img {
+	margin: 25px auto;
+}

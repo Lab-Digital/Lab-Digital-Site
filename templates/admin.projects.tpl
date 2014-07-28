@@ -2,12 +2,13 @@
 {block name='title' append} - Проекты{/block}
 {block name='links' append}
    <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+   <link rel="stylesheet" href="/css/styles_for_text.css" />
    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
    <script src="/js/nicEdit.js"></script>
    <script> 
          $(function(){
             $('textarea[name="body"]').each(function() {
-               new nicEditor().panelInstance($(this).attr('id'));
+               new nicEditor({buttonList : ['bold','italic','underline','subscript','superscript','left','center','justify','ul','link','unlink','removeformat','image']}).panelInstance($(this).attr('id'));
             });
          }); 
    </script>
@@ -54,23 +55,23 @@
             <input type="hidden" name="id" value="{$project.texts_id}" />
             <div class="form_block">
                <label for="head_{$smarty.foreach.f.index}">Заголовок</label>
-               <input id="head_{$smarty.foreach.f.index}" name="head" value="{$head|default:$project.texts_head}" />
+               <input name="head" id="head_{$smarty.foreach.f.index}" value="{$head|default:$project.texts_head}" />
             </div>
             <div class="form_block">
                <label for="title_{$smarty.foreach.f.index}">Meta title</label>
-               <input id="title_{$smarty.foreach.f.index}" name="title" value="{$meta_title|default:$project.texts_meta_title}" />
+               <input name="title" id="title_{$smarty.foreach.f.index}" value="{$meta_title|default:$project.texts_meta_title}" />
             </div>
             <div class="form_block">
                <label for="body_{$smarty.foreach.f.index}">Описание</label>
-               <textarea id="body_{$smarty.foreach.f.index}" name="body" cols="130" rows="15">{$body|default:$project.texts_body}</textarea>
+               <textarea name="body" id="body_{$smarty.foreach.f.index}" cols="130" rows="15">{$body|default:$project.texts_body}</textarea>
             </div>
             <div class="form_block">
                <label for="description_{$smarty.foreach.f.index}">Meta description</label>
-               <textarea id="description_{$smarty.foreach.f.index}" name="description" cols="90" rows="10">{$meta_description|default:$project.texts_meta_description}</textarea>
+               <textarea name="description" id="description_{$smarty.foreach.f.index}" cols="90" rows="10">{$meta_description|default:$project.texts_meta_description}</textarea>
             </div>
             <div class="form_block">
                <label for="keywords_{$smarty.foreach.f.index}">Meta keywords</label>
-               <textarea id="keywords_{$smarty.foreach.f.index}" name="keywords" cols="90" rows="10">{$meta_keywords|default:$project.texts_meta_keywords}</textarea>
+               <textarea name="keywords" id="keywords_{$smarty.foreach.f.index}" cols="90" rows="10">{$meta_keywords|default:$project.texts_meta_keywords}</textarea>
             </div>
             <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
          </form>

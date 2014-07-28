@@ -2,12 +2,13 @@
 {block name='title' append} - Услуги{/block}
 {block name='links' append}
    <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+   <link rel="stylesheet" href="/css/styles_for_text.css" />
    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
    <script src="/js/nicEdit.js"></script>
    <script> 
          $(function(){
             $('textarea[name="body"]').each(function() {
-               new nicEditor().panelInstance($(this).attr('id'));
+               new nicEditor({buttonList : ['bold','italic','underline','subscript','superscript','left','center','justify','ul','link','unlink','removeformat','image']}).panelInstance($(this).attr('id'));
             });
          }); 
    </script>
@@ -131,7 +132,7 @@
             </div>
             <div class="form_block">
                <label for="title_new">Meta title</label>
-               <input id="title_new" name="title" value="{$meta_title}" />
+               <input name="title" id="title_new" value="{$meta_title}" />
             </div>
             <div class="form_block">
                <label for="article_description_new">Описание</label>

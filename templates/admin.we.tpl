@@ -1,6 +1,15 @@
 {extends file='admin.tpl'}
 {block name='title' append} - Наша команда{/block}
 {block name='links' append}
+   <link rel="stylesheet" href="/css/styles_for_text.css" />
+   <script src="/js/nicEdit.js"></script>
+   <script> 
+      {literal}
+      $(function(){
+         new nicEditor({buttonList : ['bold','italic','underline','subscript','superscript','left','center','justify','ul','link','unlink','removeformat','image']}).panelInstance('description');
+      }); 
+      {/literal}
+   </script>
    <script src="/upload_photo/js/plugin.js"></script>
    <script>
    {literal}

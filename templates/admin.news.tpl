@@ -2,14 +2,17 @@
 {block name='title' append} - Новости{/block}
 {block name='links' append}
    <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+   <link rel="stylesheet" href="/css/styles_for_text.css" />
    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
    <script src="/js/nicEdit.js"></script>
    <script> 
-	   	$(function(){
+	   	{literal}
+      $(function(){
 	   		$('textarea[name="body"]').each(function() {
-	   			new nicEditor().panelInstance($(this).attr('id'));
+	   			new nicEditor({buttonList : ['bold','italic','underline','subscript','superscript','left','center','justify','ul','link','unlink','removeformat','image']}).panelInstance($(this).attr('id'));
 	   		});
 	   	}); 
+      {/literal}
    </script>
    <script src="/js/select_plugin.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
@@ -83,7 +86,7 @@
           </div>
           <div class="form_block">
             <label for="title_{$smarty.foreach.f.index}">Meta title</label>
-            <input id="title_{$smarty.foreach.f.index}" name="title" value="{$meta_title|default:$article.news_meta_title}" />
+            <input name="title" id="title_{$smarty.foreach.f.index}" value="{$meta_title|default:$article.news_meta_title}" />
           </div>
           <div class="form_block">
             <label for="description_{$smarty.foreach.f.index}">Описание новости</label>

@@ -20,11 +20,11 @@
         <input type="hidden" name="id" value="{$slider.slider_id}" />
         <div class="form_block">
           <label for="head_{$smarty.foreach.f.index}">Заголовок</label>
-          <input id="head_{$smarty.foreach.f.index}" name="head" value="{$head|default:$slider.slider_head}" />
+          <input name="head" id="head_{$smarty.foreach.f.index}" value="{$head|default:$slider.slider_head}" />
         </div>
         <div class="form_block">
           <label for="body_{$smarty.foreach.f.index}">Описание</label>
-          <textarea id="description_{$smarty.foreach.f.index}" name="body" cols="50" rows="5">{$body|default:$slider.slider_body}</textarea>
+          <textarea name="body" id="description_{$smarty.foreach.f.index}" cols="50" rows="5">{$body|default:$slider.slider_body}</textarea>
         </div>
         <div class="buttons"><button name="mode" value="Update">Сохранить</button></div>
       </form>
