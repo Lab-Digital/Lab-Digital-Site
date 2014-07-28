@@ -36,16 +36,17 @@ $(function(){
                appendArticles($news.find('#middle_news'), data.news.middle);
                appendArticles($news.find('#right_news'), data.news.right);
                var left_page = parseInt($('#to_left').attr('data-page'));
+               var pages_amount = parseInt($('#to_left').attr('data-pages-amount'));
                enableButton('left');
                enableButton('right');
-               if (left_page == parseInt($('#to_left').attr('data-pages-amount')) && left_page == 1) {
+               if (pages_amount == 0 || ((left_page == pages_amount) && left_page == 1)) {
                   hideButton('left');
                   hideButton('right');
                }
                if (left_page == 1) {
                   disableButton('left');
                }
-               if (parseInt($('#to_right').attr('data-page')) == parseInt($('#to_left').attr('data-pages-amount'))) {
+               if (parseInt($('#to_right').attr('data-page')) == pages_amount) {
                   disableButton('right');
                }
             }
