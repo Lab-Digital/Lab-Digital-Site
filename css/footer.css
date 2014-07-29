@@ -3,7 +3,7 @@
 }
 
 #contacts div.wrap {
-	width: 100vw;
+	width: 100%;
 	margin: 0 auto 80px;
 	text-align: center;
 }
@@ -39,6 +39,7 @@
     -moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 #contacts div.wrap .call:hover img {

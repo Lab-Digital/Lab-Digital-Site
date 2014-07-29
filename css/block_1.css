@@ -59,11 +59,20 @@
 	border-radius: 80px;
 	color: white;
 	text-decoration: none;
-	background: #e67e22;
+	background: #D35400;
 	position: absolute;
-	bottom: 5vh;
+	bottom: 6vh;
 	left: 50vw;
 	margin-left: -50px;
+	transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	display: none;
+}
+
+#slider_top a.bottom:hover {
+	background: #e67e22;
 }
 
 #topSliderCtrl {
@@ -239,6 +248,7 @@ button {
 	-moz-transition: background-color 0.5s 0.1s ease;
 	-o-transition: background-color 0.5s 0.1s ease;
 	-webkit-transition: background-color 0.5s 0.1s ease;
+	transition: all 0.5s 0.1s ease;
 }
 
 button.disabled, button[disabled], button.disabled:hover, button[disabled]:hover {
