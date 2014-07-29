@@ -6,7 +6,7 @@
    <script> 
       {literal}
       $(function(){
-         new nicEditor({buttonList : ['bold','italic','underline','subscript','superscript','left','center','justify','ul','link','unlink','removeformat','image']}).panelInstance('description');
+         new nicEditor({buttonList : ['underline','subscript','superscript','link','unlink']}).panelInstance('description');
       }); 
       {/literal}
    </script>
@@ -17,10 +17,10 @@
     $('div.in button.upload').getUpload({
          'uploadType'  : 'we', 
          'item_id'     : '1', 
-         'width'       : '300', 
-         'height'      : '200',
+         'width'       : '80', 
+         'height'      : '80',
          'count'       : '1',
-         'sizes'       : 's#300#200'
+         'sizes'       : 's#80#80'
     });
    });
    {/literal}

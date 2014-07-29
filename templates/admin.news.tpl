@@ -17,6 +17,7 @@
    <script src="/js/select_plugin.js"></script>
    <script src="/upload_photo/js/plugin.js"></script>
    <script src="/js/dropdown_blocks.js"></script>
+   <script src="/js/copy_url.js"></script>
    <script>
    {literal}
    $(function(){
@@ -28,7 +29,7 @@
          'width'       : '300',
          'height'      : '200',
          'count'       : '5',
-         'afterResize' : '1024',
+         'afterResize' : '700',
          'sizes'       : 's#300#200'
       });
     });
@@ -41,7 +42,7 @@
          'width'       : '300',
          'height'      : '200',
          'count'       : '1',
-         'afterResize' : '1024',
+         'afterResize' : '700',
          'sizes'       : 's#300#200'
       });
     });
@@ -110,7 +111,7 @@
           <h1 class="head_upload">Фото</h1>
           <button class="upload" type="submit" data="{$article.news_id}">Загрузить фото</button>
           <ul>
-            {foreach from=$article.news_photos item=photo}{if $photo != $article.news_photo_id}<li><a href="/scripts/uploads/{$photo}_b.jpg" rel="gallery_{$article.news_id}"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button></li>{/if}{/foreach}
+            {foreach from=$article.news_photos item=photo}{if $photo != $article.news_photo_id}<li><a href="/scripts/uploads/{$photo}_b.jpg" rel="gallery_{$article.news_id}"><img src="/scripts/uploads/{$photo}_s.jpg" /></a><button class="x" data="{$photo}">x</button><button class="url" data="{$photo}">URL</button></li>{/if}{/foreach}
           </ul>
         </div>
         <div class="in avatar_in">

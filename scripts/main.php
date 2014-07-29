@@ -9,4 +9,5 @@ $smarty->assign('sliders',  $_slider->GetAll())
        ->assign('services', $_service->SetSamplingScheme(Service::MAIN_SCHEME)->GetAll())
        ->assign('projects', $_texts->SetSamplingScheme(Texts::MAIN_PROJECTS_SCHEME)->GetAll())
        ->assign('about',    $_texts->SetSamplingScheme(Texts::ABOUT_SCHEME)->GetById(Texts::ABOUT_TEXT_ID))
+       ->assign('isMain',   true)
        ->display('index.tpl');

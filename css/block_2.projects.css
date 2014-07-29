@@ -28,7 +28,11 @@
 	height: 200px;
 	border-radius: 200px;
 	margin: 0 auto 15px;
-	border: 4px #868F90 solid;
+	border: 1px #868F90 solid;
+}
+
+#projects .middle ul.projects li:hover h3 {
+	color: #e67e22;
 }
 
 #projects .middle ul.projects li h3 {

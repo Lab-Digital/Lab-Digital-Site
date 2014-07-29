@@ -28,7 +28,7 @@
         'speed'         : 1000,
         'easing'        : 'ease-in-out',
         'adaptiveHeight': false,
-        'infiniteLoop'  : false
+        'infiniteLoop'  : true
       });
     });
   </script>

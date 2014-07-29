@@ -7,7 +7,7 @@
 	color: white;
 }
 
-#slider_top ul.bxslider li:nth-child(1) {
+#slider_top ul.bxslider li.slider_0 {
 	background: url("/images/slider1.jpg") no-repeat;
 	-khtml-background-size: cover;
 	-moz-background-size: cover;
@@ -17,7 +17,7 @@
 	background-size: cover;
 }
 
-#slider_top ul.bxslider li:nth-child(2) {
+#slider_top ul.bxslider li.slider_1 {
 	background: url("/images/slider2.jpg") no-repeat;
 	-khtml-background-size: cover;
 	-moz-background-size: cover;
@@ -27,7 +27,7 @@
 	background-size: cover;
 }
 
-#slider_top ul.bxslider li:nth-child(3) {
+#slider_top ul.bxslider li.slider_2 {
 	background: url("/images/slider3.jpg") no-repeat;
 	-khtml-background-size: cover;
 	-moz-background-size: cover;
@@ -48,8 +48,22 @@
 	vertical-align: top;
 	z-index: 2; 
 	right: 10vw;
-	top: 25vh;
+	top: 19vh;
 	text-align: center;
+}
+
+#slider_top a.bottom {
+	width: 50px;
+	height: 50px;
+	display: block;
+	border-radius: 80px;
+	color: white;
+	text-decoration: none;
+	background: #e67e22;
+	position: absolute;
+	bottom: 5vh;
+	left: 50vw;
+	margin-left: -50px;
 }
 
 #topSliderCtrl {
@@ -88,7 +102,7 @@
 
 #topSliderCtrl a:hover,
 #topSliderCtrl a.active {
-  	background: #000;
+  	background: #e67e22;
 }
 
 #slider_top .right .wrap {
@@ -235,4 +249,65 @@ button.disabled, button[disabled], button.disabled:hover, button[disabled]:hover
 button:hover {
 	color: #FFF;
 	background-color: #e67e22;
+}
+
+
+@media screen and (max-width: 1300px) {
+    #slider_top ul.bxslider .wrap {
+		width: 90vw;
+	}
+
+	#slider_top .right {
+		right: 5vw;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+    #slider_top ul.bxslider li h1 {
+  		max-width: 520px;
+  	}
+
+  	#slider_top ul.bxslider li h2 {
+  		max-width: 450px;
+  	}
+}
+
+@media screen and (max-width: 900px) {
+    #slider_top .right {
+        display: none;
+    }
+
+    #slider_top ul.bxslider li h1 {
+  		max-width: 800px;
+  	}
+
+  	#slider_top ul.bxslider li h2 {
+  		max-width: 600px;
+  	}
+}
+
+@media screen and (max-height: 600px) {
+	#slider_top ul.bxslider .wrap {
+		padding-top: 15vh;
+	}
+
+	#slider_top .right {
+        top: 5vh;
+    }
+}
+
+@media screen and (max-height: 500px) and (max-width: 1100px) {
+    #slider_top ul.bxslider li h1 {
+  		max-width: 800px;
+  	}
+
+  	#slider_top ul.bxslider li h2 {
+  		max-width: 600px;
+  	}
+}
+
+@media screen and (max-height: 500px) {
+	#slider_top .right {
+        display: none;
+    }
 }

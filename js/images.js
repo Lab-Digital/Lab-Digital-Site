@@ -18,7 +18,7 @@ $(function(){
 
   checkDisable();
 
-  $('div.in ul li button').click(function() {
+  $('div.in ul li button.x').click(function() {
     $button = $(this);
     $.post(
       "/handler/image",

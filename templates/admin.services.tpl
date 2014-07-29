@@ -39,7 +39,7 @@
             'width'       : '300',
             'height'      : '200',
             'count'       : '1',
-            'afterResize' : '1024',
+            'afterResize' : '700',
             'sizes'       : 's#300#200'
          });
       });

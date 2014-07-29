@@ -18,10 +18,10 @@ $(function(){
                   $(this).val('');
                });
                $.fancybox(
-                  '<span style="color: green; font-weight: bold;">Заявка отправлена! Спасибо!</span>',
+                  '<span style="color: green; font-weight: bold; display: block; margin: 30px;">Заявка отправлена! Спасибо!</span>',
                   {
                      'autoDimensions'  : false,
-                     'width'           : 350,
+                     'width'           : 360,
                      'height'          : 'auto',
                      'transitionIn'    : 'none',
                      'transitionOut'   : 'none'
@@ -29,10 +29,10 @@ $(function(){
                );
             } else {
               $.fancybox(
-                  '<span style="color: red; font-weight: bold;">' + data.message + '</span>',
+                  '<span style="color: red; font-weight: bold; display: block; margin: 30px;">' + data.message + '</span>',
                   {
                      'autoDimensions'  : false,
-                     'width'           : 350,
+                     'width'           : 360,
                      'height'          : 'auto',
                      'transitionIn'    : 'none',
                      'transitionOut'   : 'none'

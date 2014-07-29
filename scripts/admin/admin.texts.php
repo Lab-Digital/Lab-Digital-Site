@@ -6,7 +6,7 @@ SetLastViewedID($obj::LAST_VIEWED_ID);
 $head = $body = $desc = $title = $keywords = $description = null;
 
 if (isset($_POST['mode'])) {
-   $post = GetPOST();
+   $post = GetPOST(false);
    $id          = isset($post['id'])          ? $post['id']          : null;
    $head        = isset($post['head'])        ? $post['head']        : null;
    $body        = isset($post['body'])        ? $post['body']        : null;

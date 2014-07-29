@@ -26,7 +26,7 @@
     </ul>
    <ul class="bxslider">
       {foreach from=$sliders item=slider name=f}
-      <li>
+      <li class="slider_{$smarty.foreach.f.index}">
          <div class="wrap">
             <img src="/images/top_logo.png" class="logo" alt="#" />
             <h1>{$slider.slider_head}</h1>
@@ -35,4 +35,5 @@
       </li>
       {/foreach}
    </ul>
+   <a class="bottom" href="#projects"></a>
 </div>
