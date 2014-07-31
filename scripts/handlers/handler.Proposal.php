@@ -12,8 +12,8 @@ class ProposalHandler extends Handler
 
    public function Insert($params, $getLastInsertId = true)
    {
-      $this->entity->ValidatePhone(!empty($params['phone']) ? $params['phone'] : null)
-                   ->ValidateEmail(!empty($params['email']) ? $params['email'] : null);
+      $this->entity->ValidateEmail(!empty($params['email']) ? $params['email'] : null)
+                   ->ValidatePhone(!empty($params['phone']) ? $params['phone'] : null);
       try {
          $this->entity->SetFields($params);
          return $getLastInsertId ? $this->entity->Insert(true) : $this->entity->Insert(false);
