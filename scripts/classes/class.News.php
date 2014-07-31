@@ -1,8 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Entity.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.EntityURL.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.TableImages.php';
 
-class News extends Entity
+class News extends EntityURL
 {
    const INFO_SCHEME  = 2;
    const MAIN_SCHEME  = 3;
@@ -29,6 +29,7 @@ class News extends Entity
       parent::__construct();
       $this->fields = Array(
          $this->idField,
+         $this->urlField,
          new Field(
             static::TEXT_HEAD_FLD,
             StrType(150),
@@ -146,11 +147,12 @@ class News extends Entity
                static::TABLE,
                [
                   $this->idField,
+                  $this->urlField,
                   $this->GetFieldByName(static::TEXT_HEAD_FLD),
-                  $this->GetFieldByName(static::DESCRIPTION_FLD)
+                  $this->GetFieldByName(static::DESCRIPTION_FLD),
+                  $this->GetFieldByName(static::PUBLICATION_DATE_FLD)
                ]
             );
-            $fields = SQL::PrepareFieldsForSelect(static::TABLE, $this->fields);
             break;
 
       }
@@ -222,6 +224,11 @@ class News extends Entity
          )
       );
       return $this;
+   }
+
+   protected function GetURLBase()
+   {
+      return $this->GetFieldByName(static::TEXT_HEAD_FLD)->GetValue();
    }
 }
 

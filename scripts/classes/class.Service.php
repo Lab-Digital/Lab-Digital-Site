@@ -1,8 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Entity.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.EntityURL.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Image.php';
 
-class Service extends Entity
+class Service extends EntityURL
 {
    const HEAD_FLD             = 'head';
    const BODY_FLD             = 'body';
@@ -24,6 +24,7 @@ class Service extends Entity
       parent::__construct();
       $this->fields = Array(
          $this->idField,
+         $this->urlField,
          new Field(
             static::HEAD_FLD,
             StrType(150),
@@ -79,7 +80,12 @@ class Service extends Entity
       $fields = $this->fields;
       switch ($this->samplingScheme) {
          case static::MAIN_SCHEME:
-            $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD), $this->GetFieldByName(static::DESCRIPTION_FLD)];
+            $fields = [
+               $this->idField,
+               $this->urlField,
+               $this->GetFieldByName(static::HEAD_FLD),
+               $this->GetFieldByName(static::DESCRIPTION_FLD)
+            ];
             $this->AddOrder(Service::HEAD_FLD);
             break;
       }
@@ -90,6 +96,11 @@ class Service extends Entity
             $this->samplingScheme != static::MAIN_SCHEME ? [ImageWithFlagSelectSQL(static::TABLE, $this->GetFieldByName(static::PHOTO_FLD))] : []
          )
       );
+   }
+
+   protected function GetURLBase()
+   {
+      return $this->GetFieldByName(static::HEAD_FLD)->GetValue();
    }
 
 }

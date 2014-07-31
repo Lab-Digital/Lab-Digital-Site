@@ -7,7 +7,7 @@ $(function(){
    function appendArticles($ul, articles) {
       for (var i = 0; i < articles.length; i++) {
          $ul.append(
-            "<li><article><a href='/news/" + articles[i].news_id + "'>" +
+            "<li><article><a href='/news/" + articles[i].news_url + "'>" +
             (articles[i].news_photo_id ? "<img src='/scripts/uploads/" + articles[i].news_photo_id + "_s.jpg' />" : "") +
             "<h1>" + articles[i].news_head + "</h1>" +
             "<time>" + articles[i].news_publication_date + "</time>" +

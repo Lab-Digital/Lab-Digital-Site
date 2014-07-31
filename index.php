@@ -9,7 +9,7 @@ switch ($request[0]) {
    case 'news':
       if (empty($request[1])) Redirect('/#news');
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.News.php';
-      $data = $_news->SetSamplingScheme(News::INFO_SCHEME)->GetById($request[1]);
+      $data = $_news->SetSamplingScheme(News::INFO_SCHEME)->GetByURL($request[1]);
       if (empty($data)) Redirect('/#news');
       $smarty->assign('article', $data)->display('news.tpl');
       break;
@@ -17,7 +17,7 @@ switch ($request[0]) {
    case 'services':
       if (empty($request[1])) Redirect('/#services');
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Service.php';
-      $data = $_service->GetById($request[1]);
+      $data = $_service->GetByURL($request[1]);
       if (empty($data)) Redirect('/#services');
       $smarty->assign('service', $data)->display('services.tpl');
       break;
@@ -25,7 +25,7 @@ switch ($request[0]) {
    case 'projects':
       if (empty($request[1])) Redirect('/#projects');
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Texts.php';
-      $data = $_texts->GetProjectById($request[1]);
+      $data = $_texts->GetProjectByURL($request[1]);
       if (empty($data)) Redirect('/#projects');
       $smarty->assign('project', $data)->display('projects.tpl');
       break;

@@ -7,7 +7,7 @@
             {foreach from=$services item=service}
                <li>
                   {if !empty($service.service_avatar_id)}
-                     <a href="/services/{$service.service_id}">
+                     <a href="/services/{$service.service_url}">
                         <img src="/scripts/uploads/{$service.service_avatar_id}_s.jpg" />
                         <h3>{$service.service_head}</h3>
                         <p class="text">{$service.service_description}</p>

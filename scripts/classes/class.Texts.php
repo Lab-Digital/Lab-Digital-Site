@@ -1,8 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Entity.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.EntityURL.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Image.php';
 
-class Texts extends Entity
+class Texts extends EntityURL
 {
    const ABOUT_TEXT_ID = 1;
 
@@ -28,6 +28,7 @@ class Texts extends Entity
       parent::__construct();
       $this->fields = Array(
          $this->idField,
+         $this->urlField,
          new Field(
             static::NAME_FLD,
             StrType(100),
@@ -76,7 +77,7 @@ class Texts extends Entity
          CCond(
             CF(static::TABLE, $this->GetFieldByName(static::ID_FLD)),
             CVP(static::ABOUT_TEXT_ID),
-            '',
+            cAND,
             opGT
          )
       );
@@ -92,7 +93,7 @@ class Texts extends Entity
             break;
 
          case static::MAIN_PROJECTS_SCHEME:
-            $fields = [$this->idField, $this->GetFieldByName(static::HEAD_FLD)];
+            $fields = [$this->idField, $this->urlField, $this->GetFieldByName(static::HEAD_FLD)];
             break;
       }
       $fields = array_merge($fields, [
@@ -112,9 +113,14 @@ class Texts extends Entity
       );
    }
 
-   public function GetProjectById($id)
+   public function GetProjectByURL($url)
    {
-      return $this->_SetProjectSearch()->GetById($id);
+      return $this->_SetProjectSearch()->GetByURL($url);
+   }
+
+   protected function GetURLBase()
+   {
+      return $this->GetFieldByName(static::HEAD_FLD)->GetValue();
    }
 
 }
