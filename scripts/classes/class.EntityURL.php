@@ -20,21 +20,29 @@ class EntityURL extends Entity
       );
    }
 
-   private function _CreateUrlSearch($url)
+   private function _CreateUrlSearch($url, $isUpdate)
    {
       $this->CreateSearch()->search->AddClause(CCond(
          CF(static::TABLE, $this->GetFieldByName(static::URL_FLD)),
          CVP($url),
          cAND
       ));
+      if ($isUpdate) {
+         $this->search->AddClause(CCond(
+                  CF(static::TABLE, $this->idField),
+                  CVP($this->idField->GetValue()),
+                  cAND,
+                  opNE
+         ));
+      }
       return $this;
    }
 
-   protected function CheckURL()
+   protected function CheckURL($isUpdate)
    {
       $url = $this->GetFieldByName(static::URL_FLD)->GetValue();
       if (empty($url)) return;
-      $part = $this->_CreateUrlSearch($url)->GetPart();
+      $part = $this->_CreateUrlSearch($url, $isUpdate)->GetPart();
       $this->CreateSearch();
       if (!empty($part)) {
          throw new Exception('Из данного заголовока невозможно сгенерировать уникальный урл. Измените заголовок.');
@@ -46,11 +54,11 @@ class EntityURL extends Entity
       return '';
    }
 
-   private function _GenerateURL()
+   private function _GenerateURL($isUpdate = false)
    {
       $base = $this->GetURLBase();
       if (!empty($base)) {
-         $this->SetFieldByName(static::URL_FLD, str2url($base))->CheckURL();
+         $this->SetFieldByName(static::URL_FLD, str2url($base))->CheckURL($isUpdate);
       }
       return $this;
    }
@@ -63,7 +71,7 @@ class EntityURL extends Entity
 
    public function Update()
    {
-      $this->_GenerateURL();
+      $this->_GenerateURL(true);
       parent::Update();
    }
 
