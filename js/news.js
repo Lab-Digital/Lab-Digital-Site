@@ -10,7 +10,6 @@ $(function(){
             "<li><article><a href='/news/" + articles[i].news_url + "'>" +
             (articles[i].news_photo_id ? "<img src='/scripts/uploads/" + articles[i].news_photo_id + "_s.jpg' />" : "") +
             "<h1>" + articles[i].news_head + "</h1>" +
-            "<time>" + articles[i].news_publication_date + "</time>" +
             "<p>" + articles[i].news_description + "</p>" +
             "</a></article></li>"
          );

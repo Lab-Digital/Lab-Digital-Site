@@ -21,6 +21,13 @@
   <script src="/js/send_to_mail.js"></script>
   <script>
   $(function(){
+      $height = $(window).height();
+      $('#slider_top ul.bxslider li').css('height', $height + 'px');
+
+      $(window).resize(function() {
+        $height = $(window).height();
+        $('#slider_top ul.bxslider li').css('height', $height + 'px');
+      });
       $('.bxslider').bxSlider({
         'auto'          : true,
         'controls'      : false,
@@ -28,7 +35,8 @@
         'speed'         : 1000,
         'easing'        : 'ease-in-out',
         'adaptiveHeight': false,
-        'infiniteLoop'  : true
+        'infiniteLoop'  : true,
+        'touchEnabled'  : false
       });
     });
   </script>

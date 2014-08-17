@@ -1,6 +1,4 @@
 #news {
-	min-height: 100vh;
-	margin-bottom: 10vh;
 	vertical-align: top;
 }
 
@@ -11,7 +9,8 @@
 #news > .wrap {
 	margin: 0 auto;
 	width: 90vw;
-	padding-top: 13vh;
+	padding-top: 150px;
+	padding-bottom: 150px;
 }
 
 #news .middle ul.news {

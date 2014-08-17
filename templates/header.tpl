@@ -6,5 +6,3 @@
     	</ul>
   	</nav>
 </header>
-<div id="sticky_header">
-</div>

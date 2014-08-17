@@ -15,7 +15,6 @@
   		<img src="/scripts/uploads/{$article.news_photo_id}_b.jpg" alt="{$article.news_head}" class="open_image" />
   	{/if}
   	<h1>{$article.news_head}</h1>
-    <time>{$article.news_publication_date}</time>
   	<div class="text">{$article.news_body}</div>
   </div>
 {/block}

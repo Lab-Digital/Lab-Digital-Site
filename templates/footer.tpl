@@ -1,16 +1,8 @@
 <footer id="contacts">
-   {if $isMain|default:false}<iframe width="100%" height="529" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.ru/maps/ms?msa=0&amp;msid=217356661287418436724.0004ff05055e831aa3f14&amp;hl=ru&amp;ie=UTF8&amp;ll=43.129,131.909344&amp;spn=0.003425,0.00339&amp;t=m&amp;output=embed"></iframe>{/if}
+   {if $isMain|default:false}<div class="img"></div>{/if}
    <div class="wrap">
-      <section class="contacts call">
-      	<img src="/images/call.png" />
-      	<h1>Звоните</h1>
-      	<h2>8 (423) 243-07-30</h2>
-      </section>
-      <section class="contacts mail">
-      	<img src="/images/mail.png" />
-      	<h1>Пишите</h1>
-      	<h2>2lab.digital@gmail.com</h2>
-      </section>
+      <a href="tel:+74232430730"><section class="contacts call"><img src="/images/call.png" /><h1>Звоните</h1><h2>8 (423) 243-07-30</h2></section></a>
+      <a href="mailto:2lab.digital@gmail.com"><section class="contacts mail"><img src="/images/mail.png" /><h1>Пишите</h1><h2>2lab.digital@gmail.com</h2></section></a>
    </div>
    <div class="bot">
    	<span>Владивосток</span>

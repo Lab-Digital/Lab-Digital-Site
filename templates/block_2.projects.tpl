@@ -1,5 +1,4 @@
 <div id="projects">
-   {include file="header.tpl"}
    <div class="wrap">
       <section class="middle">
          <h1>Проекты</h1>

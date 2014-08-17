@@ -1,12 +1,11 @@
 #services {
 	background: #EEEFEF;
-	min-height: 80vh;
 }
 
 #services > .wrap {
 	margin: 0 auto;
 	width: 80vw;
-	padding: 13vh 0 10vh;
+	padding: 150px 0 100px;
 }
 
 #services .middle ul.services {

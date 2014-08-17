@@ -1,9 +1,8 @@
 #slider_top {
-	min-height: 100vh;
+	min-height: 100%;
 }
 
 #slider_top ul.bxslider li {
-	height: 100vh;
 	color: white;
 }
 
@@ -40,7 +39,7 @@
 #slider_top ul.bxslider .wrap {
 	margin: 0 auto;
 	width: 80vw;
-	padding-top: 25vh;
+	padding-top: 15%;
 }
 
 #slider_top .right {
@@ -48,7 +47,7 @@
 	vertical-align: top;
 	z-index: 2; 
 	right: 10vw;
-	top: 19vh;
+	top: 19%;
 	text-align: center;
 }
 
@@ -61,14 +60,13 @@
 	text-decoration: none;
 	background: #D35400;
 	position: absolute;
-	bottom: 6vh;
+	top: 90%;
 	left: 50vw;
 	margin-left: -50px;
 	transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
-	display: none;
 }
 
 #slider_top a.bottom:hover {
@@ -85,7 +83,7 @@
 	position: absolute;
 	z-index: 2;
 	padding-left: 5vw;
-	top: 3vh;
+	top: 3%;
 	margin-left: -10px;
 }
 
@@ -298,11 +296,11 @@ button:hover {
 
 @media screen and (max-height: 600px) {
 	#slider_top ul.bxslider .wrap {
-		padding-top: 15vh;
+		padding-top: 15%;
 	}
 
 	#slider_top .right {
-        top: 5vh;
+        top: 5%;
     }
 }
 

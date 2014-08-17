@@ -8,8 +8,13 @@
 	text-align: center;
 }
 
-#contacts iframe {
-  	border-top: 1px #1B1F23 solid;
+#contacts div.img {
+  	height: 500px;
+	background-image: url("/images/map.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center; 
+	border-top: 1px black solid;
 }
 
 #contacts div.wrap .contacts {

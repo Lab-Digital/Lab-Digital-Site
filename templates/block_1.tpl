@@ -1,3 +1,4 @@
+{include file="header.tpl"}
 <div id="slider_top">
    <div class="right">
       <h1>Оставь заявку</h1>
