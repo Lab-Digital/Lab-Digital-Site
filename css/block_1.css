@@ -58,7 +58,7 @@
 	border-radius: 80px;
 	color: white;
 	text-decoration: none;
-	background: #D35400;
+	background: #D35400 url('/images/down.png') no-repeat;
 	position: absolute;
 	top: 90%;
 	left: 50vw;
@@ -70,7 +70,7 @@
 }
 
 #slider_top a.bottom:hover {
-	background: #e67e22;
+	background: #e67e22 url('/images/down.png') no-repeat;
 }
 
 #topSliderCtrl {

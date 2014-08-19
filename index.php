@@ -44,11 +44,6 @@ switch ($request[0]) {
       require_once $possible_handlers[$request[1]];
       break;
 
-   case '404':
-      header('HTTP/1.0 404 Not Found');
-      echo "FAIL ERROR";
-      break;
-
    case 'admin':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Admin.php';
       $isLoginPage = empty($request[1]) || $request[1] == 'login';
@@ -109,6 +104,6 @@ switch ($request[0]) {
 
    default:
       header('HTTP/1.0 404 Not Found');
-      echo "FAIL ERROR";
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/404.php';
       #error page
 }

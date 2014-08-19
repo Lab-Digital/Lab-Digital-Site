@@ -1,5 +1,6 @@
 header {
 	width: 100%;
+	min-width: 1100px;
 	z-index: 10;
 	background: white; /*#BDC3C7*/
 	border-bottom: 1px #BBBFBF solid;
@@ -43,16 +44,14 @@ header nav ul li a {
 	border-bottom: 1px #BDC3C7 solid;
 }
 
-
-@media screen and (max-width: 1150px) {
-    header nav ul li a {
+@media screen and (max-width: 1100px) {
+	header nav ul li a {
 		padding: 30px 30px;
-    }
+	}
 }
 
-
-@media screen and (max-width: 900px) {
-    header {
-        display: none;
-    }
+@media screen and (max-width: 850px) {
+	header {
+		display: none !important;
+	}
 }
